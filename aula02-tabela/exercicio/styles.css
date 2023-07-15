@@ -1,0 +1,119 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0
+}
+
+:root {
+  font-size: 62.5%;
+
+  --blue-200: #7ebff2;
+  --blue-400: #4a87ec;
+  --blue-600: #7073ec;
+
+  --table-border: #20a3f0
+}
+
+::selection{
+  color: white;
+  background-color: var(--blue-600);
+}
+
+html,
+body {
+  min-width: 100%;
+  height: 100vh;
+}
+
+button {
+  cursor: pointer;
+  border-radius: .4rem;
+}
+
+
+body {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 1.6rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+table {
+  border-collapse: collapse;
+}
+
+th {
+  padding: 1.2rem 4.8rem;
+}
+
+th,
+td {
+  border: 1px solid var(--table-border)
+}
+
+td {
+  text-align: center;
+}
+
+th.without-border {
+  border: none
+}
+
+td.title {
+  padding: 1.2rem 4.2rem 1.2rem .8rem;
+  font-weight: bold;
+  text-align: start;
+}
+
+td.price {
+  color: white;
+
+  font-size: 2.8rem;
+  font-weight: bold;
+}
+
+td.price-basic {
+  background: var(--blue-200);
+}
+
+td.price-default {
+  background: var(--blue-400);
+}
+
+td.price-advanced {
+  background: var(--blue-600);
+}
+
+td.internal {
+  padding-inline: 2.8rem;
+  font-size: 1.2rem;
+  font-weight: bold;
+
+}
+
+td.footer {
+  padding: .8rem 1.8rem;
+}
+
+tfoot button {
+  padding: .8rem 2.8rem;
+  width: 100%;
+  max-width: 18rem;
+
+  border: none;
+
+  color: white;
+}
+
+button.basic {
+  background: var(--blue-200);
+}
+
+button.default {
+  background: var(--blue-400);
+}
+
+button.advanced {
+  background: var(--blue-600);
+}
