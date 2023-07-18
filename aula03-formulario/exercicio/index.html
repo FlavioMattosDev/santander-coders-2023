@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&family=Open+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap"
+    rel="stylesheet">
+  <script src="https://unpkg.com/@phosphor-icons/web"></script>
+  <link rel="stylesheet" href="./styles.css">
+  <title>Exercício Formulário</title>
+</head>
+
+<body>
+  <main>
+    <form>
+      <fieldset>
+        <legend>Dados Pessoais</legend>
+
+        <label for="name" class="input-container">
+          <i class="ph ph-user"></i>
+          <input type="text" name="name" id="name" placeholder="Nome" required>
+        </label>
+
+        <label for="phone" class="input-container">
+          <i class="ph ph-user"></i>
+          <input type="number" name="phone" id="phone" placeholder="Telefone" required>
+        </label>
+
+        <label for="age" class="input-container">
+          <i class="ph ph-user"></i>
+          <input type="number" name="age" id="age" placeholder="Idade" required>
+        </label>
+
+        <label for="birth-date" class="input-container">
+          <i class="ph ph-user"></i>
+          <input type="date" name="birth-date" id="birth-date" placeholder="Nome" required>
+        </label>
+
+        <label for="email" class="input-container">
+          <i class="ph ph-user"></i>
+          <input type="email" name="email" id="email" placeholder="Email" required>
+        </label>
+
+        <label for="senha" class="input-container">
+          <i class="ph ph-user"></i>
+          <input type="password" name="senha" id="senha" placeholder="Senha" required>
+        </label>
+
+        <label for="accept-terms" class="accept-terms">
+          <input type="checkbox" name="accept-terms" id="accept-terms" required>
+          Aceitar os termos
+        </label>
+
+        <button type="submit">
+          Enviar
+        </button>
+
+      </fieldset>
+    </form>
+  </main>
+
+  <script src="./main.js"></script>
+</body>
+
+</html>
