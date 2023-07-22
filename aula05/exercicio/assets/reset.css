@@ -1,0 +1,49 @@
+:root{
+  --primary: #4caf50;
+
+  --gray-300: #EEEEEE;
+  --gray-400: #F1F1F1;
+  --gray-500: #343434;
+  
+  --light-100: #f3fff4;
+
+  --main-bg: #f8f8f8;
+  --sections-bg: #FFFFFF;
+
+  --main-border: #DDDDDD
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+:root {
+  font-size: 62.5%;
+}
+
+body {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 1.6rem;
+
+  background: var(--main-bg);
+
+  scroll-behavior: smooth;
+}
+
+button {
+  cursor: pointer;
+}
+
+a {
+  text-decoration: none;
+}
+
+ul {
+  list-style: none;
+}
+
+textarea {
+  resize: none;
+}

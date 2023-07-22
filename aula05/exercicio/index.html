@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Exercício aula 5</title>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&family=Open+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap"
+    rel="stylesheet">
+
+  <link rel="stylesheet" href="./assets/reset.css">
+  <link rel="stylesheet" href="./assets/styles.css">
+</head>
+
+<body>
+  <header>
+    <div class="wrapper">
+      <div class="container header-container">
+        <h1 class="title">Cardápio/Catálogo Digital</h1>
+        <p class="subtitle">Confira nossos produtos deliciosos!</p>
+      </div>
+    </div>
+    <nav class="wrapper menu-nav">
+      <ul class="container">
+        <li>
+          <a href="#catalog">Catálogo</a>
+        </li>
+        <li>
+          <a href="#pricing-table">Tabela de Preços</a>
+        </li>
+        <li>
+          <a href="#register">Cadastro</a>
+        </li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section id="#catalog" class="wrapper">
+      <div class="container products">
+        <h2 class="sticky">
+          Cardápio/Catálogo
+        </h2>
+
+        <div class="product">
+          <figure>
+            <img src="./assets/pizza.avif" alt="">
+          </figure>
+
+          <div class="product-description">
+            <span>Produto 1</span>
+            <p>Descrição do produto</p>
+          </div>
+        </div>
+
+        <div class="product">
+          <figure>
+            <img src="./assets/pizza.avif" alt="">
+          </figure>
+
+          <div class="product-description">
+            <span>Produto 2</span>
+            <p>Descrição do produto</p>
+          </div>
+        </div>
+
+        <div class="product">
+          <figure>
+            <img src="./assets/pizza.avif" alt="">
+          </figure>
+
+          <div class="product-description">
+            <span>Produto 3</span>
+            <p>Descrição do produto</p>
+          </div>
+        </div>
+
+        <div class="product">
+          <figure>
+            <img src="./assets/pizza.avif" alt="">
+          </figure>
+
+          <div class="product-description">
+            <span>Produto 4</span>
+            <p>Descrição do produto</p>
+          </div>
+        </div>
+
+        <div class="product">
+          <figure>
+            <img src="./assets/pizza.avif" alt="">
+          </figure>
+
+          <div class="product-description">
+            <span>Produto 5</span>
+            <p>Descrição do produto</p>
+          </div>
+        </div>
+
+        <div class="product">
+          <figure>
+            <img src="./assets/pizza.avif" alt="">
+          </figure>
+
+          <div class="product-description">
+            <span>Produto 6</span>
+            <p>Descrição do produto</p>
+          </div>
+        </div>
+
+        <div class="product">
+          <figure>
+            <img src="./assets/pizza.avif" alt="">
+          </figure>
+
+          <div class="product-description">
+            <span>Produto 7</span>
+            <p>Descrição do produto</p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <section id="pricing-table" class="wrapper">
+      <div class="container pricing-table">
+        <h2 class="sticky">
+          Tabela de Preços
+        </h2>
+
+        <table>
+          <thead>
+            <tr>
+              <th>Produto</th>
+              <th>Preço</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <tr>
+              <td>Produto 1</td>
+              <td>R$ 10,00</td>
+            </tr>
+            <tr>
+              <td>Produto 2</td>
+              <td>R$ 15,00</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section id="register" class="wrapper">
+      <div class="container pricing-table">
+        <h2 class="sticky">
+          Formulário de Cadastro
+        </h2>
+
+        <form action="#">
+          <label for="name">Nome:</label>
+          <input type="text" id="name" name="name" placeholder="Digite seu nome" required>
+          <label for="email">Email:</label>
+          <input type="text" id="email" name="email" placeholder="Digite seu e=mail" required>
+          <label for="phone">Telefone:</label>
+          <input type="number" id="phone" name="phone" placeholder="Digite seu telefone/celular" required>
+          <label for="message">Mensagem:</label>
+          <textarea cols="30" rows="10" id="message" name="message"></textarea>
+
+          <button type="submit">Enviar</button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="wrapper">
+    <div class="container">
+      <p>
+        © 2023 Cardápio/Catálogo Digital. Todos os direitos reservados.
+      </p>
+    </div>
+  </footer>
+
+  <script src="./assets/main.js"></script>
+</body>
+
+</html>
