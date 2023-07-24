@@ -103,6 +103,10 @@ div.product {
   border-bottom: 1px solid var(--main-border);
 }
 
+div.product:last-child {
+  border-bottom: none;
+}
+
 div.product figure {
   width: 9.6rem;
   height: 9.6rem;
