@@ -1,0 +1,46 @@
+.heading{
+  background: var(--heading);
+  color: white;
+
+  padding-block: 3.2rem;
+  padding-left: .8rem;
+}
+
+.nav{
+  color: white;
+
+  padding-block: 1.2rem;
+  padding-left: .8rem;
+
+  background: var(--nav);
+}
+
+.first-content{
+  background: var(--content);
+  padding: 1.2rem;
+}
+
+.second-content{
+  background: var(--content);
+  padding: 1.2rem;
+}
+
+.footer{
+  background: var(--footer);
+  color: white;
+  
+  padding-block: 1.2rem;
+  padding-left: .8rem;
+}
+
+main {
+  background: white;
+  color: white;
+
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: calc(100vh - 205px);
+  gap: 1.2rem;
+  
+  border: 6px solid white;
+}

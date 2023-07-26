@@ -1,0 +1,24 @@
+:root{
+  --heading: #3598db;
+  --nav: #2fcc71;
+  --content: #f39b13;
+  --footer: #31465b;
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+:root {
+  font-size: 62.5%;
+}
+
+body {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 1.6rem;
+
+  scroll-behavior: smooth;
+  min-height: 100vh;
+}
