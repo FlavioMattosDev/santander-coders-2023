@@ -1,3 +1,6 @@
 {
-  "liveServer.settings.multiRootWorkspaceName": "lms"
+  "liveServer.settings.multiRootWorkspaceName": "lms",
+  "cSpell.words": [
+    "swiper"
+  ]
 }

@@ -15,16 +15,6 @@ class CardNews extends HTMLElement {
     const description = this.getAttribute('description')
     const imageSrc = this.getAttribute('imageSrc')
 
-    // const author = document.createElement('span');
-    // author.textContent = `By ${this.getAttribute('author') || 'Anonymous'} `;
-
-    // const linkTitle = document.createElement('a');
-    // linkTitle.textContent = this.getAttribute('title');
-    // linkTitle.href = this.getAttribute('link-url');
-
-    // const newsContent = document.createElement('p');
-    // newsContent.textContent = this.getAttribute('content');
-
     const leftSide = document.createElement('div')
     leftSide.setAttribute("class", "card_box_left")
 
@@ -106,7 +96,12 @@ class CardNews extends HTMLElement {
 
       div.card_box_left img {
         width: 100%;
-        height: auto
+        height: auto;
+        transition: all ease .3s
+      }
+
+      div.card_box_left img:hover{
+        transform: scale(1.1)
       }
 
       div.card_box_right {
