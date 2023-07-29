@@ -104,6 +104,14 @@ h2 {
   background-color: #e69c00 !important
 }
 
+.footer-contact-links-hovered:hover * {
+  color: #e69c00 !important;
+}
+
+.footer-social-links-hovered:hover * {
+  color: #e69c00 !important;
+}
+
 
 .testGrid {
   display: grid;
