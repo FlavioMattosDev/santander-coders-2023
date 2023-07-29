@@ -1,0 +1,82 @@
+body {
+  font-family: "Open Sans", sans-serif;
+}
+
+h1,
+h2 {
+  font-family: 'Dancing Script', cursive, sans-serif;
+}
+
+.bg {
+  position: absolute;
+  background-image: url("https://html.design/demo/feane/images/hero-bg.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  inset: 0;
+  height: 100vh;
+  background-position: center;
+}
+
+.about {
+  background-color: #222831;
+  padding: 90px 0;
+}
+
+.about_image_container {
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+
+.about_image_container img {
+  position: relative;
+  width: 100%;
+  max-width: 445px;
+}
+
+.about_title_container {
+  display: flex;
+  align-items: flex-start;
+}
+
+.secondary-font {
+  font-family: 'Dancing Script', cursive
+}
+
+.rounded-lg {
+  border-radius: 32px;
+}
+
+.nav-styled {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.w-full-styled {
+  width: 100%
+}
+
+.button-wrap {
+  white-space: nowrap;
+}
+
+.view-height-full {
+  height: 100vh;
+}
+
+.fit-content {
+  width: fit-content;
+}
+
+.active-link-menu {
+  color: #e69c00 !important;
+}
+
+.link-menu-hovered:hover {
+  color: #e69c00 !important
+}
+
+.header-button-hovered:hover {
+  background-color: #e69c00 !important
+}
