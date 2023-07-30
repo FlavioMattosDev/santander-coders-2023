@@ -198,7 +198,7 @@ h2 {
 }
 
 .our-menu-item__container {
-  display: grid;  
+  display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 28px;
   padding-bottom: 90px;
@@ -222,7 +222,7 @@ h2 {
   padding: 0 !important;
 }
 
-.our-menu-item:not(.active){
+.our-menu-item:not(.active) {
   display: none;
 }
 
@@ -247,12 +247,12 @@ h2 {
   border-bottom-left-radius: 46px;
 }
 
-.our-menu-item > div img {
+.our-menu-item>div img {
   max-height: 145px !important;
   transition: all ease .3s;
 }
 
-.our-menu-item > div img.scaled {
+.our-menu-item>div img.scaled {
   transform: scale(1.1);
 }
 
@@ -270,10 +270,10 @@ h2 {
   margin-bottom: 16px;
 }
 
-.our-menu-item__bottom > div a{
+.our-menu-item__bottom>div a {
   width: 40px;
   height: 40px;
-  
+
   background-color: rgb(255, 190, 51);
   color: white;
 
@@ -286,7 +286,7 @@ h2 {
   text-decoration: none;
 }
 
-.our-menu-item__bottom > div a i {
+.our-menu-item__bottom>div a i {
   width: 16px;
   height: 16px;
 }
@@ -302,6 +302,23 @@ h2 {
 .gap-4 {
   gap: 16px;
 }
+
 .pb-90 {
   padding-bottom: 90px;
+}
+
+.form-button {
+  padding: 10px 54px;
+  background-color: #ffbe33;
+  color: #FFFFFF;
+  border: none;
+  border-radius: 45px;
+  transition: all ease .3s;
+  white-space: nowrap;
+  cursor: pointer;
+  text-transform: uppercase;
+}
+
+.form-button:hover {
+  background-color: #e69c00
 }

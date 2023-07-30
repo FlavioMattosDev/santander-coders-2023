@@ -95,10 +95,19 @@ const selectAllFries = () => {
   handleSelectActiveController('fries')
 }
 
-console.log(ourMenuItemsBurgers)
-
 ourMenuItemsControllerAll.addEventListener('click', selectAllMenuItems)
 ourMenuItemsControllerBurger.addEventListener('click', selectAllBurgers)
 ourMenuItemsControllerPizza.addEventListener('click', selectAllPizzas)
 ourMenuItemsControllerPasta.addEventListener('click', selectAllPastas)
 ourMenuItemsControllerFries.addEventListener('click', selectAllFries)
+
+const orderForm = document.querySelector('form')
+
+orderForm.addEventListener('submit', (e) => {
+  e.preventDefault()
+
+  const formData = new FormData(orderForm)
+  const formValues = Object.fromEntries(formData.entries())
+
+  console.log(formValues)
+})

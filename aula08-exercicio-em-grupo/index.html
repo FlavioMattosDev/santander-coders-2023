@@ -371,19 +371,19 @@
   <section id="form" class="container py-5">
     <p class="text-capitalize fs-2 secondary-font">book a table</p>
 
-    <div class="d-flex align-items-center gap-4">
-      <div class="p-2 w-100" id="inputs">
+    <div class="d-flex align-items-center gap-4 flex-column flex-md-row">
+      <form class="p-2 w-100" id="inputs">
         <div>
-          <input type="text" class="form-control-lg mb-3 w-100" id="name" placeholder="Your Name">
+          <input type="text" class="form-control-lg mb-3 w-100" id="name" name="name" required placeholder="Your Name">
         </div>
         <div>
-          <input type="text" class="form-control-lg mb-3 w-100" id="phone" placeholder="Phone Number">
+          <input type="text" class="form-control-lg mb-3 w-100" id="phone" name="phone" required placeholder="Phone Number">
         </div>
         <div>
-          <input type="email" class="form-control-lg mb-3 w-100" id="email" placeholder="Your Email">
+          <input type="email" class="form-control-lg mb-3 w-100" id="email" name="email" required placeholder="Email">
         </div>
         <div>
-          <select class="form-select mb-3 w-100">
+          <select class="form-select mb-3 w-100" name="person-quantity" required>
             <option value disabled selected>How many persons?</option>
             <option value="1">2</option>
             <option value="2">3</option>
@@ -392,12 +392,12 @@
           </select>
         </div>
         <div>
-          <input type="date" class="form-control-lg mb-3 w-100" id="date">
+          <input type="date" class="form-control-lg mb-3 w-100" id="date" name="date">
         </div>
         <div>
-          <primary-button text="BOOK NOW"></primary-button>
+          <button class="form-button">Order Now</button>
         </div>
-      </div>
+      </form>
 
       <div class="mapouter w-100">
         <div class="gmap_canvas"><iframe class="gmap_iframe" frameborder="0" scrolling="no" marginheight="0"
