@@ -117,10 +117,16 @@ h2 {
 }
 
 
-.testGrid {
+.promotions-container {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 50px;
+}
+
+@media(max-width: 567px) {
+  .promotions-container {
+    grid-template-columns: 1fr
+  }
 }
 
 .inset-0 {
@@ -321,4 +327,8 @@ h2 {
 
 .form-button:hover {
   background-color: #e69c00
+}
+
+.navbar-toggler {
+  background-color: #FFC107 !important;
 }

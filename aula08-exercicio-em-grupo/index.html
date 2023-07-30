@@ -83,11 +83,53 @@
 
     </div>
 
-
-    <header class="d-flex justify-content-between position-relative z-3">
-      <nav class="navbar navbar-expand-lg container bg-transparent ">
-        <div class="d-flex align-items-center justify-content-between w-100">
+    <header class="d-flex justify-content-between position-absolute top-0 start-0 end-0 z-3">
+      <nav class="navbar navbar-expand-lg bg-transparent w-100">
+        <div class="container-fluid">
           <a href="" class="navbar-brand fs-4 text-light fw-bold secondary-font">Feane</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+            data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+            aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav d-flex align-items-center gap-4 w-100 justify-content-center">
+              <li class="nav-item">
+                <a href="" class="nav-link text-light active-link-menu">HOME</a>
+              </li>
+              <li class="nav-item">
+                <a href="" class="nav-link text-light link-menu-hovered">MENU</a>
+              </li>
+              <li class="nav-item">
+                <a href="" class="nav-link text-light link-menu-hovered">ABOUT</a>
+              </li>
+              <li class=" nav-item">
+                <a href="" class="nav-link text-light link-menu-hovered">BOOK TABLE</a>
+              </li>
+            </ul>
+            <div class="d-flex align-items-center gap-4">
+              <a href="" class="nav-link">
+                <i class="fa fa-user text-light link-menu-hovered"></i>
+              </a>
+              <a href="" class="nav-link">
+                <i class="fa fa-cart-arrow-down text-light link-menu-hovered"></i>
+              </a>
+              <a href="" class="nav-link">
+                <i class="fa fa-search text-light link-menu-hovered"></i>
+              </a>
+              <button
+                class="rounded-3xl bg-warning text-light px-3 py-2 white-nowrap header-button-hovered border-0">Order
+                Online
+              </button>
+            </div>
+          </div>
+        </div>
+      </nav>
+
+
+      <!-- <nav class="navbar navbar-expand-lg container bg-transparent ">
+        <div class="d-flex align-items-center justify-content-between w-100">
+          
 
           <ul class="navbar-nav d-flex align-items-center gap-4 w-100 justify-content-center">
             <li class="nav-item">
@@ -124,12 +166,12 @@
 
           </div>
         </div>
-      </nav>
+      </nav> -->
     </header>
   </section>
 
   <section class="container py-5" id="menu-items">
-    <div class="testGrid">
+    <div class="promotions-container ">
       <promotion-card imageSrc="./assets/images/hamburger-promotion-1.jpg" title="Tasty Thursdays"
         description="20%"></promotion-card>
 
@@ -139,7 +181,6 @@
   </section>
 
   <section class="container pt-44 pb-90">
-
     <h2 class="secondary-font text-center text-40 ">Our Menu</h2>
 
     <div class="our-menu-item_controllers d-flex align-items-center justify-content-center pt-44 pb-20">
@@ -358,15 +399,12 @@
               or randomised words which don't look even slightly believable. If you are
               going to use a passage of Lorem Ipsum, you need to be sure there isn't
               anything embarrassing hidden in the middle of text. All</p>
-              <primary-button text="Read More"></primary-button>
+            <primary-button text="Read More"></primary-button>
           </div>
         </div>
       </div>
     </div>
   </section>
-
-
-
 
   <section id="form" class="container py-5">
     <p class="text-capitalize fs-2 secondary-font">book a table</p>
@@ -377,7 +415,8 @@
           <input type="text" class="form-control-lg mb-3 w-100" id="name" name="name" required placeholder="Your Name">
         </div>
         <div>
-          <input type="text" class="form-control-lg mb-3 w-100" id="phone" name="phone" required placeholder="Phone Number">
+          <input type="text" class="form-control-lg mb-3 w-100" id="phone" name="phone" required
+            placeholder="Phone Number">
         </div>
         <div>
           <input type="email" class="form-control-lg mb-3 w-100" id="email" name="email" required placeholder="Email">
