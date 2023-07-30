@@ -1,4 +1,4 @@
-class CardNews extends HTMLElement {
+class PromotionCard extends HTMLElement {
   constructor() {
     super();
 
@@ -80,6 +80,13 @@ class CardNews extends HTMLElement {
         background-color: #222831
       }
 
+      @media(max-width: 992px) {
+        div.promotion_card {
+          flex-direction: column;
+          align-items:center
+        }
+      }
+
       div.card_box_left {
         border-radius: 100%;
         border: 1px solid #ffbe33;
@@ -156,4 +163,4 @@ class CardNews extends HTMLElement {
   }
 }
 
-customElements.define('promotion-card', CardNews);
+customElements.define('promotion-card', PromotionCard);

@@ -25,16 +25,19 @@
 
     <div id="carouselExampleDark" class="carousel carousel-dark slide position-absolute inset-0 z-2">
       <div class="carousel-indicators header-carousel-indicators align-items-center">
-        <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active header-carousel-indicator"
-          aria-current="true" aria-label="Slide 1"></button>
-        <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1" aria-label="Slide 2" class="header-carousel-indicator"></button>
-        <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="2" aria-label="Slide 3" class="header-carousel-indicator"></button>
+        <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0"
+          class="active header-carousel-indicator" aria-current="true" aria-label="Slide 1"></button>
+        <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1" aria-label="Slide 2"
+          class="header-carousel-indicator"></button>
+        <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="2" aria-label="Slide 3"
+          class="header-carousel-indicator"></button>
       </div>
       <div class="carousel-inner position-absolute inset-0 ">
         <div class="carousel-item active header-carousel-position" data-bs-interval="10000">
           <div class="carousel-caption d-flex flex-column align-items-start hero-slider-max-w">
             <h1 class="text-light text-56">Fast Food Restaurant</h1>
-            <p class="text-light text-justify text-sm fw-normal">Doloremque, itaque aperiam facilis rerum, commodi, temporibus sapiente ad
+            <p class="text-light text-justify text-sm fw-normal">Doloremque, itaque aperiam facilis rerum, commodi,
+              temporibus sapiente ad
               mollitia
               laborum quam quisquam esse error unde. Tempora ex doloremque, labore, sunt repellat dolore, iste magni
               quos nihil ducimus libero ipsam.
@@ -49,7 +52,8 @@
         <div class="carousel-item header-carousel-position" data-bs-interval="2000">
           <div class="carousel-caption d-flex flex-column align-items-start hero-slider-max-w">
             <h1 class="text-light text-56">Fast Food Restaurant</h1>
-            <p class="text-light text-justify text-sm fw-normal">Doloremque, itaque aperiam facilis rerum, commodi, temporibus sapiente ad
+            <p class="text-light text-justify text-sm fw-normal">Doloremque, itaque aperiam facilis rerum, commodi,
+              temporibus sapiente ad
               mollitia
               laborum quam quisquam esse error unde. Tempora ex doloremque, labore, sunt repellat dolore, iste magni
               quos nihil ducimus libero ipsam.
@@ -64,7 +68,8 @@
         <div class="carousel-item header-carousel-position">
           <div class="carousel-caption d-flex flex-column align-items-start hero-slider-max-w">
             <h1 class="text-light text-56">Fast Food Restaurant</h1>
-            <p class="text-light text-justify text-sm fw-normal">Doloremque, itaque aperiam facilis rerum, commodi, temporibus sapiente ad
+            <p class="text-light text-justify text-sm fw-normal">Doloremque, itaque aperiam facilis rerum, commodi,
+              temporibus sapiente ad
               mollitia
               laborum quam quisquam esse error unde. Tempora ex doloremque, labore, sunt repellat dolore, iste magni
               quos nihil ducimus libero ipsam.
@@ -124,7 +129,7 @@
     </header>
   </section>
 
-  <section class="container py-5">
+  <section class="container py-5" id="menu-items">
     <div class="testGrid">
       <promotion-card imageSrc="./assets/images/hamburger-promotion-1.jpg" title="Tasty Thursdays"
         description="20%"></promotion-card>
@@ -134,53 +139,208 @@
     </div>
   </section>
 
-  <!-- <section class="container pt-1 pb-2 ">
-    <div>
-      <div class="container text-light secondary-font">
-        <div class="row">
-          <div class="col-md-6">
-            <div class="d-flex align-items-center" style="background-color: #222831;">
-              <div>
-                <img class="rounded-circle border-1 border-danger overflow-hidden"
-                  src="https://html.design/demo/feane/images/o1.jpg" alt="">
-              </div>
-              <div class="detail-box">
-                <h5>Tasty Thursdays</h5>
-                <h6>
-                  <span class="fs-3 fw-bold">20%</span>
-                  Off
-                </h6>
-                <a href="" class="text-decoration-none bg-warning border-0 py-2 px-4 mt-3 rounded-pill nav-link fit-content
-                link-menu-hovered">
-                  Order Now
+  <section class="container pt-44 pb-90">
 
-                </a>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-6">
-            <div class="d-flex align-items-center" style="background-color: #222831;">
-              <div>
-                <img class="rounded-circle border-1 border-danger overflow-hidden"
-                  src="https://html.design/demo/feane/images/o1.jpg" alt="">
-              </div>
-              <div class="detail-box">
-                <h5>Pizza Days</h5>
-                <h6>
-                  <span class="fs-3 fw-bold">15%</span>
-                  Off
-                </h6>
-                <a href="" class="text-decoration-none bg-warning border-0 py-2 px-4 mt-3 rounded-pill nav-link fit-content
-                link-menu-hovered">
-                  Order Now
-                </a>
-              </div>
-            </div>
+    <h2 class="secondary-font text-center text-40 ">Our Menu</h2>
+
+    <div class="our-menu-item_controllers d-flex align-items-center justify-content-center pt-44 pb-20">
+      <button class="our-menu-items_controller-all active">
+        All
+      </button>
+      <button class="our-menu-items_controller-burger">
+        Burger
+      </button>
+      <button class="our-menu-items_controller-pizza">
+        Pizza
+      </button>
+      <button class="our-menu-items_controller-pasta">
+        Pasta
+      </button>
+      <button class="our-menu-items_controller-fries">
+        Fries
+      </button>
+    </div>
+
+    <div class="our-menu-item__container">
+      <div
+        class="col-6 col-md-4 our-menu-item rounded-2xl overflow-hidden position-relative our-menu-item-pizza active">
+        <div class="our-menu-item__top d-flex align-items-center justify-content-center">
+          <img src="./assets/images/pizza1.png" alt="">
+        </div>
+
+        <div class="our-menu-item__bottom">
+          <h5 class="font-semibold">Delicious Pizza</h5>
+          <p>Veniam debitis quaerat officiis quasi cupiditate quo, quisquam velit, magnam voluptatem repellendus sed
+            eaque</p>
+          <div class="d-flex align-items-center justify-content-between">
+            <h6 class="text-white">$20</h6>
+            <a href="">
+              <i class="fa fa-cart-arrow-down"></i>
+            </a>
           </div>
         </div>
       </div>
+
+      <div
+        class="col-6 col-md-4 our-menu-item rounded-2xl overflow-hidden position-relative our-menu-item-burger active">
+        <div class="our-menu-item__top d-flex align-items-center justify-content-center">
+          <img src="./assets/images/burger3.png" alt="">
+        </div>
+
+        <div class="our-menu-item__bottom">
+          <h5 class="font-semibold">Delicious Burger</h5>
+          <p>Veniam debitis quaerat officiis quasi cupiditate quo, quisquam velit, magnam voluptatem repellendus sed
+            eaque</p>
+          <div class="d-flex align-items-center justify-content-between">
+            <h6 class="text-white">$20</h6>
+            <a href="">
+              <i class="fa fa-cart-arrow-down"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div
+        class="col-6 col-md-4 our-menu-item rounded-2xl overflow-hidden position-relative our-menu-item-pizza active">
+        <div class="our-menu-item__top d-flex align-items-center justify-content-center">
+          <img src="./assets/images/pizza2.png" alt="">
+        </div>
+
+        <div class="our-menu-item__bottom">
+          <h5 class="font-semibold">Delicious Pizza</h5>
+          <p>Veniam debitis quaerat officiis quasi cupiditate quo, quisquam velit, magnam voluptatem repellendus sed
+            eaque</p>
+          <div class="d-flex align-items-center justify-content-between">
+            <h6 class="text-white">$20</h6>
+            <a href="">
+              <i class="fa fa-cart-arrow-down"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div
+        class="col-6 col-md-4 our-menu-item rounded-2xl overflow-hidden position-relative our-menu-item-pasta active">
+        <div class="our-menu-item__top d-flex align-items-center justify-content-center">
+          <img src="./assets/images/pasta1.png" alt="">
+        </div>
+
+        <div class="our-menu-item__bottom">
+          <h5 class="font-semibold">Delicious Pasta</h5>
+          <p>Veniam debitis quaerat officiis quasi cupiditate quo, quisquam velit, magnam voluptatem repellendus sed
+            eaque</p>
+          <div class="d-flex align-items-center justify-content-between">
+            <h6 class="text-white">$20</h6>
+            <a href="">
+              <i class="fa fa-cart-arrow-down"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div
+        class="col-6 col-md-4 our-menu-item rounded-2xl overflow-hidden position-relative our-menu-item-fries active">
+        <div class="our-menu-item__top d-flex align-items-center justify-content-center">
+          <img src="./assets/images/fries1.png" alt="">
+        </div>
+
+        <div class="our-menu-item__bottom">
+          <h5 class="font-semibold">Delicious Fries</h5>
+          <p>Veniam debitis quaerat officiis quasi cupiditate quo, quisquam velit, magnam voluptatem repellendus sed
+            eaque</p>
+          <div class="d-flex align-items-center justify-content-between">
+            <h6 class="text-white">$20</h6>
+            <a href="">
+              <i class="fa fa-cart-arrow-down"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div
+        class="col-6 col-md-4 our-menu-item rounded-2xl overflow-hidden position-relative our-menu-item-pizza active">
+        <div class="our-menu-item__top d-flex align-items-center justify-content-center">
+          <img src="./assets/images/pizza3.png" alt="">
+        </div>
+
+        <div class="our-menu-item__bottom">
+          <h5 class="font-semibold">Delicious Pizza</h5>
+          <p>Veniam debitis quaerat officiis quasi cupiditate quo, quisquam velit, magnam voluptatem repellendus sed
+            eaque</p>
+          <div class="d-flex align-items-center justify-content-between">
+            <h6 class="text-white">$20</h6>
+            <a href="">
+              <i class="fa fa-cart-arrow-down"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div
+        class="col-6 col-md-4 our-menu-item rounded-2xl overflow-hidden position-relative our-menu-item-burger active">
+        <div class="our-menu-item__top d-flex align-items-center justify-content-center">
+          <img src="./assets/images/burger1.png" alt="">
+        </div>
+
+        <div class="our-menu-item__bottom">
+          <h5 class="font-semibold">Delicious Burger</h5>
+          <p>Veniam debitis quaerat officiis quasi cupiditate quo, quisquam velit, magnam voluptatem repellendus sed
+            eaque</p>
+          <div class="d-flex align-items-center justify-content-between">
+            <h6 class="text-white">$20</h6>
+            <a href="">
+              <i class="fa fa-cart-arrow-down"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div
+        class="col-6 col-md-4 our-menu-item rounded-2xl overflow-hidden position-relative our-menu-item-burger active">
+        <div class="our-menu-item__top d-flex align-items-center justify-content-center">
+          <img src="./assets/images/burger2.png" alt="">
+        </div>
+
+        <div class="our-menu-item__bottom">
+          <h5 class="font-semibold">Delicious Burger</h5>
+          <p>Veniam debitis quaerat officiis quasi cupiditate quo, quisquam velit, magnam voluptatem repellendus sed
+            eaque</p>
+          <div class="d-flex align-items-center justify-content-between">
+            <h6 class="text-white">$20</h6>
+            <a href="">
+              <i class="fa fa-cart-arrow-down"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div
+        class="col-6 col-md-4 our-menu-item rounded-2xl overflow-hidden position-relative our-menu-item-pasta active">
+        <div class="our-menu-item__top d-flex align-items-center justify-content-center">
+          <img src="./assets/images/pasta2.png" alt="">
+        </div>
+
+        <div class="our-menu-item__bottom">
+          <h5 class="font-semibold">Delicious Pasta</h5>
+          <p>Veniam debitis quaerat officiis quasi cupiditate quo, quisquam velit, magnam voluptatem repellendus sed
+            eaque</p>
+          <div class="d-flex align-items-center justify-content-between">
+            <h6 class="text-white">$20</h6>
+            <a href="">
+              <i class="fa fa-cart-arrow-down"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+
     </div>
-  </section> -->
+
+    <div class="d-flex justify-content-center">
+      <button class="text-center">
+        View More
+      </button>
+    </div>
+  </section>
 
   <section class="about text-light">
     <div class="container">
@@ -330,15 +490,18 @@
         <div class="col-md-4 col-sm-12 mt-3 pt-3">
           <h2 class="fs-3 secondary-font pb-3">Contact Us</h2>
           <div class="contact-links">
-            <a href="" class="nav-link d-flex align-items-center justify-content-center m-2 footer-contact-links-hovered">
+            <a href=""
+              class="nav-link d-flex align-items-center justify-content-center m-2 footer-contact-links-hovered">
               <i class="fa fa-map-marker text-light" aria-hidden="true"></i>
               <p class="mb-0 mx-2"> Location </p>
             </a>
-            <a href="" class="nav-link d-flex align-items-center justify-content-center m-2 footer-contact-links-hovered">
+            <a href=""
+              class="nav-link d-flex align-items-center justify-content-center m-2 footer-contact-links-hovered">
               <i class="fa fa-phone text-light" aria-hidden="true"></i>
               <p class="mb-0 mx-2"> Call +01 1234567890 </p>
             </a>
-            <a href="" class="nav-link d-flex align-items-center justify-content-center m-2 footer-contact-links-hovered">
+            <a href=""
+              class="nav-link d-flex align-items-center justify-content-center m-2 footer-contact-links-hovered">
               <i class="fa fa-envelope text-light nav-link" aria-hidden="true"></i>
               <p class="mb-0 mx-2"> demo@gmail.com </p>
             </a>
@@ -379,15 +542,13 @@
     </div>
     <div class="footer-info col-12 text-center mt-5 pb-2">
       <p class="text-nowrap">
-        &copy; 2023 All Rights Reserved By <a href="https://html.design/" class="nav-link text-light d-inline-block">Free Html Templates</a>
+        &copy; 2023 All Rights Reserved By <a href="https://html.design/"
+          class="nav-link text-light d-inline-block">Free Html Templates</a>
       </p>
     </div>
   </footer>
 
   <script src="https://kit.fontawesome.com/fadd83e88c.js" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
-    crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
     integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
     crossorigin="anonymous"></script>
