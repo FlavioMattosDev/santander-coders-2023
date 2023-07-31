@@ -353,3 +353,13 @@ h2 {
 .navbar-toggler {
   background-color: #FFC107 !important;
 }
+
+.arrow-up-carrousel-image {
+  position: absolute;
+  top: 5px;
+  left: 50%;
+  transform: translateX(-50%) rotate(90deg);
+  border: 10px solid transparent;
+  content: "";
+  border-right-color: #FFC107;
+}
