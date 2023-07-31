@@ -112,10 +112,6 @@ h2 {
   padding: 0.8rem;
 }
 
-.card-content {
-  width: 585px;
-  margin: 15px;
-}
 
 .footer-contact-links-hovered:hover * {
   color: #e69c00 !important;
@@ -336,6 +332,22 @@ h2 {
 
 .form-button:hover {
   background-color: #e69c00
+}
+
+.button-carousel {
+  background-color: #ffbe33;
+  width: 45px;
+  height: 45px;
+  border-radius: 100%;
+}
+
+.m-button {
+  margin-right: 5px;
+}
+
+.border-img {
+  border: 4px solid #ffbe33;
+  border-radius: 100%;
 }
 
 .navbar-toggler {
