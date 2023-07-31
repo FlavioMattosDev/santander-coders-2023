@@ -108,6 +108,15 @@ h2 {
   background-color: #e69c00 !important
 }
 
+.input-form {
+  padding: 0.8rem;
+}
+
+.card-content {
+  width: 585px;
+  margin: 15px;
+}
+
 .footer-contact-links-hovered:hover * {
   color: #e69c00 !important;
 }

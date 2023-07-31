@@ -407,22 +407,24 @@
   </section>
 
   <section id="form" class="container py-5">
-    <p class="text-capitalize fs-2 secondary-font">book a table</p>
+    <p class="text-capitalize fs-1 secondary-font">book a table</p>
 
-    <div class="d-flex align-items-center gap-4 flex-column flex-md-row">
+    <div class="d-flex gap-4 flex-column flex-md-row">
       <form class="p-2 w-100" id="inputs">
         <div>
-          <input type="text" class="form-control-lg mb-3 w-100" id="name" name="name" required placeholder="Your Name">
+          <input type="text" class="form-control mb-4 w-100 input-form border-black" id="name" name="name" required
+            placeholder="Your Name">
         </div>
         <div>
-          <input type="text" class="form-control-lg mb-3 w-100" id="phone" name="phone" required
+          <input type="text" class="form-control mb-4 w-100 input-form border-black" id="phone" name="phone" required
             placeholder="Phone Number">
         </div>
         <div>
-          <input type="email" class="form-control-lg mb-3 w-100" id="email" name="email" required placeholder="Email">
+          <input type="email" class="form-control mb-4 w-100 input-form border-black" id="email" name="email" required
+            placeholder="Email">
         </div>
         <div>
-          <select class="form-select mb-3 w-100" name="person-quantity" required>
+          <select class="form-select mb-4 w-100 input-form border-black" name="person-quantity" required>
             <option value disabled selected>How many persons?</option>
             <option value="1">2</option>
             <option value="2">3</option>
@@ -431,10 +433,10 @@
           </select>
         </div>
         <div>
-          <input type="date" class="form-control-lg mb-3 w-100" id="date" name="date">
+          <input type="date" class="form-control mb-4 w-100 input-form border-black" id="date" name="date">
         </div>
         <div>
-          <button class="form-button">Order Now</button>
+          <button class="form-button mt-3" data-bs-toggle="modal" data-bs-target="#success-msg">Book Now</button>
         </div>
       </form>
 
@@ -447,8 +449,8 @@
           .mapouter {
             position: relative;
             text-align: right;
-            width: 100%;
-            height: 400px;
+            width: 90%;
+            height: 380px;
             border-radius: 14px;
             overflow: hidden;
           }
@@ -457,12 +459,12 @@
             overflow: hidden;
             background: none !important;
             width: 100%;
-            height: 400px;
+            height: 380px;
           }
 
           .gmap_iframe {
             width: 100%;
-            height: 400px !important;
+            height: 380px !important;
           }
         </style>
       </div>
@@ -472,47 +474,84 @@
     </div>
   </section>
 
+  <div id="success-msg" class="modal fade" tabindex="-1">
+    <div class="modal-dialog ">
+      <div class="modal-content bg-light">
+        <div class="modal-header">
+          <h5 class="modal-title">Sucess</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <p>Data registered successfully. Please check the console..</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Ok</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <section id="comments" class="container">
-    <p class="text-capitalize fs-2 secondary-font">what says our customers</p>
-    <div class="container-fluid">
-      <div id="carouselComments" class="carousel slide" data-bs-ride="true">
+    <h2 class="text-capitalize fs-1 secondary-font text-center mb-5">what says our customers</h2>
+    <div class="carousel slide mb-5">
+      <div id="carouselComments" class="carousel-inner" data-bs-ride="true" data-bs-interval="3000">
         <div class="carousel-inner">
           <div class="carousel-item active">
-            <div class="d-block w-50 card-body">
-              <p></p>
+            <div class="row">
+              <div class=" card-content card-body bg-dark p-4 rounded-3 col">
+                <p class="card-text text-light">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Vel autem
+                  unde
+                  tenetur
+                  velit ut beatae, ipsam mollitia pariatur id ratione recusandae, vero explicabo ex numquam odit,
+                  maiores
+                  cumque doloribus quasi.</p>
+                <p class="fs-5 text-light">Mike Hamell</p>
+                <p class="text-light">magna aliqua</p>
+              </div>
+              <div class=" card-content card-body bg-dark p-4 rounded-3 col">
+                <p class="card-text text-light">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Vel autem
+                  unde
+                  tenetur
+                  velit ut beatae, ipsam mollitia pariatur id ratione recusandae, vero explicabo ex numquam odit,
+                  maiores cumque doloribus quasi.</p>
+                <p class="fs-5 text-light">Moana Michel</p>
+                <p class="text-light">magna aliqua</p>
+              </div>
+
             </div>
           </div>
           <div class="carousel-item active">
-            <div class="d-block w-50 card-body">
-              <p></p>
-            </div>
-          </div>
-          <div class="carousel-item active">
-            <div class="d-block w-50 card-body">
-              <p></p>
-            </div>
-          </div>
-          <div class="carousel-item active">
-            <div class="d-block w-50 card-body">
-              <p></p>
-            </div>
-          </div>
-          <div class="carousel-item active">
-            <div class="d-block w-50 card-body">
-              <p></p>
+            <div class="row">
+
+              <div class=" card-content card-body bg-dark p-4 rounded-3 col">
+                <p class="card-text text-light">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Vel autem unde
+                  tenetur
+                  velit ut beatae, ipsam mollitia pariatur id ratione recusandae, vero explicabo ex numquam odit,
+                  maiores
+                  cumque doloribus quasi.</p>
+              </div>
+              <div class=" card-content card-body bg-dark p-4 rounded-3 col">
+                <p class="card-text text-light">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Vel autem unde
+                  tenetur
+                  velit ut beatae, ipsam mollitia pariatur id ratione recusandae, vero explicabo ex numquam odit,
+                  maiores cumque doloribus quasi.</p>
+              </div>
             </div>
           </div>
         </div>
-        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleRide" data-bs-slide="prev">
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Previous</span>
-        </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleRide" data-bs-slide="next">
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Next</span>
-        </button>
+
       </div>
-    </div>
+
+      <button class="carousel-control-prev" role="presentation" type="button" data-bs-target="#carouselComments"
+        data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" role="presentation" type="button" data-bs-target="#carouselComments"
+        data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
   </section>
 
   <footer class="footer bg-dark text-light mt-1 mb-5 pt-5 pb-3">
