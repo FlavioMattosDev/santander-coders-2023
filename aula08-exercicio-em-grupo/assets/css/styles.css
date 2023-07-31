@@ -363,3 +363,13 @@ h2 {
   content: "";
   border-right-color: #FFC107;
 }
+
+.nav-background {
+  background-color: #212832;
+}
+
+@media(min-width: 992px) {
+  .nav-background {
+    background-color: transparent;
+  }
+}
