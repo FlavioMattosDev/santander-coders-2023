@@ -47,7 +47,6 @@ const handleSelectActiveController = (controllerName) => {
       ourMenuItemsControllerFries.classList.add('active')
       break
   }
-
 }
 
 const selectAllMenuItems = () => {
