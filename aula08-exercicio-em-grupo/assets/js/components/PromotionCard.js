@@ -14,12 +14,14 @@ class PromotionCard extends HTMLElement {
     const title = this.getAttribute('title')
     const description = this.getAttribute('description')
     const imageSrc = this.getAttribute('imageSrc')
+    const imageAlt = this.getAttribute('imageAlt')
 
     const leftSide = document.createElement('div')
     leftSide.setAttribute("class", "card_box_left")
 
     const promotionImage = document.createElement('img');
     promotionImage.src = `${imageSrc}`
+    promotionImage.alt = `${imageAlt}`
 
     leftSide.appendChild(promotionImage);
 
