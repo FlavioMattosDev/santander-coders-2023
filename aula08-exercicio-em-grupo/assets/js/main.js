@@ -102,11 +102,24 @@ ourMenuItemsControllerFries.addEventListener('click', selectAllFries)
 
 const orderForm = document.querySelector('form')
 
+const formSubmitButton = document.getElementById('form-submit-button');
+
+formSubmitButton.disabled = true;
+
+orderForm.addEventListener('input', () => {
+  if (orderForm.checkValidity()) {
+    formSubmitButton.disabled = false;
+  } else {
+    formSubmitButton.disabled = true;
+  }
+});
+
 orderForm.addEventListener('submit', (e) => {
   e.preventDefault()
 
   const formData = new FormData(orderForm)
   const formValues = Object.fromEntries(formData.entries())
+
 
   console.log(formValues)
 })

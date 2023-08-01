@@ -18,11 +18,11 @@
 
 <body>
   <section class="hero_area position-relative view-height-full">
-    <!-- <div class="bg"></div> -->
+    <div class="bg"></div>
 
-    <div class="hero-bg">
+    <!-- <div class="hero-bg">
       <img src="./assets/images/hero-bg.jpg" alt="">
-    </div>
+    </div> -->
 
     <div id="carouselExampleDark" class="carousel carousel-dark slide position-absolute inset-0 z-2">
       <div class="carousel-indicators header-carousel-indicators align-items-center">
@@ -45,7 +45,8 @@
 
             </p>
             <button href=""
-              class="rounded-3xl bg-warning text-light px-3 py-2 white-nowrap header-button-hovered border-0">Order
+              class="rounded-3xl bg-warning text-light px-3 py-2 white-nowrap header-button-hovered border-0"
+              aria-label="Pedir agora">Order
               Now</button>
           </div>
         </div>
@@ -95,16 +96,16 @@
           <div class="collapse navbar-collapse nav-background" id="navbarSupportedContent">
             <ul class="navbar-nav d-flex align-items-center gap-4 w-100 justify-content-center ">
               <li class="nav-item">
-                <a href="" class="nav-link text-light active-link-menu">HOME</a>
+                <a href="" class="nav-link text-light active-link-menu" aria-label="Home">HOME</a>
               </li>
               <li class="nav-item">
-                <a href="" class="nav-link text-light link-menu-hovered">MENU</a>
+                <a href="" class="nav-link text-light link-menu-hovered" aria-label="Menu" >MENU</a>
               </li>
               <li class="nav-item">
-                <a href="" class="nav-link text-light link-menu-hovered">ABOUT</a>
+                <a href="" class="nav-link text-light link-menu-hovered" aria-label="Sobre nós">ABOUT</a>
               </li>
               <li class=" nav-item">
-                <a href="" class="nav-link text-light link-menu-hovered">BOOK TABLE</a>
+                <a href="" class="nav-link text-light link-menu-hovered" aria-label="Reservar mesa">BOOK TABLE</a>
               </li>
             </ul>
             <div class="d-flex align-items-center gap-4">
@@ -131,10 +132,10 @@
   <section class="container py-5" id="menu-items">
     <div class="promotions-container ">
       <promotion-card imageSrc="./assets/images/hamburger-promotion-1.jpg" title="Tasty Thursdays"
-        description="20%"></promotion-card>
+        description="20%" aria-label="Promoção de quinta-feira, hamburguer com 20% de desconto"></promotion-card>
 
       <promotion-card imageSrc="./assets/images/pizza-promotion-1.jpg" title="Pizza Days"
-        description="15%"></promotion-card>
+        description="15%" aria-label="Dias da Pizza com 15% de desconto"></promotion-card>
     </div>
   </section>
 
@@ -160,10 +161,9 @@
     </div>
 
     <div class="our-menu-item__container">
-      <div
-        class="col-6 col-md-4 our-menu-item rounded-2xl overflow-hidden position-relative our-menu-item-pizza active">
+      <div class="col-6 col-md-4 our-menu-item rounded-2xl overflow-hidden position-relative our-menu-item-pizza active">
         <div class="our-menu-item__top d-flex align-items-center justify-content-center">
-          <img src="./assets/images/pizza1.png" alt="">
+          <img src="./assets/images/pizza1.png" alt="Pizza">
         </div>
 
         <div class="our-menu-item__bottom">
@@ -182,7 +182,7 @@
       <div
         class="col-6 col-md-4 our-menu-item rounded-2xl overflow-hidden position-relative our-menu-item-burger active">
         <div class="our-menu-item__top d-flex align-items-center justify-content-center">
-          <img src="./assets/images/burger3.png" alt="">
+          <img src="./assets/images/burger3.png" alt="Hamburguer">
         </div>
 
         <div class="our-menu-item__bottom">
@@ -201,7 +201,7 @@
       <div
         class="col-6 col-md-4 our-menu-item rounded-2xl overflow-hidden position-relative our-menu-item-pizza active">
         <div class="our-menu-item__top d-flex align-items-center justify-content-center">
-          <img src="./assets/images/pizza2.png" alt="">
+          <img src="./assets/images/pizza2.png" alt="Pizza">
         </div>
 
         <div class="our-menu-item__bottom">
@@ -220,7 +220,7 @@
       <div
         class="col-6 col-md-4 our-menu-item rounded-2xl overflow-hidden position-relative our-menu-item-pasta active">
         <div class="our-menu-item__top d-flex align-items-center justify-content-center">
-          <img src="./assets/images/pasta1.png" alt="">
+          <img src="./assets/images/pasta1.png" alt="Pasta">
         </div>
 
         <div class="our-menu-item__bottom">
@@ -239,7 +239,7 @@
       <div
         class="col-6 col-md-4 our-menu-item rounded-2xl overflow-hidden position-relative our-menu-item-fries active">
         <div class="our-menu-item__top d-flex align-items-center justify-content-center">
-          <img src="./assets/images/fries1.png" alt="">
+          <img src="./assets/images/fries1.png" alt="Fritas">
         </div>
 
         <div class="our-menu-item__bottom">
@@ -258,7 +258,7 @@
       <div
         class="col-6 col-md-4 our-menu-item rounded-2xl overflow-hidden position-relative our-menu-item-pizza active">
         <div class="our-menu-item__top d-flex align-items-center justify-content-center">
-          <img src="./assets/images/pizza3.png" alt="">
+          <img src="./assets/images/pizza3.png" alt="Pizza">
         </div>
 
         <div class="our-menu-item__bottom">
@@ -277,7 +277,7 @@
       <div
         class="col-6 col-md-4 our-menu-item rounded-2xl overflow-hidden position-relative our-menu-item-burger active">
         <div class="our-menu-item__top d-flex align-items-center justify-content-center">
-          <img src="./assets/images/burger1.png" alt="">
+          <img src="./assets/images/burger1.png" alt="Hamburguer">
         </div>
 
         <div class="our-menu-item__bottom">
@@ -296,7 +296,7 @@
       <div
         class="col-6 col-md-4 our-menu-item rounded-2xl overflow-hidden position-relative our-menu-item-burger active">
         <div class="our-menu-item__top d-flex align-items-center justify-content-center">
-          <img src="./assets/images/burger2.png" alt="">
+          <img src="./assets/images/burger2.png" alt="Hamburguer">
         </div>
 
         <div class="our-menu-item__bottom">
@@ -315,7 +315,7 @@
       <div
         class="col-6 col-md-4 our-menu-item rounded-2xl overflow-hidden position-relative our-menu-item-pasta active">
         <div class="our-menu-item__top d-flex align-items-center justify-content-center">
-          <img src="./assets/images/pasta2.png" alt="">
+          <img src="./assets/images/pasta2.png" alt="Pasta">
         </div>
 
         <div class="our-menu-item__bottom">
@@ -343,7 +343,7 @@
       <div class="row">
         <div class="col-md-6 pe-5">
           <div class="about_image_container">
-            <img src="./assets/images/about-img.png" alt="">
+            <img src="./assets/images/about-img.png" alt="Hamburguer Feane">
           </div>
         </div>
         <div class="col-md-6 ps-5 my-auto">
@@ -357,7 +357,7 @@
               or randomised words which don't look even slightly believable. If you are
               going to use a passage of Lorem Ipsum, you need to be sure there isn't
               anything embarrassing hidden in the middle of text. All</p>
-            <primary-button text="Read More"></primary-button>
+            <primary-button text="Read More" aria-label="Leia mais"></primary-button>
           </div>
         </div>
       </div>
@@ -371,32 +371,36 @@
       <form class="p-2 w-100" id="inputs">
         <div>
           <input type="text" class="form-control mb-4 w-100 input-form border-black" id="name" name="name" required
-            placeholder="Your Name">
+            placeholder="Your Name" aria-label="Digite seu nome">
         </div>
         <div>
           <input type="text" class="form-control mb-4 w-100 input-form border-black" id="phone" name="phone" required
-            placeholder="Phone Number">
+            placeholder="Phone Number" aria-label="Digite seu numero de telefone">
         </div>
         <div>
           <input type="email" class="form-control mb-4 w-100 input-form border-black" id="email" name="email" required
-            placeholder="Email">
+            placeholder="Email" aria-label="Digite seu Email">
         </div>
         <div>
-          <select class="form-select mb-4 w-100 input-form border-black" name="person-quantity" required>
+          <select class="form-select mb-4 w-100 input-form border-black" aria-label="Selecione a quantidade de pessoas" name="person-quantity" required>
             <option value disabled selected>How many persons?</option>
-            <option value="1">2</option>
-            <option value="2">3</option>
-            <option value="3">4</option>
-            <option value="3">5</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
           </select>
         </div>
         <div>
-          <input type="date" class="form-control mb-4 w-100 input-form border-black" id="date" name="date">
+          <input type="date" class="form-control mb-4 w-100 input-form border-black" id="date" name="date" aria-label="Selecione a data" required>
         </div>
         <div>
-          <button class="form-button mt-3" data-bs-toggle="modal" data-bs-target="#success-msg">Book Now</button>
+          <button id="form-submit-button" class="form-button mt-3" data-bs-toggle="modal" data-bs-target="#success-msg" aria-label="Reservar agora"
+            disabled>
+            Book Now
+          </button>
         </div>
       </form>
+
 
       <div class="mapouter w-100">
         <div class="gmap_canvas"><iframe class="gmap_iframe" frameborder="0" scrolling="no" marginheight="0"
@@ -465,7 +469,7 @@
               <div class="position-relative w-fit">
                 <div class="arrow-up-carrousel-image">
                 </div>
-                <img src="./assets/images/client1.jpg" class="border-img my-4" width="115px">
+                <img src="./assets/images/client1.jpg" class="border-img my-4" width="115px" alt="Foto cliente Mike">
               </div>
             </div>
             <div class="col-12 me-md-4 col-md-5">
@@ -479,7 +483,7 @@
               </div>
               <div class="position-relative w-fit">
                 <div class="arrow-up-carrousel-image "></div>
-                <img src="./assets/images/client2.jpg" class="border-img my-4" width="115px">
+                <img src="./assets/images/client2.jpg" class="border-img my-4" width="115px" alt="Foto cliente Moana">
               </div>
             </div>
 
@@ -498,7 +502,7 @@
               </div>
               <div class="position-relative w-fit">
                 <div class="arrow-up-carrousel-image "></div>
-                <img src="./assets/images/client1.jpg" class="border-img my-4" width="115px">
+                <img src="./assets/images/client1.jpg" class="border-img my-4" width="115px" alt="Foto cliente Mike">
               </div>
             </div>
             <div class=" col-12 me-md-4 col-md-5">
@@ -513,7 +517,7 @@
 
               <div class="position-relative w-fit">
                 <div class="arrow-up-carrousel-image "></div>
-                <img src="./assets/images/client2.jpg" class="border-img my-4" width="115px">
+                <img src="./assets/images/client2.jpg" class="border-img my-4" width="115px" alt="Foto cliente Moana">
               </div>
 
             </div>
@@ -526,12 +530,12 @@
         <div class="row justify-content-center">
           <div class="col-3 p-0 text-center">
             <button class="bg-transparent border-0 p-0" type="button" data-bs-target="#carouselComments"
-              data-bs-slide="prev">
-              <i class="fa fa-angle-left text-light p-3 button-carousel"></i>
+              data-bs-slide="prev" aria-label="Anterior">
+              <i class="fa fa-angle-left text-light p-3 button-carousel" ></i>
             </button>
             <button class="bg-transparent border-0" type="button" data-bs-target="#carouselComments"
-              data-bs-slide="next">
-              <i class="fa fa-angle-right text-light p-3 button-carousel"></i>
+              data-bs-slide="next" aria-label="Próximo">
+              <i class="fa fa-angle-right text-light p-3 button-carousel" ></i>
             </button>
           </div>
         </div>
@@ -570,19 +574,19 @@
             It uses a dictionary of over 200 Latin words, combined with
           </p>
           <div class="footer-social-links nav-link d-flex justify-content-center">
-            <a href="" class="nav-link text-light footer-social-links-hovered mx-2">
+            <a href="" class="nav-link text-light icon-bg mx-1">
               <i class="fa fa-facebook" aria-hidden="true"></i>
             </a>
-            <a href="" class="nav-link text-light footer-social-links-hovered mx-2">
+            <a href="" class="nav-link text-light icon-bg mx-1">
               <i class="fa fa-twitter" aria-hidden="true"></i>
             </a>
-            <a href="" class="nav-link text-light footer-social-links-hovered mx-2">
+            <a href="" class="nav-link text-light icon-bg mx-1">
               <i class="fa fa-linkedin" aria-hidden="true"></i>
             </a>
-            <a href="" class="nav-link text-light footer-social-links-hovered mx-2">
+            <a href="" class="nav-link text-light icon-bg mx-1">
               <i class="fa fa-instagram" aria-hidden="true"></i>
             </a>
-            <a href="" class="nav-link text-light footer-social-links-hovered mx-2">
+            <a href="" class="nav-link text-light icon-bg mx-1">
               <i class="fa fa-pinterest" aria-hidden="true"></i>
             </a>
           </div>

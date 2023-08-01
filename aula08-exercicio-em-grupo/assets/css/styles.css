@@ -373,3 +373,23 @@ h2 {
     background-color: transparent;
   }
 }
+
+a.icon-bg {
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background-color: #FFFFFF;
+}
+
+a.icon-bg i {
+  color: rgb(33, 37, 41);
+}
+
+a.icon-bg:hover i {
+  color: rgb(230, 156, 0)
+}
