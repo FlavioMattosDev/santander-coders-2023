@@ -64,3 +64,6 @@ while(randomNumbers.length < MAX_RANDOM_NUMBERS_ARRAY_LENGTH) {
     randomNumbers.push(randomNumber)
   }
 }
+
+const resultNormal = randomNumbers
+const resultSorted = [...resultNormal].sort((a,b) => a - b)
