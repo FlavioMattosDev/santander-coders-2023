@@ -46,3 +46,21 @@ for (const { nome, notas } of alunos) {
 // de apostas (estilo mega sena). O sorteio consiste em 6 dezenas aleatórias, entre 1 e 60.
 // Para gerar um número aleatório, pode-se utilizar o método random(), da biblioteca Math:
 // Math.round(Math.random() * 10)
+
+const randomNumbers = []
+const MAX_NUMBER = 60
+const MAX_RANDOM_NUMBERS_ARRAY_LENGTH = 6
+
+const generateRandomNumber = () => {
+  return Math.floor(Math.random() * MAX_NUMBER + 1)
+}
+
+console.log(generateRandomNumber())
+
+while(randomNumbers.length < MAX_RANDOM_NUMBERS_ARRAY_LENGTH) {
+  const randomNumber = generateRandomNumber()
+
+  if(!randomNumbers.includes(randomNumber)){
+    randomNumbers.push(randomNumber)
+  }
+}
