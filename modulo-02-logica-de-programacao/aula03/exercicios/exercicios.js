@@ -28,15 +28,15 @@ for (let i = 0; i < lista.length; i++) {
 const alunos = [
   { nome: "aluno 1", notas: [9, 8] },
   { nome: "aluno 2", notas: [8, 7] },
-  { nome: "aluno 3", notas: [7 ,10] },
+  { nome: "aluno 3", notas: [7, 10] },
   { nome: "aluno 4", notas: [9, 5] },
   { nome: "aluno 5", notas: [3, 8] },
   { nome: "aluno 6", notas: [5, 9] },
 ];
 
 for (const { nome, notas } of alunos) {
-  const totalNotas = notas.reduce((acc, val) => acc + val, 0)
-  const media = (totalNotas) / 2;
+  const totalNotas = notas.reduce((acc, val) => acc + val, 0);
+  const media = totalNotas / 2;
 
   console.log(`O aluno ${nome} tem uma média de ${media}.`);
 }
@@ -47,23 +47,21 @@ for (const { nome, notas } of alunos) {
 // Para gerar um número aleatório, pode-se utilizar o método random(), da biblioteca Math:
 // Math.round(Math.random() * 10)
 
-const randomNumbers = []
-const MAX_NUMBER = 60
-const MAX_RANDOM_NUMBERS_ARRAY_LENGTH = 6
+const randomNumbers = [];
+const MAX_NUMBER = 60;
+const MAX_RANDOM_NUMBERS_ARRAY_LENGTH = 6;
 
 const generateRandomNumber = () => {
-  return Math.floor(Math.random() * MAX_NUMBER + 1)
-}
+  return Math.floor(Math.random() * MAX_NUMBER + 1);
+};
 
-console.log(generateRandomNumber())
+while (randomNumbers.length < MAX_RANDOM_NUMBERS_ARRAY_LENGTH) {
+  const randomNumber = generateRandomNumber();
 
-while(randomNumbers.length < MAX_RANDOM_NUMBERS_ARRAY_LENGTH) {
-  const randomNumber = generateRandomNumber()
-
-  if(!randomNumbers.includes(randomNumber)){
-    randomNumbers.push(randomNumber)
+  if (!randomNumbers.includes(randomNumber)) {
+    randomNumbers.push(randomNumber);
   }
 }
 
-const resultNormal = randomNumbers
-const resultSorted = [...resultNormal].sort((a,b) => a - b)
+const resultNormal = randomNumbers;
+const resultSorted = [...resultNormal].sort((a, b) => a - b);
