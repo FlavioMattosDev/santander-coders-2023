@@ -316,8 +316,8 @@ const someEmployeeHasSalaryLowerOrEqualThan1000 = employeesSome.some(
   (employee) => employee.salario <= 1000
 );
 
-console.log(someEmployeeHasSalaryBiggerOrEqualThan1500)
-console.log(someEmployeeHasSalaryLowerOrEqualThan1000)
+console.log(someEmployeeHasSalaryBiggerOrEqualThan1500);
+console.log(someEmployeeHasSalaryLowerOrEqualThan1000);
 
 // ? sort()
 const athletes = [
@@ -328,10 +328,26 @@ const athletes = [
   { nome: "Carlos", altura: 1.9, peso: 100 },
 ];
 
-const athletesOrderedAscByWeight = [...athletes].sort((a, b) => a.peso - b.peso);
-const athletesOrderedDescByHeight = [...athletes].sort((a, b) => b.altura - a.altura );
-const athletesOrderedAscByName = [...athletes].sort((a, b) => a.nome.localeCompare(b.nome));
+const athletesOrderedAscByWeight = [...athletes].sort(
+  (a, b) => a.peso - b.peso
+);
+const athletesOrderedDescByHeight = [...athletes].sort(
+  (a, b) => b.altura - a.altura
+);
+const athletesOrderedAscByName = [...athletes].sort((a, b) =>
+  a.nome.localeCompare(b.nome)
+);
 
-console.log(athletesOrderedAscByWeight)
-console.log(athletesOrderedDescByHeight)
-console.log(athletesOrderedAscByName)
+console.log(athletesOrderedAscByWeight);
+console.log(athletesOrderedDescByHeight);
+console.log(athletesOrderedAscByName);
+
+console.clear();
+
+const toSorted1 = athletes.toSorted((a, b) => a.peso - b.peso);
+const toSorted2 = athletes.toSorted((a, b) => b.altura - a.altura);
+const toSorted3 = athletes.toSorted((a, b) => a.nome.localeCompare(b.nome));
+
+console.log("toSorted1", toSorted1); // * node 20
+console.log("toSorted2", toSorted2); // * node 20
+console.log("toSorted3", toSorted3); // * node 20

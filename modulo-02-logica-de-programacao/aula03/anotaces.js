@@ -27,7 +27,6 @@ var veiculo = {
 }()
 
 // (() => {
-
 //   for (let veiculo = 0; veiculo < 2; veiculo++) {
 //     for (let j = 0; j < 5; j++) {
 //       for (let w = 0; w < 8; w++) {
@@ -43,23 +42,23 @@ console.log(w)
 console.log(j)
 console.log(veiculo)
 
-const lista = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+// const lista = [1, 2, 3, 4, 5, 6, 7, 8, 9]
 
-let odd = []
-let even = []
+// let odd = []
+// let even = []
 
-for(let i = 0; i < lista.length; i++) {
-  console.log(typeof i)
-  lista[i] % 2 === 0 ? even.push(lista[i]) : odd.push(lista[i])
-}
+// for(let i = 0; i < lista.length; i++) {
+//   console.log(typeof i)
+//   lista[i] % 2 === 0 ? even.push(lista[i]) : odd.push(lista[i])
+// }
 
-console.log(odd)
-console.log(even)
+// console.log(odd)
+// console.log(even)
 
-for(i in lista){
-  console.log(typeof(i))
-}
+// for(i in lista){
+//   console.log(typeof(i))
+// }
 
-for(i of lista){
-  console.log(typeof(i))
-}
+// for(i of lista){
+//   console.log(typeof(i))
+// }
