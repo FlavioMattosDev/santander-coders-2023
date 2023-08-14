@@ -57,7 +57,7 @@ const listTodo = () => {};
 const getTodoById = () => {};
 ```
 
-## addTodo()
+## addTodo() - Leandro
 
 Deverá receber um objeto, contendo o id, title e status, e adicionar ao final do array de todos, esse novo objeto.
 
