@@ -58,23 +58,28 @@ const getTodoById = () => {};
 ```
 
 ## addTodo()
+
 Deverá receber um objeto, contendo o id, title e status, e adicionar ao final do array de todos, esse novo objeto.
 
 ## editTodo()
+
 Deverá receber um objeto, com id sendo obrigatório, e titulo e status opcionais.
 Deverá procurar dentro do array, o index do array, onde o id da match com o id recebido, e fazer as alterações de titulo e/ou status.
 
-## removeTodo()
+## removeTodo() - Anderson Junior
+
 Deverá receber o id do "todo", e fazer um filtro, removendo o "todo", que que der match com o id passado.
 
-## listTodo()
+## listTodo() - Jéssica Santana
+
 Deverá listar todos os todos existentes, separando por tipo: "todo", "inProgress", "done".
 
 ## getTodoById()
+
 Devera receber o id do "todo", e retornar os dados detalhados dele.
 
-
 ## Observações extras:
+
 - Será feito uma função para gerar id's aleatórios únicos.
 - As funções deverão ser criadas em um arquivo js a parte, por ex: editTodo.js; e deverão ser exportadas no padrão module.exports (Seguir o padrão do arquivo de email disponibilizado).
 - Os status possíveis deverão ser seguidos.
