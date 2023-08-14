@@ -26,7 +26,7 @@ const days = {
   sabado: 6,
 };
 
-const DAY_TO_SEND_EMAIL = days.domingo;
+const DAY_TO_SEND_EMAIL = days.segunda;
 const now = new Date();
 
 const enviarEmail = require("./envia-email");
@@ -93,6 +93,8 @@ const emailBodyBuilder = (updates) => {
     return acc;
   }, "");
 
+  console.log("newVehiclesBody", typeof newVehiclesBody)
+
   const mostSentVehiclesBody = updates.mostSentVehicles.reduce((acc, value) => {
     acc += `  ${value.name}, ${value.acquireCondition} \n`;
 
@@ -112,12 +114,11 @@ const emailBodyBuilder = (updates) => {
 const emailBody = emailBodyBuilder(storeUpdates);
 
 const emailSender = ({ subject, clients, body }) => {
-  console.log("today", now.getDay());
   if (now.getDay() !== DAY_TO_SEND_EMAIL) return;
 
   clients.forEach((client) => {
     if (!client.receiveNotification) return;
-    console.log("enviar");
+
     enviarEmail(client.email, subject, body);
   });
 };
