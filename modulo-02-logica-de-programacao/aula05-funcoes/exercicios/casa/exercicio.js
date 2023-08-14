@@ -15,3 +15,115 @@
 
     Os passos acima são um guia, mas não obrigatórios. Podem desenvolver uma lógica diferente, que atenda ao solicitado.
 */
+
+const days = {
+  domingo: 0,
+  segunda: 1,
+  terca: 2,
+  quarta: 3,
+  quinta: 4,
+  sexta: 5,
+  sabado: 6,
+};
+
+const DAY_TO_SEND_EMAIL = days.domingo;
+const now = new Date();
+
+const enviarEmail = require("./envia-email");
+
+const storeUpdates = {
+  newVehicles: [
+    {
+      name: "Carro Novo 1",
+      acquireCondition:
+        "Oferta especial de financiamento: Taxa de juros reduzida a 1.9%",
+    },
+    {
+      name: "Carro Novo 2",
+      acquireCondition: "Leasing flexível: Opção de troca a cada 2 anos",
+    },
+  ],
+  mostSentVehicles: [
+    {
+      name: "Carro Popular A",
+      acquireCondition: "Desconto de 10% para pagamento à vista",
+    },
+    {
+      name: "SUV Premium B",
+      acquireCondition: "Financiamento em até 60 meses com entrada facilitada",
+    },
+  ],
+};
+
+const clients = [
+  {
+    email: "alice@example.com",
+    receiveNotification: true,
+  },
+  {
+    email: "bob_coolguy@example.com",
+    receiveNotification: false,
+  },
+  {
+    email: "charlie_autoenthusiast@example.com",
+    receiveNotification: true,
+  },
+  {
+    email: "daisy_carlover@example.com",
+    receiveNotification: true,
+  },
+  {
+    email: "emma_carshopper@example.com",
+    receiveNotification: false,
+  },
+  {
+    email: "frank_speeddemon@example.com",
+    receiveNotification: true,
+  },
+  {
+    email: "grace_drivehappy@example.com",
+    receiveNotification: true,
+  },
+];
+
+const emailBodyBuilder = (updates) => {
+  const newVehiclesBody = updates.newVehicles.reduce((acc, value) => {
+    acc += `${value.name}, ${value.acquireCondition} \n`;
+
+    return acc;
+  }, "");
+
+  const mostSentVehiclesBody = updates.mostSentVehicles.reduce((acc, value) => {
+    acc += `  ${value.name}, ${value.acquireCondition} \n`;
+
+    return acc;
+  }, "");
+
+  const emailBody = `
+  Carros Mais Vendidos \n
+  ${mostSentVehiclesBody} \n
+  Novos Carros \n
+  ${newVehiclesBody}
+  `;
+
+  return emailBody;
+};
+
+const emailBody = emailBodyBuilder(storeUpdates);
+
+const emailSender = ({ subject, clients, body }) => {
+  console.log("today", now.getDay());
+  if (now.getDay() !== DAY_TO_SEND_EMAIL) return;
+
+  clients.forEach((client) => {
+    if (!client.receiveNotification) return;
+    console.log("enviar");
+    enviarEmail(client.email, subject, body);
+  });
+};
+
+emailSender({
+  subject: "Nenhum",
+  body: emailBody,
+  clients,
+});
