@@ -1,3 +1,5 @@
-const removeTodo = () => {}
+const { todos } = require("./main");
 
-module.exports = removeTodo
+const removeTodo = () => {};
+
+module.exports = { removeTodo };

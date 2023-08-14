@@ -1,3 +1,5 @@
-const getTodoById = () => {}
+const { todos } = require("./main");
 
-module.exports = getTodoById
+const getTodoById = () => {};
+
+module.exports = { getTodoById };

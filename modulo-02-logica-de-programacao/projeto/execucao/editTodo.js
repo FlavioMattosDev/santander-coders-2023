@@ -1,3 +1,5 @@
-const editTodo = () => {}
+const { todos } = require("./main");
 
-module.exports = editTodo
+const editTodo = () => {};
+
+module.exports = { editTodo };
