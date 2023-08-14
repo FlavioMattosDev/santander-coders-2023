@@ -61,7 +61,7 @@ const getTodoById = () => {};
 
 Deverá receber um objeto, contendo o id, title e status, e adicionar ao final do array de todos, esse novo objeto.
 
-## editTodo()
+## editTodo() - Georg Matheus
 
 Deverá receber um objeto, com id sendo obrigatório, e titulo e status opcionais.
 Deverá procurar dentro do array, o index do array, onde o id da match com o id recebido, e fazer as alterações de titulo e/ou status.
