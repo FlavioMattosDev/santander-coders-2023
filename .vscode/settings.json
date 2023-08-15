@@ -1,6 +1,6 @@
 {
   "liveServer.settings.multiRootWorkspaceName": "lms",
-  "cSpell.words": ["numeros", "sabado", "swiper", "terca"],
+  "cSpell.words": ["fibonacci", "numeros", "sabado", "swiper", "terca"],
   "workbench.colorCustomizations": {
     "activityBar.activeBackground": "#1a1a1a",
     "activityBar.background": "#1a1a1a",

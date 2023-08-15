@@ -1,7 +1,3 @@
----
-marp: true
----
-
 # Lógica de Programação - Projeto final
 
 ## O que?
@@ -35,13 +31,11 @@ const todos = [
   {
     id: "1",
     title: "Fazer algo",
+    description: "",
+    createdAt: new Date(),
+    expectedConclusion: "",
     status: "todo",
-  },
-  {
-    id: "2",
-    title: "Fazer algo",
-    status: "todo",
-  },
+  }
 ];
 
 const possibleStatus = ["todo", "inProgress", "done"];
@@ -50,33 +44,43 @@ const possibleStatus = ["todo", "inProgress", "done"];
 ### Funções que serão criadas
 
 ```javascript
-const addTodo = () => {};
-const editTodo = () => {};
-const removeTodo = () => {};
-const listTodo = () => {};
-const getTodoById = () => {};
+const addTask = () => {};
+const editTask = () => {};
+const removeTask = () => {};
+const listTasks = () => {};
+const getTaskById = () => {};
+const listTasksByStatusType = () => {};
 ```
 
-## addTodo() - Leandro
+## addTask() - Jéssica Santana
 
-Deverá receber um objeto, contendo o id, title e status, e adicionar ao final do array de todos, esse novo objeto.
+- Deverá receber um objeto, contendo o title, description e expectedConclusion, e adicionar ao final do array de todos, esse novo objeto.
+- Deverá gerar um id aleatório, com base na função generateRandomId
+- Deverá gerar um createdAt automático
+- Deverá colocar o valor inicial do status como "todo"
 
-## editTodo() - Georg Matheus
+## editTask() - Georg Matheus
 
-Deverá receber um objeto, com id sendo obrigatório, e titulo e status opcionais.
-Deverá procurar dentro do array, o index do array, onde o id da match com o id recebido, e fazer as alterações de titulo e/ou status.
+- Deverá receber um objeto, com id sendo obrigatório, e titulo e status opcionais.
+- Deverá procurar dentro do array, o index do array, onde o id da match com o id recebido, e fazer as alterações de title, description, expectedConclusion,e status.
+- Deverá validar se o status passado é "todo" || "inProgress" || "done
+- Se não for passado nenhum campo, retorne sem fazer nada
 
-## removeTodo() - Anderson Junior
+## removeTask() - Anderson Junior
 
-Deverá receber o id do "todo", e fazer um filtro, removendo o "todo", que que der match com o id passado.
+- Deverá receber o id da task, e fazer um filtro, removendo a task, que que der match com o id passado.
 
-## listTodo() - Jéssica Santana
+## listTasks() - Leandro
 
-Deverá listar todos os todos existentes, separando por tipo: "todo", "inProgress", "done".
+- Deverá listar todas as tasks existentes, separando por tipo: ("todo" || "inProgress" || "done").
 
-## getTodoById()
+## getTaskById() José Flávio
 
-Devera receber o id do "todo", e retornar os dados detalhados dele.
+- Devera receber o id do "todo", e retornar os dados detalhados dele.
+
+## listTasksByStatusType - Alan Junqueira
+
+- Deverá listar todas as tasks existentes, com o tipo: ("todo" || "inProgress" || "done") especificado.
 
 ## Observações extras:
 
