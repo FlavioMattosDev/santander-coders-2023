@@ -8,5 +8,3 @@ import { listTasksByType } from "./listTasksByStatusType.js";
 import { generateRandomId } from "./generateRandomId.js";
 
 console.log(generateRandomId());
-
-console.log(listTasksByType("inProgress"));
