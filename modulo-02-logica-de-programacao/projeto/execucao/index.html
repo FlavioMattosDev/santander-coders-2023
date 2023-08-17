@@ -1,12 +1,66 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Todo List</title>
+
+    <link rel="stylesheet" href="./assets/css/style.css" />
+    <script src="./assets/js/components/task.js" defer></script>
+    <script src="./assets/js/components/taskCollumn.js" defer></script>
   </head>
   <body>
-    <p>teste</p>
+    <!-- alterar display none para flex no css  -->
+    <div class="registerTaskModal">
+      <div class="registerTask">
+        <div class="registerTaskTitle">Register / Edit</div>
+        <form class="registerTaskContent" action="submit">
+          <label for="taskName">Nome</label>
+          <input id="taskName" type="text" />
+          <label for="taskName">Description</label>
+          <textarea name="" id="" cols="10" rows="4"></textarea>
+          <label for="taskName">Expected Conclusion</label>
+          <input id="taskName" type="date" />
+        </form>
+        <button>Register</button>
+      </div>
+    </div>
+
+    <header>
+      <h1>To Do App</h1>
+    </header>
+
+    <section class="taskSection">
+      <div class="tasksHeader">
+        <h2>Tasks</h2>
+        <button>Add Task +</button>
+      </div>
+
+      <div class="tasksContainer">
+        <task-collumn name="To Do"
+          ><individual-task
+            name="Testando titulo"
+            description="Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea maiores ipsam deleniti."
+          ></individual-task
+        ></task-collumn>
+        <task-collumn name="In Progress"
+          ><individual-task
+            name="Testando titulo"
+            description="Lorem ipsum dolor"
+          ></individual-task
+        ></task-collumn>
+        <task-collumn name="Done"
+          ><individual-task
+            name="Testando titulo"
+            description="Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea maiores ipsam deleniti. Deserunt accusantium voluptatum ex reiciendis ducimus consequatur repellendus cumque ipsam eaque iste. Obcaecati deserunt quas at molestiae dignissimos!"
+          ></individual-task>
+          <individual-task
+            name="Testando titulo"
+            description="Lorem ipsum dolor sit amet consectetur adipisicing elit."
+          ></individual-task
+        ></task-collumn>
+      </div>
+    </section>
 
     <script type="module" src="./assets/js/main.js"></script>
   </body>
