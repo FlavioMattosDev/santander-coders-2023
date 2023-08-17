@@ -31,4 +31,8 @@ export const tasks = [
   },
 ];
 
-export const possibleStatus = ["todo", "inProgress", "done"]
+export const possibleStatus = {
+  TODO: "todo",
+  IN_PROGRESS: "inProgress",
+  DONE: "done"
+}
