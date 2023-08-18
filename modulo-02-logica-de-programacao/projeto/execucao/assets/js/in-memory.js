@@ -54,3 +54,11 @@ export const possibleStatus = {
   IN_PROGRESS: "inProgress",
   DONE: "done"
 }
+
+export class TaskIdNotFound extends Error {
+  constructor(taskId) {
+    super(`Task with ID ${taskId} was not found.`);
+    this.name = "TaskIdNotFound";
+    this.taskId = taskId;
+  }
+}
