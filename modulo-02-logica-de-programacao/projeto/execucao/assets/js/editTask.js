@@ -1,4 +1,4 @@
-import {TaskIdNotFound, tasks} from "./in-memory";
+import {TaskIdNotFound, tasks} from "./in-memory.js";
 
 export const editTask = (taskToBeSaved) => {
     const task = tasks.find(task => task.id === taskToBeSaved.id)

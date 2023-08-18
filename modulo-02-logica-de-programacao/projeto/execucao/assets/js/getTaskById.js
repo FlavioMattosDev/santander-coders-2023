@@ -1,4 +1,4 @@
-import { tasks } from "./in-memory";
+import { tasks } from "./in-memory.js";
 
 export const getTaskById = (taskId) => {
 	try {

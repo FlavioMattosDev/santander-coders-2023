@@ -6,12 +6,13 @@
     <title>Todo List</title>
 
     <link rel="stylesheet" href="./assets/css/style.css" />
+    <link rel="stylesheet" href="./assets/css/utils.css" />
     <script src="./assets/js/components/task.js" defer></script>
     <script src="./assets/js/components/taskCollumn.js" defer></script>
   </head>
   <body>
     <!-- alterar display none para flex no css  -->
-    <div class="registerTaskModal">
+    <div class="registerTaskModal hidden">
       <div class="registerTask">
         <div class="registerTaskTitle">Register / Edit</div>
         <form class="registerTaskContent" action="submit">
@@ -22,7 +23,7 @@
           <label for="taskName">Expected Conclusion</label>
           <input id="taskName" type="date" />
         </form>
-        <button>Register</button>
+        <button class="register-task_button">Register</button>
       </div>
     </div>
 
@@ -33,7 +34,7 @@
     <section class="taskSection">
       <div class="tasksHeader">
         <h2>Tasks</h2>
-        <button>Add Task +</button>
+        <button class="add-task_button">Add Task +</button>
       </div>
 
       <div class="tasksContainer">
