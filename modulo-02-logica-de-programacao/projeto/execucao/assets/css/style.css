@@ -86,6 +86,7 @@ header {
 }
 
 .registerTaskModal {
+  display: none;
   position: fixed;
   align-items: center;
   justify-content: center;
