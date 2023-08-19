@@ -5,5 +5,5 @@ export const removeTask = (removeID) => {
   if (taskIndex === -1) return "ID Inválido";
   const taskApagada = tasks.at(taskIndex);
   tasks.splice(taskIndex, 1);
-  return `Task Apagada: ${taskApagada}`;
+  return `Task Apagada: ${taskApagada.title}`;
 };

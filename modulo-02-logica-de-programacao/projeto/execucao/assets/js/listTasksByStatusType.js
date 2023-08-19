@@ -1,7 +1,10 @@
 import { tasks, possibleStatus } from "./in-memory.js";
 
 export const listTasksByType = (status) => {
-  if (!possibleStatus.hasOwnProperty(upperCaseStatus)) {
+  if (
+    !(status === "inProgress") &&
+    !possibleStatus.hasOwnProperty(status.toUpperCase())
+  ) {
     const possibleStatusList = Object.keys(possibleStatus).reduce(
       (acc, val) => acc.concat(` ${val}`),
       ""
@@ -10,5 +13,7 @@ export const listTasksByType = (status) => {
     return `Status incorreto, status possíveis:${possibleStatusList}`;
   }
 
-  return tasks.filter((task) => task.status === status.toLowerCase());
+  return tasks.filter(
+    (task) => task.status.toLowerCase() === status.toLowerCase()
+  );
 };
