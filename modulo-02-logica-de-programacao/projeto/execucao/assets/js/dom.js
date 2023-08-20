@@ -1,3 +1,5 @@
+import { addTask } from "./addTask.js";
+
 const addTaskButton = document.querySelector("button.add-task_button");
 const registerButtonModal = document.querySelector(
   "button.register-task_button"
@@ -15,16 +17,35 @@ const toggleModal = (e) => {
 };
 
 addTaskButton.addEventListener("click", toggleModal);
-registerButtonModal.addEventListener("click", toggleModal);
+// registerButtonModal.addEventListener("click", toggleModal);
 registerTaskOverlay.addEventListener("click", toggleModal);
 
 // const teste = document.querySelectorAll("individual-task");
 
 document.addEventListener("keydown", (e) => {
-  console.log(e.key);
   const isModalOpen = registerTaskModal.classList.contains("flex");
 
   if (e.key.toLowerCase() === "escape" && isModalOpen) {
     toggleModal();
   }
 });
+
+const registerTaskForm = document.querySelector("form.register-task_form");
+
+registerTaskForm.addEventListener("submit", (e) => {
+  e.preventDefault();
+
+  const formData = new FormData(registerTaskForm);
+  const formValues = Object.fromEntries(formData.entries());
+
+  const formDescription = formValues["description"];
+  const formExpectedConclusion = formValues["expectedConclusion"];
+  const formTitle = formValues["title"];
+
+  if (!formDescription || !formExpectedConclusion || !formTitle) {
+    return alert("Preencha todos os dados do formulário!");
+  }
+
+  addTask(formValues);
+});
+

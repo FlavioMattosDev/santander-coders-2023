@@ -16,15 +16,15 @@
       <div class="register-modal_overlay"></div>
       <div class="registerTask">
         <div class="registerTaskTitle">Register / Edit</div>
-        <form class="registerTaskContent" action="submit">
+        <form class="registerTaskContent register-task_form" action="submit">
           <label for="taskName">Nome</label>
-          <input id="taskName" type="text" />
-          <label for="taskName">Description</label>
-          <textarea name="" id="" cols="10" rows="4"></textarea>
+          <input id="taskName" type="text" name="title" />
+          <label for="taskName">Descrição</label>
+          <textarea cols="10" rows="4" name="description"></textarea>
           <label for="taskName">Expected Conclusion</label>
-          <input id="taskName" type="date" />
+          <input id="taskName" type="date" name="expectedConclusion" />
+          <button class="register-task_button" type="submit">Register</button>
         </form>
-        <button class="register-task_button">Register</button>
       </div>
     </div>
 

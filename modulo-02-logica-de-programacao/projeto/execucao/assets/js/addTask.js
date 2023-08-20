@@ -20,7 +20,7 @@ export const addTask = ({ title, description, expectedConclusion }) => {
     };
 
     tasks.push(task);
-    return task
+    return task;
   } catch (error) {
     return error.message;
   }
