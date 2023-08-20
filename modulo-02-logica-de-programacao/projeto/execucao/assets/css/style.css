@@ -91,7 +91,6 @@ header {
   justify-content: center;
   width: 100vw;
   height: 100vh;
-  background-color: #00000064;
 }
 
 .registerTask {
@@ -146,4 +145,11 @@ textarea:focus {
 
 .registerTask > button:hover {
   background-color: rgba(0, 123, 255, 0.927);
+}
+
+div.register-modal_overlay {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background: rgba(0, 0, 0, 0.7);
 }
