@@ -1,4 +1,5 @@
 import { addTask } from "./addTask.js";
+import { listTasksByType } from "./listTasksByStatusType.js";
 
 const addTaskButton = document.querySelector("button.add-task_button");
 const registerButtonModal = document.querySelector(
@@ -30,38 +31,63 @@ document.addEventListener("keydown", (e) => {
   }
 });
 
-const registerTaskForm = document.querySelector("form.register-task_form");
+const tableTodo = document.querySelector("#toDo");
+const tableInProgress = document.querySelector("#inProgress");
+const tableDone = document.querySelector("#done");
 
-registerTaskForm.addEventListener("submit", (e) => {
-  e.preventDefault();
+const taskCreation = ({ task, type }) => {
+  const todoTask = document.createElement("individual-task");
+  todoTask.setAttribute("name", task.title);
+  todoTask.setAttribute("description", task.description);
+  todoTask.setAttribute("taskId", task.id);
 
-  const formData = new FormData(registerTaskForm);
-  const formValues = Object.fromEntries(formData.entries());
-
-  const formDescription = formValues["description"];
-  const formExpectedConclusion = formValues["expectedConclusion"];
-  const formTitle = formValues["title"];
-
-  if (!formDescription || !formExpectedConclusion || !formTitle) {
-    return alert("Preencha todos os dados do formulário!");
+  switch (type) {
+    case "done":
+      tableDone.appendChild(todoTask);
+      break;
+    case "inProgress":
+      tableInProgress.appendChild(todoTask);
+      break;
+    default:
+      tableTodo.appendChild(todoTask);
   }
+};
 
-  addTask(formValues);
-  toggleModal();
-});
+const tasksByTypeTodo = listTasksByType("todo");
+const tasksByTypeDone = listTasksByType("done");
+const tasksByTypeInProgress = listTasksByType("inProgress");
 
+const tasksListCreation = () => {
+  tasksByTypeTodo.forEach((task) => {
+    taskCreation({ task, type: "todo" });
+  });
 
-const tasks = document.querySelectorAll(".task");
-const allStatus = document.querySelectorAll(".tasksCollumn");
+  tasksByTypeDone.forEach((task) => {
+    taskCreation({ task, type: "done" });
+  });
+
+  tasksByTypeInProgress.forEach((task) => {
+    taskCreation({ task, type: "inProgress" });
+  });
+};
+
+tasksListCreation();
+
+let tasks;
+const allStatus = document.querySelectorAll(".taskColumn");
 let draggableTask = null;
 
-tasks.forEach((task) => {
-  task.addEventListener("dragstart", dragStart);
-  task.addEventListener("dragend", dragEnd);
-});
+setInterval(() => {
+  tasks = document.querySelectorAll(".task");
+  tasks.forEach((task) => {
+    task.addEventListener("dragstart", dragStart);
+    task.addEventListener("dragend", dragEnd);
+  });
+}, 1000);
 
 function dragStart() {
   draggableTask = this;
+  console.log(draggableTask);
   setTimeout(() => {
     this.style.display = "none";
     this.style.opacity = "1";
@@ -89,13 +115,33 @@ function dragEnter() {}
 function dragLeave() {}
 
 function dragDrop() {
+  console.log(draggableTask)
   this.appendChild(draggableTask);
 }
 
-// TASKS LIST
+const registerTaskForm = document.querySelector("form.register-task_form");
 
-const taskColumn = document.createElement("div");
-const taskColumnTitle = document.createElement("h2");
+registerTaskForm.addEventListener("submit", (e) => {
+  e.preventDefault();
 
-taskColumn.setAttribute("class", "task-column")
+  const formData = new FormData(registerTaskForm);
+  const formValues = Object.fromEntries(formData.entries());
 
+  const formDescription = formValues["description"];
+  const formExpectedConclusion = formValues["expectedConclusion"];
+  const formTitle = formValues["title"];
+
+  if (!formDescription || !formExpectedConclusion || !formTitle) {
+    return alert("Preencha todos os dados do formulário!");
+  }
+
+  const createdTask = addTask(formValues);
+  toggleModal();
+
+  console.log("createdTask", createdTask)
+
+  taskCreation({
+    task: createdTask,
+    type: "todo",
+  });
+});

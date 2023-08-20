@@ -1,4 +1,4 @@
-class TaskCollumn extends HTMLElement {
+class TaskColumn extends HTMLElement {
   constructor() {
     super();
 
@@ -8,21 +8,17 @@ class TaskCollumn extends HTMLElement {
 
   build() {
     const componentRoot = document.createElement("div");
-    componentRoot.setAttribute("class", "tasksCollumn");
+    componentRoot.setAttribute("class", "taskColumn");
 
     const name = this.getAttribute("name");
 
     componentRoot.setAttribute("id", this.getAttribute("htmlID"));
 
-    const collumnName = document.createElement("p");
-    collumnName.setAttribute("class", "collumnName");
-    collumnName.innerText = name;
+    const columnName = document.createElement("p");
+    columnName.setAttribute("class", "columnName");
+    columnName.innerText = name;
 
-    // const collumnContent = document.createElement("div");
-    // collumnContent.innerHTML = this.innerHTML;
-
-    componentRoot.appendChild(collumnName);
-    // componentRoot.appendChild(collumnContent);
+    componentRoot.appendChild(columnName);
 
     return componentRoot;
   }
@@ -36,8 +32,8 @@ class TaskCollumn extends HTMLElement {
       border: 0;
       box-sizing: border-box;
     }
-    
-    .tasksCollumn {
+
+    .taskColumn {
       background-color: #ebecf0;
       border-radius: 3px;
       padding: 10px;
@@ -49,19 +45,19 @@ class TaskCollumn extends HTMLElement {
       max-height: 450px;
       overflow-y: auto;
     }
-    
-    @media screen and (max-width: 700px) {      
-      .tasksCollumn {
+
+    @media screen and (max-width: 700px) {
+      .taskColumn {
         min-width: 350px;
         margin-bottom: 10px;
       }
     }
 
-    .tasksCollumn::-webkit-scrollbar {
+    .taskColumn::-webkit-scrollbar {
       width: 0px;
     }
-    
-    .collumnName {
+
+    .columnName {
       font-size: 18px;
       font-weight: 500;
       margin-bottom: 10px;
@@ -72,4 +68,4 @@ class TaskCollumn extends HTMLElement {
   }
 }
 
-customElements.define("task-collumn", TaskCollumn);
+customElements.define("task-column", TaskColumn);

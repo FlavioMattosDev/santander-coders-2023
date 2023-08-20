@@ -11,11 +11,15 @@ class Task extends HTMLElement {
   build() {
     const name = this.getAttribute("name");
     const description = this.getAttribute("description");
+    const id = this.getAttribute("taskId");
     // const deleteButtonFunction = this.getAttribute(deleteButtonFunction)
 
     const componentRoot = document.createElement("div");
     componentRoot.setAttribute("class", "task");
     componentRoot.setAttribute("draggable", "true");
+    if(id){
+      componentRoot.setAttribute("id", id);
+    }
 
     const taskHeader = document.createElement("div");
     taskHeader.setAttribute("class", "taskHeader");
