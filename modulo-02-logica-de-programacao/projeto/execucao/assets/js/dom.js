@@ -50,8 +50,52 @@ registerTaskForm.addEventListener("submit", (e) => {
   toggleModal();
 });
 
+
+const tasks = document.querySelectorAll(".task");
+const allStatus = document.querySelectorAll(".tasksCollumn");
+let draggableTask = null;
+
+tasks.forEach((task) => {
+  task.addEventListener("dragstart", dragStart);
+  task.addEventListener("dragend", dragEnd);
+});
+
+function dragStart() {
+  draggableTask = this;
+  setTimeout(() => {
+    this.style.display = "none";
+    this.style.opacity = "1";
+  }, 0);
+}
+
+function dragEnd() {
+  draggableTask = null;
+  this.style.display = "flex";
+}
+
+allStatus.forEach((status) => {
+  status.addEventListener("dragover", dragOver);
+  status.addEventListener("dragenter", dragEnter);
+  status.addEventListener("dragleave", dragLeave);
+  status.addEventListener("drop", dragDrop);
+});
+
+function dragOver(e) {
+  e.preventDefault();
+}
+
+function dragEnter() {}
+
+function dragLeave() {}
+
+function dragDrop() {
+  this.appendChild(draggableTask);
+}
+
 // TASKS LIST
+
 const taskColumn = document.createElement("div");
 const taskColumnTitle = document.createElement("h2");
 
 taskColumn.setAttribute("class", "task-column")
+

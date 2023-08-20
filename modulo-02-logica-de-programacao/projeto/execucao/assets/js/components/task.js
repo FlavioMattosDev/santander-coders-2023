@@ -1,10 +1,11 @@
 class Task extends HTMLElement {
   constructor() {
     super();
+  }
 
-    const shadow = this.attachShadow({ mode: "open" });
-    shadow.appendChild(this.build());
-    shadow.appendChild(this.style());
+  connectedCallback() {
+    this.appendChild(this.build());
+    this.appendChild(this.style());
   }
 
   build() {
@@ -14,6 +15,7 @@ class Task extends HTMLElement {
 
     const componentRoot = document.createElement("div");
     componentRoot.setAttribute("class", "task");
+    componentRoot.setAttribute("draggable", "true");
 
     const taskHeader = document.createElement("div");
     taskHeader.setAttribute("class", "taskHeader");
@@ -74,7 +76,7 @@ class Task extends HTMLElement {
     padding: 5px;
     margin-bottom: 5px;
     border-radius: 3px;
-    cursor: pointer;
+    cursor: grab;
   }
 
   .taskHeader {
