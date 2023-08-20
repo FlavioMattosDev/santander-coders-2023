@@ -47,5 +47,11 @@ registerTaskForm.addEventListener("submit", (e) => {
   }
 
   addTask(formValues);
+  toggleModal();
 });
 
+// TASKS LIST
+const taskColumn = document.createElement("div");
+const taskColumnTitle = document.createElement("h2");
+
+taskColumn.setAttribute("class", "task-column")
