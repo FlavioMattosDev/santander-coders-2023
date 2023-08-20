@@ -1,0 +1,28 @@
+.task-column {
+  background-color: #ebecf0;
+  border-radius: 3px;
+  padding: 10px;
+  width: 30vw;
+  min-width: 250px;
+  max-width: 350px;
+  margin-inline: 5px;
+  max-height: 450px;
+  overflow-y: auto;
+}
+
+@media (max-width: 700px) {
+  .task-column {
+    min-width: 350px;
+    margin-bottom: 10px;
+  }
+}
+
+.task-column::-webkit-scrollbar {
+  width: 0px;
+}
+
+.task-column h2 {
+  font-size: 18px;
+  font-weight: 500;
+  margin-bottom: 10px;
+}

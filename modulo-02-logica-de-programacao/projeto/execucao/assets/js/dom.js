@@ -47,7 +47,9 @@ registerTaskForm.addEventListener("submit", (e) => {
   }
 
   addTask(formValues);
+  toggleModal();
 });
+
 
 const tasks = document.querySelectorAll(".task");
 const allStatus = document.querySelectorAll(".tasksCollumn");
@@ -89,3 +91,11 @@ function dragLeave() {}
 function dragDrop() {
   this.appendChild(draggableTask);
 }
+
+// TASKS LIST
+
+const taskColumn = document.createElement("div");
+const taskColumnTitle = document.createElement("h2");
+
+taskColumn.setAttribute("class", "task-column")
+
