@@ -2,9 +2,8 @@ class TaskCollumn extends HTMLElement {
   constructor() {
     super();
 
-    const shadow = this.attachShadow({ mode: "open" });
-    shadow.appendChild(this.build());
-    shadow.appendChild(this.style());
+    this.appendChild(this.build());
+    this.appendChild(this.style());
   }
 
   build() {
@@ -13,15 +12,17 @@ class TaskCollumn extends HTMLElement {
 
     const name = this.getAttribute("name");
 
+    componentRoot.setAttribute("id", this.getAttribute("htmlID"));
+
     const collumnName = document.createElement("p");
     collumnName.setAttribute("class", "collumnName");
     collumnName.innerText = name;
 
-    const collumnContent = document.createElement("div");
-    collumnContent.innerHTML = this.innerHTML;
+    // const collumnContent = document.createElement("div");
+    // collumnContent.innerHTML = this.innerHTML;
 
     componentRoot.appendChild(collumnName);
-    componentRoot.appendChild(collumnContent);
+    // componentRoot.appendChild(collumnContent);
 
     return componentRoot;
   }
