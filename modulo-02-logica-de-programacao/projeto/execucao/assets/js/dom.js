@@ -81,6 +81,9 @@ let draggableTask = null;
 setInterval(() => {
   tasks = document.querySelectorAll(".task");
   tasks.forEach((task) => {
+    task.removeEventListener("dragstart", dragStart);
+    task.removeEventListener("dragend", dragEnd);
+
     task.addEventListener("dragstart", dragStart);
     task.addEventListener("dragend", dragEnd);
   });
@@ -111,12 +114,12 @@ function dragOver(e) {
   e.preventDefault();
 }
 
-function dragEnter() { }
+function dragEnter() {}
 
-function dragLeave() { }
+function dragLeave() {}
 
 function dragDrop() {
-  console.log(draggableTask)
+  console.log(draggableTask);
   this.appendChild(draggableTask);
 }
 
@@ -139,29 +142,41 @@ registerTaskForm.addEventListener("submit", (e) => {
   const createdTask = addTask(formValues);
   toggleModal();
 
-  console.log("createdTask", createdTask)
+  console.log("createdTask", createdTask);
 
   taskCreation({
     task: createdTask,
     type: "todo",
   });
+
+  const novaTask = document.getElementById(createdTask.id);
+  const novaTaskParent = novaTask.parentElement;
+
+  const deleteButton = novaTaskParent.querySelector(
+    'button[title="Delete Task"]'
+  );
+
+  deleteButton.addEventListener("click", () => {
+    const taskId = novaTaskParent.getAttribute("taskId");
+    novaTaskParent.classList.add("hidden");
+
+    const result = removeTask(taskId);
+    console.log(result);
+  });
 });
 
-//deleção de tarefas
+document.addEventListener("DOMContentLoaded", () => {
+  const tarefas = document.querySelectorAll("individual-task");
 
-document.addEventListener('DOMContentLoaded', () => {
-  // Seleciona todos os elementos 'individual-task'
-  const tarefas = document.querySelectorAll('individual-task');
-
-  // Adiciona um ouvinte de eventos a cada elemento 'individual-task'
   tarefas.forEach(function (tarefa) {
-    tarefa.querySelector('button[title="Delete Task"]').addEventListener('click', () => {
-      // Obtém o valor do atributo "taskId"
-      const taskId = tarefa.getAttribute('taskId');
+    tarefa
+      .querySelector('button[title="Delete Task"]')
+      .addEventListener("click", () => {
+        const taskId = tarefa.getAttribute("taskId");
 
-      tarefa.classList.add('hidden');
-      const result = removeTask(taskId);
-      console.log(result);
-    });
+        tarefa.classList.add("hidden");
+        const result = removeTask(taskId);
+        console.log(result);
+      });
   });
 });
