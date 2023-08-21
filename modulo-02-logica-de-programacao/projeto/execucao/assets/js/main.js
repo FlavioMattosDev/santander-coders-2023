@@ -19,7 +19,7 @@ console.log("addTask: ", addedTask);
 
 const taskCreation = listTasks();
 
-const createdTask = listTasks().todo.at(-1);
+const createdTask = taskCreation.todo.at(-1);
 
 console.log("listTasks after creation", taskCreation);
 
@@ -29,6 +29,14 @@ const taskEditionInvalid = editTask({
   expectedConclusion: new Date(),
   status: "fasfsd",
   id: createdTask.id,
+});
+
+const taskEditionInvalidId = editTask({
+  title: "Titulo editado",
+  description: "Descrição Editada",
+  expectedConclusion: new Date(),
+  status: possibleStatus.IN_PROGRESS,
+  id: "fasdfsadfdas",
 });
 
 const taskEdition = editTask({
@@ -41,22 +49,29 @@ const taskEdition = editTask({
 
 console.log("editTask status inválido: ", taskEditionInvalid);
 console.log("editTask status correto: ", taskEdition);
+console.log("editTask di inválido: ", taskEditionInvalidId);
 
 const taskAfterUpdate = listTasks();
 
 console.log("taskAfterUpdate", taskAfterUpdate);
 
 const getTaskByIdResult = getTaskById(addedTask.id);
+const getTaskByIdResultInvalidId = getTaskById("afsdsafsda");
 
 console.log("getTaskById: ", getTaskByIdResult);
+console.log("getTaskById: ", getTaskByIdResultInvalidId);
 
 const removeTaskResult = removeTask(addedTask.id);
 
 console.log("removeTaskResult", removeTaskResult);
 
+const listTasksAfterRemove = listTasks();
+
+console.log("listTasksAfterRemove", listTasksAfterRemove);
+
 for (let i = 0; i < 10; i++) {
   addTask({
-    title: "addTask",
+    title: `addTask ${i + 1}`,
     description: "task added",
     expectedConclusion: new Date(),
   });
@@ -72,7 +87,7 @@ for (let i = 0; i < 10; i++) {
         : inProgresses.includes(i)
         ? possibleStatus.IN_PROGRESS
         : possibleStatus.DONE
-    }`,
+    }${i}`,
     description: "Descrição Editada",
     expectedConclusion: new Date(),
     status: todos.includes(i)
@@ -85,3 +100,13 @@ for (let i = 0; i < 10; i++) {
 }
 
 console.log(listTasks());
+
+const doneTaskList = listTasksByType("done")
+const todoTaskList = listTasksByType("todo")
+const inProgressTaskList = listTasksByType("inProgress")
+const inProgressTaskListWrong = listTasksByType("inProgressTaskListWrong")
+
+console.log("doneTaskList", doneTaskList)
+console.log("todoTaskList", todoTaskList)
+console.log("inProgressTaskList", inProgressTaskList)
+console.log("inProgressTaskListWrong", inProgressTaskListWrong)

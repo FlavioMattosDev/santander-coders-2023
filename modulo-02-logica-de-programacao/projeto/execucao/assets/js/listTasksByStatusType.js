@@ -2,10 +2,10 @@ import { tasks, possibleStatus } from "./in-memory.js";
 
 export const listTasksByType = (status) => {
   if (
-    !(status === "inProgress") &&
+    (status !== "inProgress") &&
     !possibleStatus.hasOwnProperty(status.toUpperCase())
   ) {
-    const possibleStatusList = Object.keys(possibleStatus).reduce(
+    const possibleStatusList = Object.values(possibleStatus).reduce(
       (acc, val) => acc.concat(` ${val}`),
       ""
     );

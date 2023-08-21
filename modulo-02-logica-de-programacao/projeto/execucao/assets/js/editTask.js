@@ -1,20 +1,4 @@
-import { TaskIdNotFound, tasks, isValidStatus } from "./in-memory.js";
-
-// export const editTask = (taskToBeSaved) => {
-//   const task = tasks.find((task) => task.id === taskToBeSaved.id);
-
-//   if (!task) throw new TaskIdNotFound(taskToBeSaved.id);
-
-//   for (const key in task) {
-//     if (isUpdatableKey(key) && isNotNullish(task[key])) {
-//       task[key] = taskToBeSaved[key];
-//     }
-//   }
-// };
-
-const isNotNullish = (value) => value != null;
-
-// const isUpdatableKey = (key) => key !== "id" && key !== "createdAt";
+import { tasks, isValidStatus } from "./in-memory.js";
 
 export const editTask = (taskToBeSaved) => {
   if (!isValidStatus(taskToBeSaved.status)) return "Status incorreto";
@@ -37,5 +21,20 @@ export const editTask = (taskToBeSaved) => {
     ...updatedProperties,
   };
 
-  return "Task editada"
+  return "Task editada";
 };
+
+const isNotNullish = (value) => value != null;
+
+// export const editTask = (taskToBeSaved) => {
+//   const task = tasks.find((task) => task.id === taskToBeSaved.id);
+
+//   if (!task) throw new TaskIdNotFound(taskToBeSaved.id);
+
+//   for (const key in task) {
+//     if (isUpdatableKey(key) && isNotNullish(task[key])) {
+//       task[key] = taskToBeSaved[key];
+//     }
+//   }
+// };
+// const isUpdatableKey = (key) => key !== "id" && key !== "createdAt";
