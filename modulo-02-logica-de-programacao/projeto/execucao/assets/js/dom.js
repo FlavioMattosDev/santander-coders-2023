@@ -1,5 +1,6 @@
 import { addTask } from "./addTask.js";
 import { listTasksByType } from "./listTasksByStatusType.js";
+import { removeTask } from "./removeTask.js";
 
 const addTaskButton = document.querySelector("button.add-task_button");
 const registerButtonModal = document.querySelector(
@@ -110,9 +111,9 @@ function dragOver(e) {
   e.preventDefault();
 }
 
-function dragEnter() {}
+function dragEnter() { }
 
-function dragLeave() {}
+function dragLeave() { }
 
 function dragDrop() {
   console.log(draggableTask)
@@ -143,5 +144,24 @@ registerTaskForm.addEventListener("submit", (e) => {
   taskCreation({
     task: createdTask,
     type: "todo",
+  });
+});
+
+//deleção de tarefas
+
+document.addEventListener('DOMContentLoaded', () => {
+  // Seleciona todos os elementos 'individual-task'
+  const tarefas = document.querySelectorAll('individual-task');
+
+  // Adiciona um ouvinte de eventos a cada elemento 'individual-task'
+  tarefas.forEach(function (tarefa) {
+    tarefa.querySelector('button[title="Delete Task"]').addEventListener('click', () => {
+      // Obtém o valor do atributo "taskId"
+      const taskId = tarefa.getAttribute('taskId');
+
+      tarefa.classList.add('hidden');
+      const result = removeTask(taskId);
+      console.log(result);
+    });
   });
 });
