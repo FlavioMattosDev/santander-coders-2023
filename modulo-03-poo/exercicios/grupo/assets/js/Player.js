@@ -1,14 +1,13 @@
-import { Entity } from "./Entity"
+import { Entity } from "./Entity.js";
 
 export class Player extends Entity {
-  #actualLife
-  #maxLife
-  #attack
-  #defense
+  #actualLife;
+  #maxLife;
+  #attack;
+  #defense;
 
-
-  set actualLife(actualLife){
-    this.#actualLife = actualLife
+  set actualLife(actualLife) {
+    this.#actualLife = actualLife;
   }
   // set maxLife(){
 
@@ -20,25 +19,17 @@ export class Player extends Entity {
 
   // }
 
-  get actualLife(){
-    return this.#actualLife
+  get actualLife() {
+    return this.#actualLife;
   }
-  get maxLife(){
+  get maxLife() {}
+  get attack() {}
+  get defense() {}
 
-  }
-  get attack(){
-
-  }
-  get defense(){
-
-  }
-
-  init(){
-
-  }
+  init() {}
 }
 
-const player = new Player()
-player.name = "aaaaa"
+const player = new Player();
+player.name = "aaaaa";
 
-console.log(player.name)
+console.log(player.name);
