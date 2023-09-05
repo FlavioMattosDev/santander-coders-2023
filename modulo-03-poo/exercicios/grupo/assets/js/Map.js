@@ -1,10 +1,12 @@
 export class Map {
   // - Determinar locais onde é possível andar.
-  // x48
+  // x51
+  // y30
+  // 871
+  // 564
   #mapPositions = [
-    [0, 0, 0, 0, 0, 0, 0, 0, 0],
-    [1, 1, 1, 1, 1, 1, 1, 1, 1],
-    [],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0],
   ];
   #entitiesPosition = [
     {
@@ -26,6 +28,23 @@ export class Map {
     pro: {},
   };
 
+  addEntity({ id, y, x }) {
+    const existingPosition = this.isPositionValid({
+      x,
+      y,
+    });
+
+    if (!existingPosition) "posição do mapa não existe";
+  }
+
+  canMove({x, y}){
+    
+  }
+
+  isPositionValid({ x, y }) {
+    return !!this.#mapPositions[x][y];
+  }
+
   updateBlockPosition({ x, y, status }) {
     const existingPosition = this.isPositionValid({
       x,
@@ -44,18 +63,8 @@ export class Map {
     }
   }
 
-  isPositionValid({ x, y }) {
-    return !!this.#mapPositions[x][y];
-  }
 
-  addEntity({ id, y, x }) {
-    const existingPosition = this.isPositionValid({
-      x,
-      y,
-    });
 
-    if (!existingPosition) "posição do mapa não existe";
-  }
 
   #render() {
     const map = document.querySelector("#map");

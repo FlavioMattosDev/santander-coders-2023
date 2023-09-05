@@ -42,4 +42,20 @@ export class Entity {
       y: this.yActualPosition
     }
   }
+
+  get moveLeft(){
+
+  }
+
+  get moveRight(){
+
+  }
+
+  get moveTop(){
+
+  }
+
+  get moveBottom(){
+
+  }
 }
