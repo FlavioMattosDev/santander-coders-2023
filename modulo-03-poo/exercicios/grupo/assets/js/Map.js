@@ -1,5 +1,6 @@
 export class Map {
   // - Determinar locais onde é possível andar.
+  // x48
   #mapPositions = [
     [0, 0, 0, 0, 0, 0, 0, 0, 0],
     [1, 1, 1, 1, 1, 1, 1, 1, 1],
