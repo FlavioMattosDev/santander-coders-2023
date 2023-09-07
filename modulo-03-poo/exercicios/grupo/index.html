@@ -10,10 +10,127 @@
   <body
     class="w-screen h-screen bg-[url(./assets/images/bg.avif)] bg-no-repeat bg-cover bg-center"
   >
-    <div
-      id="map"
-      class="w-[63.75rem] h-[37.5rem] bg-[url(./assets/images/map.png)] bg-no-repeat bg-cover bg-center"
-    ></div>
+    <div class="flex h-[37.5rem]">
+      <div
+        id="map"
+        class="flex min-w-[63.75rem] w-[63.75rem] h-[37.5rem] bg-[url(./assets/images/map.png)] bg-no-repeat bg-cover bg-center relative"
+      >
+      <!-- <div class="absolute top-[calc(25*20px)] left-[calc(30*20px)] w-5 h-5 bg-red-500">
+        <p class="absolute -top-10 whitespace-nowrap left-1/2 transform -translate-x-1/2 bg-white text-slate-800 rounded-md px-2 py-1 border border-orange-500">
+          skjfhsadk flkshjlksh jflkajhs dlsakjhfsalk
+        </p>
+      </div> -->
+    </div>
+      <div class="grid grid-cols-2 h-full w-full bg-slate-800 gap-2 p-4">
+        <div class="border-r border-r-slate-200/30 pr-4">
+          <h1 class="mb-4 text-slate-50 font-bold text-center">
+            Escolha seu personagem
+          </h1>
+
+          <form id="form" class="flex flex-col gap-3">
+            <div class="flex flex-col gap-1">
+              <label for="name" class="text-slate-100 text-sm">Nome</label>
+              <input
+                type="text"
+                name="name"
+                id="name"
+                class="py-2 px-4 outline-none rounded-md text-sm border-2 border-transparent focus:border-slate-100 bg-slate-400 text-slate-900"
+              />
+            </div>
+            <div class="flex flex-col gap-1">
+              <label for="name" class="text-slate-100 text-sm">
+                Dificuldade
+              </label>
+              <select
+                name="difficult"
+                class="py-2 pl-1 pr-4 outline-none rounded-md text-sm border-2 border-transparent focus:border-slate-100 bg-slate-400 text-slate-900"
+              >
+                <option value="easy">Fácil</option>
+                <option value="normal">Normal</option>
+                <option value="hard">Difícil</option>
+                <option value="pro">Profissional</option>
+              </select>
+            </div>
+
+            <div class="flex gap-2 flex-wrap">
+              <label
+                for="character-1"
+                class="text-slate-100 text-sm flex items-center border p-1 rounded-lg "
+              >
+                <input
+                  type="radio"
+                  name="character"
+                  value="character-1"
+                  id="character-1"
+                  checked
+                />
+                <img src="./assets/images/player/character-1.png" alt="" />
+              </label>
+              <label
+                for="character-2"
+                class="text-slate-100 text-sm flex items-center border p-1 rounded-lg "
+              >
+                <input
+                  type="radio"
+                  name="character"
+                  value="character-2"
+                  id="character-2"
+                  checked
+                />
+                <img src="./assets/images/player/character-2.png" alt="" />
+              </label>
+              <label
+                for="character-3"
+                class="text-slate-100 text-sm flex items-center border p-1 rounded-lg "
+              >
+                <input
+                  type="radio"
+                  name="character"
+                  value="character-3"
+                  id="character-3"
+                  checked
+                />
+                <img src="./assets/images/player/character-3.png" alt="" />
+              </label>
+              <label
+                for="character-4"
+                class="text-slate-100 text-sm flex items-center border p-1 rounded-lg "
+              >
+                <input
+                  type="radio"
+                  name="character"
+                  value="character-4"
+                  id="character-4"
+                  checked
+                />
+                <img src="./assets/images/player/character-4.png" alt="" />
+              </label>
+              <label
+                for="character-5"
+                class="text-slate-100 text-sm flex items-center border p-1 rounded-lg "
+              >
+                <input
+                  type="radio"
+                  name="character"
+                  value="character-5"
+                  id="character-5"
+                  checked
+                />
+                <img src="./assets/images/player/character-5.png" alt="" />
+              </label>
+            </div>
+
+            <button type="submit" class="w-full py-2 px-5 rounded-md bg-amber-700 text-amber-200">Iniciar Jogo</button>
+          </form>
+        </div>
+
+        <div>
+          <h2 class="mb-4 text-slate-50 font-bold text-center">
+            Histórico da batalha
+          </h2>
+        </div>
+      </div>
+    </div>
 
     <script src="./assets/js/main.js" type="module"></script>
   </body>
