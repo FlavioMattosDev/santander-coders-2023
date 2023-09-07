@@ -153,7 +153,7 @@ export class Map {
       0,
     ],
   ];
-  static #entitiesPosition = [
+  static #mappedEntities = [
     {
       id: "",
       xPosition: 0,
@@ -168,10 +168,29 @@ export class Map {
       extraHitPercentChance: 40,
       extraDefensePercentChance: 40,
     },
-    normal: {},
-    hard: {},
-    pro: {},
+    normal: {
+      extraLife: 4,
+      extraAttack: 4,
+      extraDefense: 4,
+      extraHitPercentChance: 30,
+      extraDefensePercentChance: 30,
+    },
+    hard: {
+      extraLife: 2,
+      extraAttack: 2,
+      extraDefense: 2,
+      extraHitPercentChance: 15,
+      extraDefensePercentChance: 15,
+    },
+    pro: {
+      extraLife: 0,
+      extraAttack: 0,
+      extraDefense: 0,
+      extraHitPercentChance: 0,
+      extraDefensePercentChance: 0,
+    },
   };
+  static #difficult = {};
 
   static addEntity({ id, y, x }) {
     const existingPosition = Map.isPositionValid({
@@ -183,7 +202,7 @@ export class Map {
   }
 
   get mapSpots() {
-    return this.#mapSpots;
+    return Map.#mapSpots;
   }
 
   static canMove({ x, y }) {
@@ -198,6 +217,18 @@ export class Map {
 
   static isPositionValid({ y, x }) {
     return !!Map.#mapSpots[y].length && !!Map.#mapSpots[y][x];
+  }
+
+  static addEntityToMappedEntities(entity){
+    Map.#mappedEntities.push(entity)
+  }
+
+  static get difficult() {
+    return Map.#difficult;
+  }
+
+  set difficult(diff) {
+    Map.#difficult = Map.#difficultSettings[diff];
   }
 
   updateSpotStatus({ x, y, status }) {
@@ -222,8 +253,4 @@ export class Map {
   render() {
     this.#render();
   }
-  //   ### Propriedades
-  // - Armazenamento de posição atual dos personagens(npc, usuário, mob invisível, mob visível, boss, etc)
-  // - Dificuldade: easy | medium | hard | extra-hard
-  // 40%
 }
