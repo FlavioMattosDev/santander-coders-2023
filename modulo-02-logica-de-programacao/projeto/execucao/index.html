@@ -12,18 +12,19 @@
   </head>
   <body>
     <!-- alterar display none para flex no css  -->
-    <div class="registerTaskModal">
+    <div class="registerTaskModal hidden">
+      <div class="register-modal_overlay"></div>
       <div class="registerTask">
         <div class="registerTaskTitle">Register / Edit</div>
-        <form class="registerTaskContent" action="submit">
+        <form class="registerTaskContent register-task_form" action="submit">
           <label for="taskName">Nome</label>
-          <input id="taskName" type="text" />
-          <label for="taskName">Description</label>
-          <textarea name="" id="" cols="10" rows="4"></textarea>
+          <input id="taskName" type="text" name="title" />
+          <label for="taskName">Descrição</label>
+          <textarea cols="10" rows="4" name="description"></textarea>
           <label for="taskName">Expected Conclusion</label>
-          <input id="taskName" type="date" />
+          <input id="taskName" type="date" name="expectedConclusion" />
+          <button class="register-task_button" type="submit">Register</button>
         </form>
-        <button class="register-task_button">Register</button>
       </div>
     </div>
 
@@ -38,28 +39,9 @@
       </div>
 
       <div class="tasksContainer">
-        <task-collumn name="To Do"
-          ><individual-task
-            name="Testando titulo"
-            description="Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea maiores ipsam deleniti."
-          ></individual-task
-        ></task-collumn>
-        <task-collumn name="In Progress"
-          ><individual-task
-            name="Testando titulo"
-            description="Lorem ipsum dolor"
-          ></individual-task
-        ></task-collumn>
-        <task-collumn name="Done"
-          ><individual-task
-            name="Testando titulo"
-            description="Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea maiores ipsam deleniti. Deserunt accusantium voluptatum ex reiciendis ducimus consequatur repellendus cumque ipsam eaque iste. Obcaecati deserunt quas at molestiae dignissimos!"
-          ></individual-task>
-          <individual-task
-            name="Testando titulo"
-            description="Lorem ipsum dolor sit amet consectetur adipisicing elit."
-          ></individual-task
-        ></task-collumn>
+        <task-column htmlID="toDo" name="To Do"></task-column>
+        <task-column htmlID="inProgress" name="In Progress"></task-column>
+        <task-column htmlID="done" name="Done"> </task-column>
       </div>
     </section>
 

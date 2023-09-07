@@ -1,19 +1,25 @@
 class Task extends HTMLElement {
   constructor() {
     super();
+  }
 
-    const shadow = this.attachShadow({ mode: "open" });
-    shadow.appendChild(this.build());
-    shadow.appendChild(this.style());
+  connectedCallback() {
+    this.appendChild(this.build());
+    this.appendChild(this.style());
   }
 
   build() {
     const name = this.getAttribute("name");
     const description = this.getAttribute("description");
+    const id = this.getAttribute("taskId");
     // const deleteButtonFunction = this.getAttribute(deleteButtonFunction)
 
     const componentRoot = document.createElement("div");
     componentRoot.setAttribute("class", "task");
+    componentRoot.setAttribute("draggable", "true");
+    if(id){
+      componentRoot.setAttribute("id", id);
+    }
 
     const taskHeader = document.createElement("div");
     taskHeader.setAttribute("class", "taskHeader");
@@ -26,13 +32,14 @@ class Task extends HTMLElement {
     const taskButtons = document.createElement("div");
     taskButtons.setAttribute("class", "taskButtons");
 
-    const concludeButton = document.createElement("button");
-    const concludeButtonIcon = document.createElement("i");
-    concludeButton.setAttribute("class", "taskButton");
-    concludeButton.title = "Move Task";
-    concludeButtonIcon.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 -1 25 25"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M19 7.34189C18.6095 6.95136 17.9763 6.95136 17.5858 7.34189L10.3407 14.587C9.95016 14.9775 9.31699 14.9775 8.92647 14.587L6.38507 12.0456C5.99454 11.6551 5.36138 11.6551 4.97085 12.0456C4.58033 12.4361 4.58033 13.0693 4.97085 13.4598L7.51774 16C8.68969 17.1689 10.5869 17.1677 11.7574 15.9974L19 8.7561C19.3905 8.36558 19.3905 7.73241 19 7.34189Z" fill="#0F0F0F"></path> </g></svg>`;
-    concludeButton.appendChild(concludeButtonIcon);
-    taskButtons.appendChild(concludeButton);
+    // TODO
+    // const concludeButton = document.createElement("button");
+    // const concludeButtonIcon = document.createElement("i");
+    // concludeButton.setAttribute("class", "taskButton");
+    // concludeButton.title = "Move Task";
+    // concludeButtonIcon.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 -1 25 25"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M19 7.34189C18.6095 6.95136 17.9763 6.95136 17.5858 7.34189L10.3407 14.587C9.95016 14.9775 9.31699 14.9775 8.92647 14.587L6.38507 12.0456C5.99454 11.6551 5.36138 11.6551 4.97085 12.0456C4.58033 12.4361 4.58033 13.0693 4.97085 13.4598L7.51774 16C8.68969 17.1689 10.5869 17.1677 11.7574 15.9974L19 8.7561C19.3905 8.36558 19.3905 7.73241 19 7.34189Z" fill="#0F0F0F"></path> </g></svg>`;
+    // concludeButton.appendChild(concludeButtonIcon);
+    // taskButtons.appendChild(concludeButton);
     taskHeader.appendChild(taskButtons);
 
     const deleteButton = document.createElement("button");
@@ -74,7 +81,7 @@ class Task extends HTMLElement {
     padding: 5px;
     margin-bottom: 5px;
     border-radius: 3px;
-    cursor: pointer;
+    cursor: grab;
   }
 
   .taskHeader {
