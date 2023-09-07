@@ -5,6 +5,13 @@ export class Entity {
   #xActualPosition;
   #yActualPosition;
   #sidePosition;
+  #character
+  #id
+
+  constructor(){
+    console.log('entrou', ++Map.mappedEntities.length)
+    this.#id = ++Map.mappedEntities.length;
+  }
 
   get name() {
     return this.#name;
@@ -37,6 +44,23 @@ export class Entity {
   set sidePosition(sidePosition) {
     // "left" | "right" | "up" | "down"
     this.#sidePosition = sidePosition;
+  }
+
+  get character() {
+    return this.#character;
+  }
+
+  set character(character) {
+    // "left" | "right" | "up" | "down"
+    this.#character = character;
+  }
+
+  get id() {
+    return this.#id;
+  }
+
+  set id(id) {
+    this.#id = id
   }
 
   get actualPosition() {

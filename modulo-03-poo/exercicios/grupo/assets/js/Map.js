@@ -153,13 +153,7 @@ export class Map {
       0,
     ],
   ];
-  static #mappedEntities = [
-    {
-      id: "",
-      xPosition: 0,
-      yPosition: 0,
-    },
-  ];
+  static #mappedEntities = [];
   static #difficultSettings = {
     easy: {
       extraLife: 5,
@@ -205,6 +199,10 @@ export class Map {
     return Map.#mapSpots;
   }
 
+  static get mappedEntities(){
+    return this.#mappedEntities
+  }
+
   static canMove({ x, y }) {
     // console.log(this.isPositionValid({ x, y }))
     const isPositionValid = Map.isPositionValid({ x, y });
@@ -223,11 +221,11 @@ export class Map {
     Map.#mappedEntities.push(entity)
   }
 
-  static get difficult() {
-    return Map.#difficult;
+  static get difficult(){
+    return Map.#difficult
   }
 
-  set difficult(diff) {
+  static set difficult(diff) {
     Map.#difficult = Map.#difficultSettings[diff];
   }
 
@@ -246,11 +244,14 @@ export class Map {
     }
   }
 
-  #render() {
-    const map = document.querySelector("#map");
+  #init() {
+    // const player = Map.mappedEntities.find(entity => entity.id === 1)
+    console.log(Map.mappedEntities[1])
+
+
   }
 
-  render() {
-    this.#render();
+  init() {
+    this.#init();
   }
 }
