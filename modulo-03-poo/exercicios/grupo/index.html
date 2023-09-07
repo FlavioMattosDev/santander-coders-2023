@@ -5,28 +5,41 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Rpg Game</title>
 
-    <link rel="stylesheet" href="./assets/css/styles.css">
+    <link rel="stylesheet" href="./assets/css/styles.css" />
     <script src="https://cdn.tailwindcss.com"></script>
   </head>
   <body
     class="w-screen h-screen bg-[url(./assets/images/bg.avif)] bg-no-repeat bg-cover bg-center"
   >
+ <div class="inset-0 bg-blue-700/20 absolute -z-10 backdrop-saturate-blur">
+
+ </div>
     <div class="flex h-[37.5rem]">
       <div
         id="map"
         class="flex min-w-[63.75rem] w-[63.75rem] h-[37.5rem] bg-[url(./assets/images/map.png)] bg-no-repeat bg-cover bg-center relative"
       >
-      <div class="inset-0 bg-black/70 absolute z-40 backdrop-saturate-blur">
-
+        <!-- <div
+          class="inset-0 bg-black/70 absolute z-40 backdrop-saturate-blur"
+        ></div> -->
+        <div
+          class="absolute top-[calc(15*20px)] left-[calc(28*20px)] w-5 h-5 bg-red-500"
+        >
+          <p
+            class="absolute -top-10 whitespace-nowrap left-1/2 transform -translate-x-1/2 bg-white text-slate-800 rounded-md px-2 py-1 border border-orange-500"
+          >
+            skjfhsadk flkshjlksh jflkajhs dlsakjhfsalk
+          </p>
+        </div>
       </div>
-      <div class="absolute top-[calc(15*20px)] left-[calc(28*20px)] w-5 h-5 bg-red-500">
-        <p class="absolute -top-10 whitespace-nowrap left-1/2 transform -translate-x-1/2 bg-white text-slate-800 rounded-md px-2 py-1 border border-orange-500">
-          skjfhsadk flkshjlksh jflkajhs dlsakjhfsalk
-        </p>
-      </div>
-    </div>
-      <div class="grid grid-cols-2 h-full w-full bg-slate-800 gap-2 p-4">
+      <div class="grid grid-cols-2 h-screen w-full bg-slate-800 gap-2 p-4">
         <div class="border-r border-r-slate-200/30 pr-4">
+          <h2 class="mb-4 text-slate-50 font-bold text-center">
+            Histórico da batalha
+          </h2>
+        </div>
+
+        <div>
           <h1 class="mb-4 text-slate-50 font-bold text-center">
             Escolha seu personagem
           </h1>
@@ -56,10 +69,10 @@
               </select>
             </div>
 
-            <div class="flex gap-2 flex-wrap">
+            <div class="flex gap-2 flex-wrap justify-center">
               <label
                 for="character-1"
-                class="text-slate-100 text-sm flex items-center border p-1 rounded-lg "
+                class="text-slate-100 text-sm flex items-center border p-1 rounded-lg"
               >
                 <input
                   type="radio"
@@ -72,7 +85,7 @@
               </label>
               <label
                 for="character-2"
-                class="text-slate-100 text-sm flex items-center border p-1 rounded-lg "
+                class="text-slate-100 text-sm flex items-center border p-1 rounded-lg"
               >
                 <input
                   type="radio"
@@ -85,7 +98,7 @@
               </label>
               <label
                 for="character-3"
-                class="text-slate-100 text-sm flex items-center border p-1 rounded-lg "
+                class="text-slate-100 text-sm flex items-center border p-1 rounded-lg"
               >
                 <input
                   type="radio"
@@ -98,7 +111,7 @@
               </label>
               <label
                 for="character-4"
-                class="text-slate-100 text-sm flex items-center border p-1 rounded-lg "
+                class="text-slate-100 text-sm flex items-center border p-1 rounded-lg"
               >
                 <input
                   type="radio"
@@ -111,7 +124,7 @@
               </label>
               <label
                 for="character-5"
-                class="text-slate-100 text-sm flex items-center border p-1 rounded-lg "
+                class="text-slate-100 text-sm flex items-center border p-1 rounded-lg"
               >
                 <input
                   type="radio"
@@ -122,16 +135,28 @@
                 />
                 <img src="./assets/images/player/character-5.png" alt="" />
               </label>
+              <label
+                for="character-6"
+                class="text-slate-100 text-sm flex items-center border p-1 rounded-lg"
+              >
+                <input
+                  type="radio"
+                  name="character"
+                  value="character-6"
+                  id="character-6"
+                  checked
+                />
+                <img src="./assets/images/player/character-6.png" alt="" />
+              </label>
             </div>
 
-            <button type="submit" class="w-full py-2 px-5 rounded-md bg-amber-700 text-amber-200">Iniciar Jogo</button>
+            <button
+              type="submit"
+              class="w-full py-2 px-5 rounded-md bg-amber-700 text-amber-200"
+            >
+              Iniciar Jogo
+            </button>
           </form>
-        </div>
-
-        <div>
-          <h2 class="mb-4 text-slate-50 font-bold text-center">
-            Histórico da batalha
-          </h2>
         </div>
       </div>
     </div>
