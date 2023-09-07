@@ -37,7 +37,9 @@ export class Player extends Entity {
   get defense() { 
     return this.#defense;
   }
-
+  openChest(chest) {
+    chest.give(this);
+  }
   init() {
     const form = document.querySelector("#form")
 
