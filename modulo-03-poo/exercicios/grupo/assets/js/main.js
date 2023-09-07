@@ -4,6 +4,7 @@ import { Mob } from "./Mob.js";
 
 const map = new Map();
 
-console.log(Map.canMove({ x: 4, y: 3 }));
+console.log(map.mapSpots);
+console.log(Map.isPositionValid({y: 25 , x: 15}))
 
 map.render();

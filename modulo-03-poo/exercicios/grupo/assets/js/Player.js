@@ -28,8 +28,3 @@ export class Player extends Entity {
 
   init() {}
 }
-
-const player = new Player();
-player.name = "aaaaa";
-
-console.log(player.name);
