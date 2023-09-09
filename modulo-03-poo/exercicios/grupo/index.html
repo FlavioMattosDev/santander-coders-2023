@@ -9,10 +9,10 @@
     <script src="https://cdn.tailwindcss.com"></script>
   </head>
   <body
-    class="w-screen h-screen bg-[url(./assets/images/bg.avif)] bg-no-repeat bg-cover bg-center "
+    class="w-screen h-screen bg-[url(./assets/images/bg.avif)] bg-no-repeat bg-cover bg-center"
   >
     <div
-      class="inset-0 bg-blue-700/20 absolute -z-10 backdrop-saturate-blur "
+      class="inset-0 bg-slate-800 absolute -z-10 backdrop-saturate-blur"
     ></div>
     <div class="flex h-[37.5rem]">
       <div
@@ -33,10 +33,29 @@
         </div>
       </div>
       <div class="grid grid-cols-2 h-screen w-full bg-slate-800 gap-2 p-4">
-        <div class="border-r border-r-slate-200/30 pr-4">
-          <h2 class="mb-4 text-slate-50 font-bold text-center">
-            Histórico da batalha
-          </h2>
+        <div class="border-r border-r-slate-200/30 pr-4 text-slate-50">
+          <h2 class="mb-4 font-bold text-center">Histórico da batalha</h2>
+
+          <div
+            id="battleHistory"
+            class="h-4/5 overflow-y-scroll scrollbar-hide text-sm py-2"
+          >
+            <p>teste</p>
+            <p class="text-right">recebeu 15 de dano</p>
+          </div>
+
+          <div>
+            <button
+              class="w-full py-2 px-5 rounded-md bg-amber-700 text-amber-200 mt-4 mb-2"
+            >
+              Iniciar Batalha
+            </button>
+            <button
+              class="w-full py-2 px-5 rounded-md bg-amber-700 text-amber-200"
+            >
+              Fugir da Batalha
+            </button>
+          </div>
         </div>
 
         <div>
@@ -157,6 +176,75 @@
               Iniciar Jogo
             </button>
           </form>
+          <div class="text-center text-slate-50 w-full mt-6">
+            <p class="font-bold">Controles</p>
+            <p>W A S D - Andar</p>
+            <p>E - Interagir</p>
+            <p class="mt-3 font-bold">Botões em tela:</p>
+            <p>• Iniciar batalha</p>
+            <p>• Fugir da batalha</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="flex items-center justify-evenly max-w-[63.75rem] h-36">
+      <div
+        class="flex items-center text-white bg-yellow-950 w-96 h-28 rounded-lg px-5 py-2 border-4 border-zinc-500"
+      >
+        <div class="h-[90px] w-[70px] overflow-hidden relative">
+          <img
+            src="./assets/images/player/character-1.png"
+            alt=""
+            class="scale-[3]"
+          />
+        </div>
+        <div class="w-3/5">
+          <p>Nome: <span id="playerName"></span></p>
+          <p>
+            Vida: <span id="playerActualHealth"></span> /
+            <span id="playerMaxHealth"></span>
+          </p>
+          <p>Ataque: <span id="playerAttack"></span></p>
+          <p>Defesa: <span id="playerDefense"></span></p>
+        </div>
+        <div class="flex justify-center h-full w-2/5">
+          <p class="mb-2">Efeitos</p>
+          <div id="playerEffects"></div>
+        </div>
+      </div>
+
+      <div
+        class="flex flex-col bg-yellow-950 px-5 rounded-lg py-1 border-4 border-zinc-500"
+      >
+        <div class="flex justify-center">
+          <div class="m-1 w-12 h-12"></div>
+          <div
+            class="flex items-center justify-center m-1 bg-neutral-300 w-12 h-12 rounded-lg font-bold hover:bg-amber-600 ease-in duration-200"
+          >
+            W
+          </div>
+          <div
+            class="flex items-center justify-center m-1 bg-neutral-300 w-12 h-12 rounded-lg font-bold hover:bg-amber-600 ease-in duration-200"
+          >
+            E
+          </div>
+        </div>
+        <div class="flex">
+          <div
+            class="flex items-center justify-center m-1 bg-neutral-300 w-12 h-12 rounded-lg font-bold hover:bg-amber-600 ease-in duration-200"
+          >
+            A
+          </div>
+          <div
+            class="flex items-center justify-center m-1 bg-neutral-300 w-12 h-12 rounded-lg font-bold hover:bg-amber-600 ease-in duration-200"
+          >
+            S
+          </div>
+          <div
+            class="flex items-center justify-center m-1 bg-neutral-300 w-12 h-12 rounded-lg font-bold hover:bg-amber-600 ease-in duration-200"
+          >
+            D
+          </div>
         </div>
       </div>
     </div>
