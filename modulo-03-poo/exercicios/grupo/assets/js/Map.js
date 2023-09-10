@@ -250,6 +250,7 @@ export class Map {
 
   static set difficult(diff) {
     Map.#difficult = Map.#difficultSettings[diff];
+    Map.#difficult.difficult = diff
   }
 
   updateSpotStatus({ x, y, status }) {
