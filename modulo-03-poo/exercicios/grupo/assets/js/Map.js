@@ -212,8 +212,8 @@ export class Map {
   }
 
   static updateEntity(entity) {
-    // const entityIndex = Map.#mappedEntities.findIndex(ent => ent.id === entity.id)
-    // Map.#mappedEntities.splice(entityIndex, 1, entity)
+    const entityIndex = Map.#mappedEntities.findIndex(ent => ent.id === entity.id)
+    Map.#mappedEntities.splice(entityIndex, 1, entity)
   }
 
   static resetMappedEntities() {
