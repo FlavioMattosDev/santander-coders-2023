@@ -9,8 +9,7 @@ export class Entity {
   #id
 
   constructor(){
-    console.log('entrou', ++Map.mappedEntities.length)
-    this.#id = ++Map.mappedEntities.length;
+    this.#id = Map.mappedEntities.length + 1
   }
 
   get name() {
@@ -70,29 +69,28 @@ export class Entity {
     };
   }
 
-  get moveLeft() {
+  moveLeft() {
     this.xActualPosition = Map.canMove({
       x: this.xActualPosition - 1,
       y: this.yActualPosition,
     })
       ? this.xActualPosition - 1
-      : this.yActualPosition;
+      : this.xActualPosition;
 
     this.sidePosition = "left";
   }
 
-  get moveRight() {
+  moveRight() {
     this.xActualPosition = Map.canMove({
       x: this.xActualPosition + 1,
       y: this.yActualPosition,
     })
       ? this.xActualPosition + 1
-      : this.yActualPosition;
-
+      : this.xActualPosition;
     this.sidePosition = "right";
   }
 
-  get moveUp() {
+  moveUp() {
     this.yActualPosition = Map.canMove({
       x: this.xActualPosition,
       y: this.yActualPosition - 1,
@@ -103,7 +101,7 @@ export class Entity {
     this.sidePosition = "up";
   }
 
-  get moveDown() {
+  moveDown() {
     this.yActualPosition = Map.canMove({
       x: this.xActualPosition,
       y: this.yActualPosition + 1,

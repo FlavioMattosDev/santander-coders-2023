@@ -55,11 +55,14 @@ export class Player extends Entity {
 
       this.name = name
       this.character = character
-      this.yActualPosition = 22
-      this.xActualPosition = 0
+      this.yActualPosition = 0
+      this.xActualPosition = 22
 
       Map.difficult = difficult
+      Map.resetMappedEntities()
       Map.addEntityToMappedEntities(this)
+
+      console.log(Map.difficult)
 
       this.render()
     })
@@ -74,13 +77,14 @@ export class Player extends Entity {
     playerImage.src = imageSource
     playerImage.className = "absolute top-0 left-0"
 
-    player.className = `absolute top-[calc(${this.xActualPosition}*20px)] left-[calc(${this.yActualPosition}*20px)] w-5 h-5 overflow-hidden bg-black/40`
+    player.className = `absolute top-[calc(${this.yActualPosition}*20px)] left-[calc(${this.xActualPosition}*20px)] w-5 h-5 overflow-hidden bg-black/40`
+    player.id = "player"
     player.appendChild(playerImage)
 
     screenMap.appendChild(player)
 
     const mapInstance = new Map()
-    mapInstance.init()
+    mapInstance.init(this)
   }
 }
 

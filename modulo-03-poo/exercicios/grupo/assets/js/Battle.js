@@ -79,7 +79,6 @@ export class Battle {
 
     //Lógica do movimento de ataque
     attackAction(defensor, attacker) {
-
         this.percentHitSuccess = attacker.attack / (defensor.attack + defensor.defense) * 100;
 
         // Aplica vantagem do mapa para o Player
