@@ -92,6 +92,6 @@ export class Trait {
                 break
         }
         character.traits.push(this);
-        GameMap.update(character);
+        GameMap.updateEntity(character);
     }
 }

@@ -1,17 +1,22 @@
 import { Entity } from "./Entity";
 import { Blessing } from "./Blessing";
 import { Curse } from "./Curse";
+import { Map } from "./Map";
 
 export class Chest extends Entity {
-    static #positiveOutcomeRate = 75/100;
-
     #treasure;
     #open;
 
-    constructor() {
+    constructor(x, y) {
         super()
-        this.#treasure = (Math.random() < Chest.#positiveOutcomeRate)? new Blessing() : new Curse();
+        this.#treasure = (Math.random() <  Map.difficult.positiveLootOutcomePercentChance / 100)? new Blessing() : new Curse();
         this.#open = false;
+
+        if (Map.isPositionValid({ x, y })) {
+            this.xActualPosition = x;
+            this.yActualPosition = y;
+            Map.addEntityToMappedEntities(this);
+        }
     }
 
     give(player) {
