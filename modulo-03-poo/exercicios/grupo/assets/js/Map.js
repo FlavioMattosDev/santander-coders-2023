@@ -195,7 +195,7 @@ export class Map {
     if (!existingPosition) "Posição do mapa inválida";
   }
 
-  get mapSpots() {
+  static get mapSpots() {
     return Map.#mapSpots;
   }
 
@@ -203,9 +203,32 @@ export class Map {
     return this.#mappedEntities
   }
 
+  static updateEntity(entity){
+    // const entityIndex = Map.#mappedEntities.findIndex(ent => ent.id === entity.id)
+
+    // Map.#mappedEntities.splice(entityIndex, 1, entity)
+
+  }
+
+  static resetMappedEntities(){
+    this.#mappedEntities = []
+  }
+
   static canMove({ x, y }) {
+    if(x < 0 || y < 0){
+      return false
+    }
+
+    const maxYIndex = Map.mapSpots.length - 1
+    const maxXIndex = Map.mapSpots[0].length - 1
+
+    if(y > maxYIndex || x > maxXIndex){
+      return false
+    }
+
     // console.log(this.isPositionValid({ x, y }))
     const isPositionValid = Map.isPositionValid({ x, y });
+
 
     if (Map.#mapSpots[y] && isPositionValid) {
       return Map.#mapSpots[y][x] === 1;
@@ -244,14 +267,80 @@ export class Map {
     }
   }
 
-  #init() {
+  #init(initializedPlayer) {
+    console.log(initializedPlayer)
     // const player = Map.mappedEntities.find(entity => entity.id === 1)
-    console.log(Map.mappedEntities[1])
+    const player = document.querySelector("#player")
+    const playerImage = player.querySelector("img")
+
+    const playerClasses = player.classList
+    const playerImageClasses = playerImage.classList
+
+console.log(playerImageClasses)
+    document.addEventListener('keyup', (e) => {
+      e.preventDefault()
+
+      const eventCode = e.code.toLowerCase()
+
+      let playerFilteredClasses;
+      let imagePlayerFilteredClasses;
+      switch(eventCode){
+        case "keyw":
+          initializedPlayer.moveUp()
+          playerFilteredClasses = [...playerClasses].filter(c => !c.startsWith("top"))
+          playerFilteredClasses.push(`top-[calc(${initializedPlayer.yActualPosition}*20px)]`)
+          player.classList = playerFilteredClasses.join(" ")
+
+          imagePlayerFilteredClasses = [...playerImageClasses].filter(c => !c.includes("top"))
+          imagePlayerFilteredClasses.push(`-top-[3.75rem]`)
+          playerImage.classList = imagePlayerFilteredClasses.join(" ")
+          break
+        case "keyd":
+          initializedPlayer.moveRight()
+          playerFilteredClasses = [...playerClasses].filter(c => !c.startsWith("left"))
+          playerFilteredClasses.push(`left-[calc(${initializedPlayer.xActualPosition}*20px)]`)
+          player.classList = playerFilteredClasses.join(" ")
+
+          imagePlayerFilteredClasses = [...playerImageClasses].filter(c => !c.includes("top"))
+          imagePlayerFilteredClasses.push(`-top-10`)
+          playerImage.classList = imagePlayerFilteredClasses.join(" ")
+          break
+        case "keys":
+          initializedPlayer.moveDown()
+          playerFilteredClasses = [...playerClasses].filter(c => !c.startsWith("top"))
+          playerFilteredClasses.push(`top-[calc(${initializedPlayer.yActualPosition}*20px)]`)
+          player.classList = playerFilteredClasses.join(" ")
+
+          imagePlayerFilteredClasses = [...playerImageClasses].filter(c => !c.includes("top"))
+          imagePlayerFilteredClasses.push(`top-0`)
+          playerImage.classList = imagePlayerFilteredClasses.join(" ")
+          break
+        case "keya":
+          initializedPlayer.moveLeft()
+          playerFilteredClasses = [...playerClasses].filter(c => !c.startsWith("left"))
+          playerFilteredClasses.push(`left-[calc(${initializedPlayer.xActualPosition}*20px)]`)
+          player.classList = playerFilteredClasses.join(" ")
+
+          imagePlayerFilteredClasses = [...playerImageClasses].filter(c => !c.includes("top"))
+          imagePlayerFilteredClasses.push(`-top-5`)
+          playerImage.classList = imagePlayerFilteredClasses.join(" ")
+          break
+      }
+      console.log(e.code)
+    })
+
+
+
+
+
+
+
+
 
 
   }
 
-  init() {
-    this.#init();
+  init(player) {
+    this.#init(player);
   }
 }
