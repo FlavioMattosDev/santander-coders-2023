@@ -51,8 +51,6 @@ export class Player extends Entity {
       const difficult = formValues["difficult"]
       const character = formValues["character"]
 
-      console.log(name, difficult, character)
-
       this.name = name
       this.character = character
       this.yActualPosition = 0
@@ -61,8 +59,6 @@ export class Player extends Entity {
       Map.difficult = difficult
       Map.resetMappedEntities()
       Map.addEntityToMappedEntities(this)
-
-      console.log(Map.difficult)
 
       this.render()
     })

@@ -1,3 +1,5 @@
+import { Mob } from "./Mob.js";
+
 export class Map {
   // x51 - 1020
   // y30 - 600
@@ -212,8 +214,10 @@ export class Map {
   }
 
   static updateEntity(entity) {
-    const entityIndex = Map.#mappedEntities.findIndex(ent => ent.id === entity.id)
-    Map.#mappedEntities.splice(entityIndex, 1, entity)
+    const entityIndex = Map.#mappedEntities.findIndex(
+      (ent) => ent.id === entity.id
+    );
+    Map.#mappedEntities.splice(entityIndex, 1, entity);
   }
 
   static resetMappedEntities() {
@@ -242,7 +246,15 @@ export class Map {
   }
 
   static isPositionValid({ y, x }) {
-    return !!Map.#mapSpots[y].length && !!Map.#mapSpots[y][x];
+    return !!Map.#mapSpots[y]?.length && !!Map.#mapSpots[y][x];
+  }
+
+  static isPositionUsed({ y, x }) {
+    const item = Map.#mappedEntities.find(entity => {
+      return entity.xActualPosition === x && entity.yActualPosition === y
+    })
+
+    return !!item?.id
   }
 
   static addEntityToMappedEntities(entity) {
@@ -362,5 +374,32 @@ export class Map {
 
   init(player) {
     this.#init(player);
+
+    for (let i = 0; i < 3000; i++) {
+      const x = Math.floor(Math.random() * 51);
+      const y = Math.floor(Math.random() * 30);
+
+
+      const isPositionValid = Map.isPositionValid({
+        x,
+        y,
+      });
+
+      const isPositionUsed = Map.isPositionUsed({ x, y })
+
+      if (!isPositionValid || isPositionUsed) {
+        console.log('used');
+      } else {
+        const mob = new Mob({
+          name: "teste",
+          isVisible: false,
+          xActualPosition: x,
+          yActualPosition: y,
+        });
+        mob.init();
+      }
+    }
+
+    console.log(Map.mappedEntities);
   }
 }

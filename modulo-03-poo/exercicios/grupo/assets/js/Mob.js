@@ -18,18 +18,10 @@ export class Mob extends Entity {
     if (Map.isPositionValid({ x: xActualPosition, y: yActualPosition })) {
       this.xActualPosition = xActualPosition;
       this.yActualPosition = yActualPosition;
+
+      Map.addEntityToMappedEntities(this)
+      this.render()
     }
-  }
-
-  init() {
-    this.#maxHealth = this.setMaxHealth();
-    this.#actualHealth = this.#maxHealth;
-    this.#minAttack = this.setMinAttack();
-    this.#maxAttack = this.setMaxAttack();
-    this.#minDefense = this.setMinDefense();
-    this.#maxDefense = this.setMaxDefense();
-
-    Map.addEntityToMappedEntities(this)
   }
 
   get health() {
@@ -83,19 +75,44 @@ export class Mob extends Entity {
   setMaxDefense() {
     return Math.floor(Math.random() * 3 + this.#minDefense);
   }
+
+
+  init() {
+    this.#maxHealth = this.setMaxHealth();
+    this.#actualHealth = this.#maxHealth;
+    this.#minAttack = this.setMinAttack();
+    this.#maxAttack = this.setMaxAttack();
+    this.#minDefense = this.setMinDefense();
+    this.#maxDefense = this.setMaxDefense();
+  }
+
+  render(){
+    const screenMap = document.querySelector('#map')
+    const mob = document.createElement('div')
+    const mobImage = document.createElement('img')
+    const imageSource = `../grupo/assets/images/npc/black-guard.png`
+
+    mobImage.src = imageSource
+    mobImage.className = "absolute top-0 left-0"
+
+    mob.className = `absolute top-[calc(${this.yActualPosition}*20px)] left-[calc(${this.xActualPosition}*20px)] w-5 h-5 overflow-hidden`
+    mob.appendChild(mobImage)
+
+    screenMap.appendChild(mob)
+  }
 }
 
-const mob = new Mob({
-  name: "teste",
-  isVisible: false,
-  xActualPosition: 4,
-  yActualPosition: 5,
-});
-mob.init();
+// const mob = new Mob({
+//   name: "teste",
+//   isVisible: false,
+//   xActualPosition: 4,
+//   yActualPosition: 5,
+// });
+// mob.init();
 
-console.log(mob);
+// console.log(mob);
 
-console.log(mob.attack());
-console.log(mob.defend());
+// console.log(mob.attack());
+// console.log(mob.defend());
 
-mob.health = 2;
+// mob.health = 2;
