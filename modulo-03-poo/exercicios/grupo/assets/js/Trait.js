@@ -1,5 +1,5 @@
-import { Map as GameMap } from './Map'
-import { Utils } from './Utils'
+import { Map as GameMap } from './Map.js'
+import { Utils } from './Utils.js'
 
 export class Trait {
 
