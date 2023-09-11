@@ -250,11 +250,11 @@ export class Map {
   }
 
   static isPositionUsed({ y, x }) {
-    const item = Map.#mappedEntities.find(entity => {
-      return entity.xActualPosition === x && entity.yActualPosition === y
-    })
+    const item = Map.#mappedEntities.find((entity) => {
+      return entity.xActualPosition === x && entity.yActualPosition === y;
+    });
 
-    return !!item?.id
+    return !!item?.id;
   }
 
   static addEntityToMappedEntities(entity) {
@@ -294,85 +294,24 @@ export class Map {
     const playerClasses = player.classList;
     const playerImageClasses = playerImage.classList;
 
-    console.log(playerImageClasses);
-    document.addEventListener("keyup", (e) => {
-      e.preventDefault();
+    initializedPlayer.movePlayerOnKeyUp({
+      player,
+      playerImage,
+      initializedPlayer,
+      playerClasses,
+      playerImageClasses,
+    });
 
-      const eventCode = e.code.toLowerCase();
-
-      let playerFilteredClasses;
-      let imagePlayerFilteredClasses;
-      switch (eventCode) {
-        case "keyw":
-          initializedPlayer.moveUp();
-          playerFilteredClasses = [...playerClasses].filter(
-            (c) => !c.startsWith("top")
-          );
-          playerFilteredClasses.push(
-            `top-[calc(${initializedPlayer.yActualPosition}*20px)]`
-          );
-          player.classList = playerFilteredClasses.join(" ");
-
-          imagePlayerFilteredClasses = [...playerImageClasses].filter(
-            (c) => !c.includes("top")
-          );
-          imagePlayerFilteredClasses.push(`-top-[3.75rem]`);
-          playerImage.classList = imagePlayerFilteredClasses.join(" ");
-          break;
-        case "keyd":
-          initializedPlayer.moveRight();
-          playerFilteredClasses = [...playerClasses].filter(
-            (c) => !c.startsWith("left")
-          );
-          playerFilteredClasses.push(
-            `left-[calc(${initializedPlayer.xActualPosition}*20px)]`
-          );
-          player.classList = playerFilteredClasses.join(" ");
-
-          imagePlayerFilteredClasses = [...playerImageClasses].filter(
-            (c) => !c.includes("top")
-          );
-          imagePlayerFilteredClasses.push(`-top-10`);
-          playerImage.classList = imagePlayerFilteredClasses.join(" ");
-          break;
-        case "keys":
-          initializedPlayer.moveDown();
-          playerFilteredClasses = [...playerClasses].filter(
-            (c) => !c.startsWith("top")
-          );
-          playerFilteredClasses.push(
-            `top-[calc(${initializedPlayer.yActualPosition}*20px)]`
-          );
-          player.classList = playerFilteredClasses.join(" ");
-
-          imagePlayerFilteredClasses = [...playerImageClasses].filter(
-            (c) => !c.includes("top")
-          );
-          imagePlayerFilteredClasses.push(`top-0`);
-          playerImage.classList = imagePlayerFilteredClasses.join(" ");
-          break;
-        case "keya":
-          initializedPlayer.moveLeft();
-          playerFilteredClasses = [...playerClasses].filter(
-            (c) => !c.startsWith("left")
-          );
-          playerFilteredClasses.push(
-            `left-[calc(${initializedPlayer.xActualPosition}*20px)]`
-          );
-          player.classList = playerFilteredClasses.join(" ");
-
-          imagePlayerFilteredClasses = [...playerImageClasses].filter(
-            (c) => !c.includes("top")
-          );
-          imagePlayerFilteredClasses.push(`-top-5`);
-          playerImage.classList = imagePlayerFilteredClasses.join(" ");
-          break;
-      }
-      console.log(e.code);
+    initializedPlayer.movePlayerOnClick({
+      player,
+      playerImage,
+      initializedPlayer,
+      playerClasses,
+      playerImageClasses,
     });
   }
 
-  renderInitialMobs(){
+  renderInitialMobs() {
     for (let i = 0; i < 100; i++) {
       const x = Math.floor(Math.random() * 51);
       const y = Math.floor(Math.random() * 30);
@@ -382,10 +321,9 @@ export class Map {
         y,
       });
 
-      const isPositionUsed = Map.isPositionUsed({ x, y })
+      const isPositionUsed = Map.isPositionUsed({ x, y });
 
       if (!isPositionValid || isPositionUsed) {
-        console.log('used');
       } else {
         const mob = new Mob({
           name: "teste",
@@ -400,8 +338,8 @@ export class Map {
 
   init(player) {
     this.#init(player);
-    
-    this.renderInitialMobs()
+
+    this.renderInitialMobs();
 
     console.log(Map.mappedEntities);
   }

@@ -1,7 +1,6 @@
 import { Entity } from "./Entity.js";
 import { Map } from "./Map.js";
 
-
 export class Player extends Entity {
   #actualLife;
   #maxLife;
@@ -29,7 +28,7 @@ export class Player extends Entity {
   }
   get maxLife() {
     return this.#maxLife;
-   }
+  }
   get attack() {
     return this.#attack;
   }
@@ -39,48 +38,224 @@ export class Player extends Entity {
   openChest(chest) {
     chest.give(this);
   }
-  init() {
-    const form = document.querySelector("#form")
 
-    form.addEventListener('submit', e => {
-      e.preventDefault()
-      const formData = new FormData(form)
-      const formValues = Object.fromEntries(formData.entries())
+  movePlayerOnKeyUp({
+    player,
+    playerImage,
+    initializedPlayer,
+    playerClasses,
+    playerImageClasses,
+  }) {
+    document.addEventListener("keyup", (e) => {
+      e.preventDefault();
 
-      const name = formValues["name"]
-      const difficult = formValues["difficult"]
-      const character = formValues["character"]
+      const eventCode = e.code.toLowerCase();
 
-      this.name = name
-      this.character = character
-      this.yActualPosition = 0
-      this.xActualPosition = 22
+      let playerFilteredClasses;
+      let imagePlayerFilteredClasses;
+      switch (eventCode) {
+        case "keyw":
+        case "arrowup":
+          initializedPlayer.moveUp();
+          playerFilteredClasses = [...playerClasses].filter(
+            (c) => !c.startsWith("top")
+          );
+          playerFilteredClasses.push(
+            `top-[calc(${initializedPlayer.yActualPosition}*20px)]`
+          );
+          player.classList = playerFilteredClasses.join(" ");
 
-      Map.difficult = difficult
-      Map.resetMappedEntities()
-      Map.addEntityToMappedEntities(this)
+          imagePlayerFilteredClasses = [...playerImageClasses].filter(
+            (c) => !c.includes("top")
+          );
+          imagePlayerFilteredClasses.push(`-top-[3.75rem]`);
+          playerImage.classList = imagePlayerFilteredClasses.join(" ");
+          break;
+        case "keyd":
+        case "arrowright":
+          initializedPlayer.moveRight();
+          playerFilteredClasses = [...playerClasses].filter(
+            (c) => !c.startsWith("left")
+          );
+          playerFilteredClasses.push(
+            `left-[calc(${initializedPlayer.xActualPosition}*20px)]`
+          );
+          player.classList = playerFilteredClasses.join(" ");
 
-      this.render()
-    })
+          imagePlayerFilteredClasses = [...playerImageClasses].filter(
+            (c) => !c.includes("top")
+          );
+          imagePlayerFilteredClasses.push(`-top-10`);
+          playerImage.classList = imagePlayerFilteredClasses.join(" ");
+          break;
+        case "keys":
+        case "arrowdown":
+          initializedPlayer.moveDown();
+          playerFilteredClasses = [...playerClasses].filter(
+            (c) => !c.startsWith("top")
+          );
+          playerFilteredClasses.push(
+            `top-[calc(${initializedPlayer.yActualPosition}*20px)]`
+          );
+          player.classList = playerFilteredClasses.join(" ");
+
+          imagePlayerFilteredClasses = [...playerImageClasses].filter(
+            (c) => !c.includes("top")
+          );
+          imagePlayerFilteredClasses.push(`top-0`);
+          playerImage.classList = imagePlayerFilteredClasses.join(" ");
+          break;
+        case "keya":
+        case "arrowleft":
+          initializedPlayer.moveLeft();
+          playerFilteredClasses = [...playerClasses].filter(
+            (c) => !c.startsWith("left")
+          );
+          playerFilteredClasses.push(
+            `left-[calc(${initializedPlayer.xActualPosition}*20px)]`
+          );
+          player.classList = playerFilteredClasses.join(" ");
+
+          imagePlayerFilteredClasses = [...playerImageClasses].filter(
+            (c) => !c.includes("top")
+          );
+          imagePlayerFilteredClasses.push(`-top-5`);
+          playerImage.classList = imagePlayerFilteredClasses.join(" ");
+          break;
+      }
+    });
   }
 
-  render(){
-    const screenMap = document.querySelector('#map')
-    const player = document.createElement('div')
-    const playerImage = document.createElement('img')
-    const imageSource = `../grupo/assets/images/player/${this.character}.png`
+  movePlayerOnClick({
+    player,
+    playerImage,
+    initializedPlayer,
+    playerClasses,
+    playerImageClasses,
+  }) {
+    const aButton = document.querySelector("#move-a");
+    const wButton = document.querySelector("#move-w");
+    const sButton = document.querySelector("#move-s");
+    const dButton = document.querySelector("#move-d");
 
-    playerImage.src = imageSource
-    playerImage.className = "absolute top-0 left-0"
+    aButton.addEventListener("click", () => {
+      let playerFilteredClasses;
+      let imagePlayerFilteredClasses;
+      initializedPlayer.moveLeft();
+      playerFilteredClasses = [...playerClasses].filter(
+        (c) => !c.startsWith("left")
+      );
+      playerFilteredClasses.push(
+        `left-[calc(${initializedPlayer.xActualPosition}*20px)]`
+      );
+      player.classList = playerFilteredClasses.join(" ");
 
-    player.className = `absolute top-[calc(${this.yActualPosition}*20px)] left-[calc(${this.xActualPosition}*20px)] w-5 h-5 overflow-hidden bg-black/40`
-    player.id = "player"
-    player.appendChild(playerImage)
+      imagePlayerFilteredClasses = [...playerImageClasses].filter(
+        (c) => !c.includes("top")
+      );
+      imagePlayerFilteredClasses.push(`-top-5`);
+      playerImage.classList = imagePlayerFilteredClasses.join(" ");
+    });
 
-    screenMap.appendChild(player)
+    wButton.addEventListener("click", () => {
+      let playerFilteredClasses;
+      let imagePlayerFilteredClasses;
+      initializedPlayer.moveUp();
+      playerFilteredClasses = [...playerClasses].filter(
+        (c) => !c.startsWith("top")
+      );
+      playerFilteredClasses.push(
+        `top-[calc(${initializedPlayer.yActualPosition}*20px)]`
+      );
+      player.classList = playerFilteredClasses.join(" ");
 
-    const mapInstance = new Map()
-    mapInstance.init(this)
+      imagePlayerFilteredClasses = [...playerImageClasses].filter(
+        (c) => !c.includes("top")
+      );
+      imagePlayerFilteredClasses.push(`-top-[3.75rem]`);
+      playerImage.classList = imagePlayerFilteredClasses.join(" ");
+    });
+
+    sButton.addEventListener("click", () => {
+      let playerFilteredClasses;
+      let imagePlayerFilteredClasses;
+      initializedPlayer.moveDown();
+      playerFilteredClasses = [...playerClasses].filter(
+        (c) => !c.startsWith("top")
+      );
+      playerFilteredClasses.push(
+        `top-[calc(${initializedPlayer.yActualPosition}*20px)]`
+      );
+      player.classList = playerFilteredClasses.join(" ");
+
+      imagePlayerFilteredClasses = [...playerImageClasses].filter(
+        (c) => !c.includes("top")
+      );
+      imagePlayerFilteredClasses.push(`top-0`);
+      playerImage.classList = imagePlayerFilteredClasses.join(" ");
+    });
+
+    dButton.addEventListener("click", () => {
+      let playerFilteredClasses;
+      let imagePlayerFilteredClasses;
+      initializedPlayer.moveRight();
+      playerFilteredClasses = [...playerClasses].filter(
+        (c) => !c.startsWith("left")
+      );
+      playerFilteredClasses.push(
+        `left-[calc(${initializedPlayer.xActualPosition}*20px)]`
+      );
+      player.classList = playerFilteredClasses.join(" ");
+
+      imagePlayerFilteredClasses = [...playerImageClasses].filter(
+        (c) => !c.includes("top")
+      );
+      imagePlayerFilteredClasses.push(`-top-10`);
+      playerImage.classList = imagePlayerFilteredClasses.join(" ");
+    });
+  }
+
+  init() {
+    const form = document.querySelector("#form");
+
+    form.addEventListener("submit", (e) => {
+      e.preventDefault();
+      const formData = new FormData(form);
+      const formValues = Object.fromEntries(formData.entries());
+
+      const name = formValues["name"];
+      const difficult = formValues["difficult"];
+      const character = formValues["character"];
+
+      this.name = name;
+      this.character = character;
+      this.yActualPosition = 0;
+      this.xActualPosition = 22;
+
+      Map.difficult = difficult;
+      Map.resetMappedEntities();
+      Map.addEntityToMappedEntities(this);
+
+      this.render();
+    });
+  }
+
+  render() {
+    const screenMap = document.querySelector("#map");
+    const player = document.createElement("div");
+    const playerImage = document.createElement("img");
+    const imageSource = `../grupo/assets/images/player/${this.character}.png`;
+
+    playerImage.src = imageSource;
+    playerImage.className = "absolute top-0 left-0";
+
+    player.className = `absolute top-[calc(${this.yActualPosition}*20px)] left-[calc(${this.xActualPosition}*20px)] w-5 h-5 overflow-hidden bg-black/40`;
+    player.id = "player";
+    player.appendChild(playerImage);
+
+    screenMap.appendChild(player);
+
+    const mapInstance = new Map();
+    mapInstance.init(this);
   }
 }
-
