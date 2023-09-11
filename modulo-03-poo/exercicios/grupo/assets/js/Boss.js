@@ -28,7 +28,10 @@ export class Boss extends Mob {
         }
         this.xActualPosition = x;
         this.yActualPosition = y;
-        Map.addEntityToMappedEntities(this);
+    }
+
+    init() {
+        super.init()
         Boss.#addBlessings(this);
     }
 
