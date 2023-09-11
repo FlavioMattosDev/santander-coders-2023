@@ -372,13 +372,10 @@ export class Map {
     });
   }
 
-  init(player) {
-    this.#init(player);
-
-    for (let i = 0; i < 3000; i++) {
+  renderInitialMobs(){
+    for (let i = 0; i < 100; i++) {
       const x = Math.floor(Math.random() * 51);
       const y = Math.floor(Math.random() * 30);
-
 
       const isPositionValid = Map.isPositionValid({
         x,
@@ -399,6 +396,12 @@ export class Map {
         mob.init();
       }
     }
+  }
+
+  init(player) {
+    this.#init(player);
+    
+    this.renderInitialMobs()
 
     console.log(Map.mappedEntities);
   }
