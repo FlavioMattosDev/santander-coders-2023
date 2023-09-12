@@ -334,8 +334,8 @@ export class Map {
       if (!isPositionValid || isPositionUsed) {
       } else {
         const mob = new Mob({
-          name: "teste",
-          isVisible: false,
+          name: Mob.generateRandomName(),
+          isVisible: Mob.generateRandomVisibility(),
           xActualPosition: x,
           yActualPosition: y,
         });
@@ -344,10 +344,10 @@ export class Map {
     }
   }
 
-  renderBoss(){
-      const x = 44;
-      const y = 14;
-      new Boss(x, y).init();
+  renderBoss() {
+    const x = 44;
+    const y = 14;
+    new Boss(x, y).init();
   }
 
   renderChests() {
@@ -360,7 +360,7 @@ export class Map {
         y,
       });
 
-      const isPositionUsed = Map.isPositionUsed({ x, y })
+      const isPositionUsed = Map.isPositionUsed({ x, y });
 
       if (isPositionValid && !isPositionUsed) {
         new Chest(x, y).init();

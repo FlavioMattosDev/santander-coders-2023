@@ -2,6 +2,51 @@ import { Map } from "./Map.js";
 import { Entity } from "./Entity.js";
 
 export class Mob extends Entity {
+  static #firstNames = [
+    "Seraphina",
+    "Alistair",
+    "Gideon",
+    "Isolde",
+    "Thaddeus",
+    "Evangeline",
+    "Leander",
+    "Rosalind",
+    "Percival",
+    "Elowen",
+    "Lucian",
+    "Seraphim",
+    "Ophelia",
+    "Atticus",
+    "Theodora",
+    "Tristan",
+    "Evadne",
+    "Caspian",
+    "Callista",
+    "Alaric",
+  ];
+  static #secondNames = [
+    "Ravenscroft",
+    "Blackwood",
+    "Hawthorne",
+    "Ashbourne",
+    "Whitethorn",
+    "Ironheart",
+    "Silverlake",
+    "Stormbringer",
+    "Starfall",
+    "Moonshadow",
+    "Nightshade",
+    "Goldenshield",
+    "Silverwing",
+    "Ironfist",
+    "Stormcloak",
+    "Dragonslayer",
+    "Stagheart",
+    "Crowhaven",
+    "Willowbrook",
+    "Frostbloom",
+  ];
+
   #maxHealth;
   #actualHealth;
   #minAttack;
@@ -21,8 +66,8 @@ export class Mob extends Entity {
       this.xActualPosition = xActualPosition;
       this.yActualPosition = yActualPosition;
 
-      Map.addEntityToMappedEntities(this)
-      this.render()
+      Map.addEntityToMappedEntities(this);
+      this.render();
     }
   }
 
@@ -104,7 +149,6 @@ export class Mob extends Entity {
   }
 
   setAttack() {
-
     const min = this.#minAttack;
     const max = this.#maxAttack;
 
@@ -142,6 +186,19 @@ export class Mob extends Entity {
     return Math.floor(Math.random() * 3 + this.#minDefense);
   }
 
+  static generateRandomName() {
+    const firstName =
+      Mob.#firstNames[Math.floor(Math.random() * Mob.#firstNames.length)];
+    const secondName =
+      Mob.#secondNames[Math.floor(Math.random() * Mob.#secondNames.length)];
+    return `${firstName} ${secondName}`;
+  }
+
+  static generateRandomVisibility() {
+    const randomNumber = Math.floor(Math.random() * 10 + 1);
+    return randomNumber === 1 ? false : true;
+  }
+
   init() {
     this.#maxHealth = this.setMaxHealth();
     this.#actualHealth = this.#maxHealth;
@@ -154,18 +211,20 @@ export class Mob extends Entity {
   }
 
   render() {
-    const screenMap = document.querySelector('#map')
-    const mob = document.createElement('div')
-    const mobImage = document.createElement('img')
-    const imageSource = `../grupo/assets/images/npc/black-guard.png`
+    if (this.#isVisible) {
+      const screenMap = document.querySelector("#map");
+      const mob = document.createElement("div");
+      const mobImage = document.createElement("img");
+      const imageSource = `../grupo/assets/images/npc/black-guard.png`;
 
-    mobImage.src = imageSource
-    mobImage.className = "absolute top-0 left-0"
+      mobImage.src = imageSource;
+      mobImage.className = "absolute top-0 left-0";
 
-    mob.className = `absolute top-[calc(${this.yActualPosition}*20px)] left-[calc(${this.xActualPosition}*20px)] w-5 h-5 overflow-hidden`
-    mob.appendChild(mobImage)
+      mob.className = `absolute top-[calc(${this.yActualPosition}*20px)] left-[calc(${this.xActualPosition}*20px)] w-5 h-5 overflow-hidden`;
+      mob.appendChild(mobImage);
 
-    screenMap.appendChild(mob)
+      screenMap.appendChild(mob);
+    }
   }
 }
 
