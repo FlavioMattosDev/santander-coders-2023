@@ -43,20 +43,21 @@ export class Player extends Entity {
     chest.give(this);
   }
 
-  initInteraction(entitiesToInteract){
-    if (entitiesToInteract instanceof Mob) {
+  initInteraction(entitiesToInteract) {
+    if (entitiesToInteract.length === 1) return;
+    if (entitiesToInteract[1] instanceof Mob) {
       console.log("mob");
     }
 
-    if (entitiesToInteract instanceof Boss) {
+    if (entitiesToInteract[1] instanceof Boss) {
       console.log("boss");
     }
 
-    if (entitiesToInteract instanceof Npc) {
+    if (entitiesToInteract[1] instanceof Npc) {
       console.log("npc");
     }
 
-    if (entitiesToInteract instanceof Chest) {
+    if (entitiesToInteract[1] instanceof Chest) {
       console.log("chest");
     }
   }
@@ -75,6 +76,10 @@ export class Player extends Entity {
 
       let playerFilteredClasses;
       let imagePlayerFilteredClasses;
+      let entitiesToInteract = Map.getEntitiesAtPosition({
+        x: this.xActualPosition,
+        y: this.yActualPosition,
+      });
       switch (eventCode) {
         case "keyw":
         case "arrowup":
@@ -93,11 +98,10 @@ export class Player extends Entity {
           imagePlayerFilteredClasses.push(`-top-[3.75rem]`);
           playerImage.classList = imagePlayerFilteredClasses.join(" ");
 
-          const entitiesToInteract = Map.getEntitiesAtPosition({
+          entitiesToInteract = Map.getEntitiesAtPosition({
             x: this.xActualPosition,
             y: this.yActualPosition,
           });
-
 
           break;
         case "keyd":
@@ -116,6 +120,12 @@ export class Player extends Entity {
           );
           imagePlayerFilteredClasses.push(`-top-10`);
           playerImage.classList = imagePlayerFilteredClasses.join(" ");
+
+          entitiesToInteract = Map.getEntitiesAtPosition({
+            x: this.xActualPosition,
+            y: this.yActualPosition,
+          });
+
           break;
         case "keys":
         case "arrowdown":
@@ -133,6 +143,12 @@ export class Player extends Entity {
           );
           imagePlayerFilteredClasses.push(`top-0`);
           playerImage.classList = imagePlayerFilteredClasses.join(" ");
+
+          entitiesToInteract = Map.getEntitiesAtPosition({
+            x: this.xActualPosition,
+            y: this.yActualPosition,
+          });
+
           break;
         case "keya":
         case "arrowleft":
@@ -150,8 +166,14 @@ export class Player extends Entity {
           );
           imagePlayerFilteredClasses.push(`-top-5`);
           playerImage.classList = imagePlayerFilteredClasses.join(" ");
+
+          entitiesToInteract = Map.getEntitiesAtPosition({
+            x: this.xActualPosition,
+            y: this.yActualPosition,
+          });
           break;
       }
+      this.initInteraction(entitiesToInteract);
     });
   }
 
@@ -166,6 +188,10 @@ export class Player extends Entity {
     const wButton = document.querySelector("#move-w");
     const sButton = document.querySelector("#move-s");
     const dButton = document.querySelector("#move-d");
+    let entitiesToInteract = Map.getEntitiesAtPosition({
+      x: this.xActualPosition,
+      y: this.yActualPosition,
+    });
 
     aButton.addEventListener("click", () => {
       let playerFilteredClasses;
@@ -184,6 +210,12 @@ export class Player extends Entity {
       );
       imagePlayerFilteredClasses.push(`-top-5`);
       playerImage.classList = imagePlayerFilteredClasses.join(" ");
+
+      entitiesToInteract = Map.getEntitiesAtPosition({
+        x: this.xActualPosition,
+        y: this.yActualPosition,
+      });
+      this.initInteraction(entitiesToInteract);
     });
 
     wButton.addEventListener("click", () => {
@@ -203,6 +235,12 @@ export class Player extends Entity {
       );
       imagePlayerFilteredClasses.push(`-top-[3.75rem]`);
       playerImage.classList = imagePlayerFilteredClasses.join(" ");
+
+      entitiesToInteract = Map.getEntitiesAtPosition({
+        x: this.xActualPosition,
+        y: this.yActualPosition,
+      });
+      this.initInteraction(entitiesToInteract);
     });
 
     sButton.addEventListener("click", () => {
@@ -222,6 +260,12 @@ export class Player extends Entity {
       );
       imagePlayerFilteredClasses.push(`top-0`);
       playerImage.classList = imagePlayerFilteredClasses.join(" ");
+
+      entitiesToInteract = Map.getEntitiesAtPosition({
+        x: this.xActualPosition,
+        y: this.yActualPosition,
+      });
+      this.initInteraction(entitiesToInteract);
     });
 
     dButton.addEventListener("click", () => {
@@ -241,6 +285,12 @@ export class Player extends Entity {
       );
       imagePlayerFilteredClasses.push(`-top-10`);
       playerImage.classList = imagePlayerFilteredClasses.join(" ");
+
+      entitiesToInteract = Map.getEntitiesAtPosition({
+        x: this.xActualPosition,
+        y: this.yActualPosition,
+      });
+      this.initInteraction(entitiesToInteract);
     });
   }
 
