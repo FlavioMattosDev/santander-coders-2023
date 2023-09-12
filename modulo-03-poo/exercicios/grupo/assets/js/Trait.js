@@ -1,5 +1,8 @@
 import { Map as GameMap } from './Map.js'
 import { Utils } from './Utils.js'
+import { Mob } from "./Mob.js";
+import { Player } from "./Player.js";
+import { Boss } from "./Boss.js";
 
 export class Trait {
 
@@ -36,8 +39,8 @@ export class Trait {
     static #maxBadSuffixKey = -1;
 
     static #suffixesToPropertyMap = new Map([
-        ["Mortality", "maxLife"],
-        ["Longevity", "maxLife"],
+        ["Mortality", "health"],
+        ["Longevity", "health"],
         ["Feebleness", "attack"],
         ["Might", "attack"],
         ["Frailty", "defense"],
@@ -80,18 +83,46 @@ export class Trait {
         );
 
     apply(character) {
-        switch(this.#property) {
-            case "maxLife":
-                character.maxLife += this.#effect;
-                break;
-            case "attack":
-                character.attack += this.#effect;
-                break;
-            case "defense":
-                character.defense += this.#effect;
-                break
+        if (character instanceof Player) {
+            this.#applyOnPlayer(character);
+            return;
+        }
+        if (character instanceof Mob || character instanceof Boss) {
+            this.#applyOnMob(character)
         }
         character.traits.push(this);
         GameMap.updateEntity(character);
+    }
+
+    #applyOnPlayer(player) {
+        switch(this.#property) {
+            case "health":
+                player.maxLife += this.#effect;
+                player.actualLife = player.maxLife;
+                break;
+            case "attack":
+                player.attack += this.#effect;
+                break;
+            case "defense":
+                player.defense += this.#effect;
+                break
+        }
+    }
+
+    #applyOnMob(mob) {
+        switch(this.#property) {
+            case "health":
+                mob.maxHealth += this.#effect;
+                mob.actualHealth = mob.maxHealth;
+                break;
+            case "attack":
+                mob.minAttack += this.#effect;
+                mob.maxAttack += this.#effect;
+                break;
+            case "defense":
+                mob.minDefense += this.#effect;
+                mob.maxDefense += this.#effect;
+                break
+        }
     }
 }

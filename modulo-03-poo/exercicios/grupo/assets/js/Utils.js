@@ -1,6 +1,6 @@
 export class Utils {
     static getRandomNumber(minValue, maxValue) {
-        return Math.random() * (maxValue - minValue) + minValue;
+        return Math.floor(Math.random() * (maxValue - minValue + 1)) + minValue;
     }
 
     static getRandomKey(isPositive, minGood, maxGood, minBad, maxBad) {
