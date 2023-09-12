@@ -1,5 +1,5 @@
-import { Fate } from "./Fate";
-import { Trait } from "./Trait";
+import { Fate } from "./Fate.js";
+import { Trait } from "./Trait.js";
 
 export class Curse extends Fate {
     constructor() {

@@ -1,4 +1,6 @@
 import { Mob } from "./Mob.js";
+import { Boss } from "./Boss.js";
+import { Chest } from "./Chest.js";
 
 export class Map {
   // x51 - 1020
@@ -336,9 +338,36 @@ export class Map {
     }
   }
 
+  renderBoss(){
+      const x = 44;
+      const y = 14;
+      new Boss(x, y).init();
+  }
+
+  renderChests() {
+    for (let i = 0; i < 20; i++) {
+      const x = Math.floor(Math.random() * 51);
+      const y = Math.floor(Math.random() * 30);
+
+      const isPositionValid = Map.isPositionValid({
+        x,
+        y,
+      });
+
+      const isPositionUsed = Map.isPositionUsed({ x, y })
+
+      if (isPositionValid && !isPositionUsed) {
+        new Chest(x, y).init();
+      }
+    }
+  }
+
   init(player) {
     this.#init(player);
 
+
+    this.renderBoss();
+    this.renderChests();
     this.renderInitialMobs();
 
     console.log(Map.mappedEntities);

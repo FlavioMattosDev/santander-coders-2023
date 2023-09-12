@@ -1,6 +1,6 @@
-import { Mob } from "./Mob";
-import { Map } from "./Map";
-import { Blessing } from "./Blessing";
+import {Mob} from "./Mob.js";
+import {Map} from "./Map.js";
+import {Blessing} from "./Blessing.js";
 
 export class Boss extends Mob {
     static #names = [
@@ -28,6 +28,7 @@ export class Boss extends Mob {
         }
         this.xActualPosition = x;
         this.yActualPosition = y;
+        this.#traits = [];
     }
 
     init() {
@@ -48,5 +49,18 @@ export class Boss extends Mob {
 
     get traits() {
         return this.#traits;
+    }
+
+    render(){
+        const screenMap = document.querySelector('#map')
+        const boss = document.createElement('div')
+        const bossImage = document.createElement('img')
+        bossImage.src = `../grupo/assets/images/boss/Boss.png`
+        bossImage.className = "absolute top-0 left-0"
+
+        boss.className = `absolute top-[calc(${this.yActualPosition}*20px)] left-[calc(${this.xActualPosition}*20px)] w-5 h-5 overflow-hidden`
+        boss.appendChild(bossImage)
+
+        screenMap.appendChild(boss)
     }
 }
