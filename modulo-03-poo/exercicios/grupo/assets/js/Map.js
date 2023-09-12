@@ -166,7 +166,7 @@ export class Map {
       extraHitPercentChance: 40,
       extraDefensePercentChance: 40,
       positiveLootOutcomePercentChance: 90,
-      bossBlessingNumber: 1,
+      bossBlessingNumber: 2,
     },
     normal: {
       extraLife: 4,
@@ -175,7 +175,7 @@ export class Map {
       extraHitPercentChance: 30,
       extraDefensePercentChance: 30,
       positiveLootOutcomePercentChance: 80,
-      bossBlessingNumber: 2,
+      bossBlessingNumber: 4,
     },
     hard: {
       extraLife: 2,
@@ -184,7 +184,7 @@ export class Map {
       extraHitPercentChance: 15,
       extraDefensePercentChance: 15,
       positiveLootOutcomePercentChance: 70,
-      bossBlessingNumber: 3,
+      bossBlessingNumber: 6,
     },
     pro: {
       extraLife: 0,
@@ -193,7 +193,7 @@ export class Map {
       extraHitPercentChance: 0,
       extraDefensePercentChance: 0,
       positiveLootOutcomePercentChance: 60,
-      bossBlessingNumber: 4,
+      bossBlessingNumber: 8,
     },
   };
   static #difficult = {};

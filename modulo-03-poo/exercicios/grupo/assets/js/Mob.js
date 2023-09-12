@@ -38,6 +38,53 @@ export class Mob extends Entity {
     return this.#isVisible;
   }
 
+  get maxHealth() {
+    return this.#maxHealth;
+  }
+
+  get actualHealth() {
+    return this.#actualHealth;
+  }
+
+  get minAttack() {
+    return this.#minAttack;
+  }
+
+  get maxAttack() {
+    return this.#maxAttack;
+  }
+
+  get minDefense() {
+    return this.#minDefense;
+  }
+
+  get maxDefense() {
+    return this.#maxDefense;
+  }
+  set maxHealth(maxHealth) {
+    this.#maxHealth = maxHealth;
+  }
+
+  set actualHealth(actualHealth) {
+    this.#actualHealth = actualHealth;
+  }
+
+  set minAttack(minAttack) {
+    this.#minAttack = minAttack;
+  }
+
+  set maxAttack(maxAttack) {
+    this.#maxAttack = maxAttack;
+  }
+
+  set minDefense(minDefense) {
+    this.#minDefense = minDefense;
+  }
+
+  set maxDefense(maxDefense) {
+    this.#maxDefense = maxDefense;
+  }
+
   attack() {
     const min = this.#minAttack;
     const max = this.#maxAttack;
