@@ -9,6 +9,8 @@ export class Mob extends Entity {
   #minDefense;
   #maxDefense;
   #isVisible;
+  #attack;
+  #defense;
 
   constructor({ name, isVisible, xActualPosition, yActualPosition }) {
     super();
@@ -25,6 +27,14 @@ export class Mob extends Entity {
   }
 
   get health() {
+    return this.#actualHealth;
+  }
+
+  get maxLife() {
+    return this.#maxHealth;
+  }
+
+  get actualLife() {
     return this.#actualHealth;
   }
 
@@ -85,18 +95,27 @@ export class Mob extends Entity {
     this.#maxDefense = maxDefense;
   }
 
-  attack() {
+  get attack() {
+    return this.#attack;
+  }
+
+  get defense() {
+    return this.#defense;
+  }
+
+  setAttack() {
+
     const min = this.#minAttack;
     const max = this.#maxAttack;
 
-    return Math.floor(Math.random() * (max - min + 1) + min);
+    this.#attack = Math.floor(Math.random() * (max - min + 1) + min);
   }
 
-  defend() {
+  setDefense() {
     const min = this.#minDefense;
     const max = this.#maxDefense;
 
-    return Math.floor(Math.random() * (max - min + 1) + min);
+    this.#defense = Math.floor(Math.random() * (max - min + 1) + min);
   }
 
   toggleVisibility() {
@@ -130,9 +149,11 @@ export class Mob extends Entity {
     this.#maxAttack = this.setMaxAttack();
     this.#minDefense = this.setMinDefense();
     this.#maxDefense = this.setMaxDefense();
+    this.#attack = this.setAttack();
+    this.#defense = this.setDefense();
   }
 
-  render(){
+  render() {
     const screenMap = document.querySelector('#map')
     const mob = document.createElement('div')
     const mobImage = document.createElement('img')
