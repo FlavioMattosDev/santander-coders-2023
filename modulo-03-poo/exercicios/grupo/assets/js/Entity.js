@@ -5,11 +5,11 @@ export class Entity {
   #xActualPosition;
   #yActualPosition;
   #sidePosition;
-  #character
-  #id
+  #character;
+  #id;
 
-  constructor(){
-    this.#id = Map.mappedEntities.length + 1
+  constructor() {
+    this.#id = Map.mappedEntities.length + 1;
   }
 
   get name() {
@@ -59,7 +59,7 @@ export class Entity {
   }
 
   set id(id) {
-    this.#id = id
+    this.#id = id;
   }
 
   get actualPosition() {

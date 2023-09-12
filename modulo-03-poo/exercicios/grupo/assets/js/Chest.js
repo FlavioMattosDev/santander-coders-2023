@@ -20,6 +20,7 @@ export class Chest extends Entity {
 
     init() {
         Map.addEntityToMappedEntities(this);
+        this.render()
     }
     give(player) {
         this.#treasure.give(player);

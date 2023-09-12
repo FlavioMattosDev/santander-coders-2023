@@ -1,5 +1,5 @@
-import { Entity } from "./Entity.js";
 import { Map } from "./Map.js";
+import { Entity } from "./Entity.js";
 
 export class Mob extends Entity {
   #maxHealth;
@@ -75,7 +75,6 @@ export class Mob extends Entity {
   setMaxDefense() {
     return Math.floor(Math.random() * 3 + this.#minDefense);
   }
-
 
   init() {
     this.#maxHealth = this.setMaxHealth();

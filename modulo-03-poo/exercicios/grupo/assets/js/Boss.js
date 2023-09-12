@@ -1,6 +1,6 @@
-import {Mob} from "./Mob.js";
 import {Map} from "./Map.js";
 import {Blessing} from "./Blessing.js";
+import {Mob} from "./Mob.js";
 
 export class Boss extends Mob {
     static #names = [

@@ -1,5 +1,5 @@
-import { Map } from "./Map"
-import { Player } from "./Player"
+import { Map } from "./Map.js"
+import { Player } from "./Player.js"
 
 export class Battle {
 
@@ -53,7 +53,7 @@ export class Battle {
      * - porcentagem da vida atual em relação a vida máxima do jogo + poder (ataque/defesa) + adicional (ataque/defesa)
      * Dano do Ataque: poder de ataque - poder de defesa (recebe acréscimos ou decréscimos de acordo ao nível de dificuldade)
      * Vencedor: Será preenchido com o nome do jogador sobrevivente ou do combatente inimigo do jogador desistente
-     * O Desistente receberá uma punição para a próxima batalha 
+     * O Desistente receberá uma punição para a próxima batalha
      * Caso o player vença, receberá um bônus para a próxima batalha de acordo ao inimigo vencido
      */
 
@@ -85,7 +85,7 @@ export class Battle {
         attacker instanceof Player ? this.percentHitSuccess += Map.difficult.extraHitPercentChance :
             this.percentHitSuccess -= Map.difficult.extraDefensePercentChance;
 
-        //Verifica se o ataque teve sucesso baseado na porcentagem de chance de sucesso    
+        //Verifica se o ataque teve sucesso baseado na porcentagem de chance de sucesso
         const attackSuccess = this.hitAttack(this.percentHitSuccess);
 
         if (!attackSuccess) {

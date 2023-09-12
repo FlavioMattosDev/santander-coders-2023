@@ -263,6 +263,12 @@ export class Map {
     Map.#mappedEntities.push(entity);
   }
 
+  static getEntitiesAtPosition({ x, y }) {
+    return Map.mappedEntities.filter(
+      (entity) => entity.xActualPosition === x && entity.yActualPosition === y
+    );
+  }
+
   static get difficult() {
     return Map.#difficult;
   }
@@ -363,10 +369,9 @@ export class Map {
   }
 
   init(player) {
+    this.renderBoss();
     this.#init(player);
 
-
-    this.renderBoss();
     this.renderChests();
     this.renderInitialMobs();
 

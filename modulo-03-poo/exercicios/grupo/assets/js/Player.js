@@ -1,5 +1,9 @@
+import { Boss } from "./Boss.js";
+import { Chest } from "./Chest.js";
 import { Entity } from "./Entity.js";
 import { Map } from "./Map.js";
+import { Mob } from "./Mob.js";
+import { Npc } from "./NPC.js";
 
 export class Player extends Entity {
   #actualLife;
@@ -39,6 +43,24 @@ export class Player extends Entity {
     chest.give(this);
   }
 
+  initInteraction(entitiesToInteract){
+    if (entitiesToInteract instanceof Mob) {
+      console.log("mob");
+    }
+
+    if (entitiesToInteract instanceof Boss) {
+      console.log("boss");
+    }
+
+    if (entitiesToInteract instanceof Npc) {
+      console.log("npc");
+    }
+
+    if (entitiesToInteract instanceof Chest) {
+      console.log("chest");
+    }
+  }
+
   movePlayerOnKeyUp({
     player,
     playerImage,
@@ -70,6 +92,13 @@ export class Player extends Entity {
           );
           imagePlayerFilteredClasses.push(`-top-[3.75rem]`);
           playerImage.classList = imagePlayerFilteredClasses.join(" ");
+
+          const entitiesToInteract = Map.getEntitiesAtPosition({
+            x: this.xActualPosition,
+            y: this.yActualPosition,
+          });
+
+
           break;
         case "keyd":
         case "arrowright":
