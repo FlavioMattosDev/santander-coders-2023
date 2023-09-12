@@ -1,5 +1,7 @@
-import { Map } from "./Map.js"
-import { Player } from "./Player.js"
+import { Action } from "./Action";
+import { Map } from "./Map";
+import { Player } from "./Player";
+
 
 export class Battle {
 
@@ -42,8 +44,6 @@ export class Battle {
     set winner(winner) { this.#winner = winner; }
 
     get battleHistory() { return this.#battleHistory; }
-    set battleHistory(battleHistory) { this.#battleHistory = battleHistory; }
-
 
     /**
      * Lógica da batalha:
@@ -58,15 +58,46 @@ export class Battle {
      */
 
 
-    init() {
+    init(player, enemy) {
         this.rule = Map.difficult.difficult;
         this.initial = new Date();
         this.id = ++Battle.ultimoId;
+        return this.move(player, enemy, true);
     }
 
+    move(player, enemy, isHitAttack) {
+        const action = new Action();
+        action.attacker = player.name;
+
+        //Variavel armazena um boolean que determina se a ação seguirá
+        let keep = false;
+
+        //Condição para quando na opção atacar ou desistir o jogador escolher desistir
+        if (!isHitAttack) {
+            action.move = `Jogador ${player.name} desistiu!`;
+            action.description = this.giveUp(player, enemy);
+            this.registerAction(action);
+
+            return this.continue(keep);
+        }
+
+        // Caso o jogador não desista ou for a vez do adversário do player
+        action.move = `Jogador ${action.attacker} atacou ${enemy.name}`;
+        const resultAttack = this.attackAction(player, enemy);
+
+        action.description = resultAttack.msg;
+        this.registerAction(action);
+        keep = resultAttack.keep;
+
+        return {
+            isPlayerTurn: !keep,
+            isBattleEnded,
+            message: action.description
+        }
+    }
     //Método de fuga pré-batalha
     static escape(player) {
-        player.MaxLife -= 5;
+        player.actualLife = player.actualLife * 0.9;
     }
 
     registerAction(action) {
@@ -78,7 +109,16 @@ export class Battle {
     }
 
     //Lógica do movimento de ataque
-    attackAction(defensor, attacker) {
+    attackAction(attacker, defensor) {
+        const result = {
+            msg: "",
+            keep: false
+        }
+
+        if (attacker instanceof Player) {
+            result.keep = true;
+        }
+
         this.percentHitSuccess = attacker.attack / (defensor.attack + defensor.defense) * 100;
 
         // Aplica vantagem do mapa para o Player
@@ -89,7 +129,8 @@ export class Battle {
         const attackSuccess = this.hitAttack(this.percentHitSuccess);
 
         if (!attackSuccess) {
-            return 'Ataque falhou!';
+            result.msg = 'Ataque falhou!';
+            return result;
         }
 
         //Calcula o poder de ataque e defesa dos jogadores
@@ -125,7 +166,16 @@ export class Battle {
                 break;
         }
 
-        return `Sucesso! Dano aplicado : ${this.damageHit}`;
+        defensor = this.attackResult(this.damageHit, defensor);
+
+        if (defensor.actualLife <= 0) {
+            result.msg = this.battleEnded(attacker);
+            result.keep = false;
+            return result;
+        }
+        result.msg = `Sucesso! Dano aplicado no jogador ${defensor.name} : ${this.damageHit}`;
+
+        return result;
     }
 
     hitAttack(percent) {
@@ -133,29 +183,30 @@ export class Battle {
     }
 
     //Aplica dano do ataque no defensor
-    attackResult(damage, defensor, attacker) {
-        if (defensor.actualLife - damage < 0) {
-            return this.battleEnded(attacker);
-        }
+    attackResult(damage, defensor) {
         defensor.actualLife - damage;
+        return defensor;
     }
 
     //Método que registra o final da batalha
-    battleEnded(winner) {
-        this.winner = winner;
+    battleEnded(player) {
+        this.winner = player.name;
         this.setTimeEndOfBattle(new Date());
 
-        if (this.winner instanceof Player) {
-            this.giftBonus(this.winner);
+        if (player instanceof Player) {
+            player = this.giftBonus(player);
         }
-        return `Batalha encerrada! Vencedor: ${this.winner.name}`;
+
+        return `Batalha encerrada! Vencedor: ${this.winner}`;
     }
 
     //Aplica punição em caso de desistência no meio da batalha
     applyPunishment(player) {
-        Map.difficult == 'easy' ? player.maxLife = player.maxLife * 0.9 :
+        Map.difficult == 'easy' ? player.actualLife = player.actualLife * 0.9 :
             Map.difficult == 'normal' ? player.defense -= 2 :
-                Map.difficult == 'hard' ? player.attack -= 2 : player.maxLife * 0.8;
+                Map.difficult == 'hard' ? player.attack -= 2 : player.actualLife * 0.8;
+
+        return player;
     }
 
     //Aplica bônus para o player após a vitória
@@ -163,14 +214,18 @@ export class Battle {
         Map.difficult == 'easy' ? player.maxLife = player.maxLife * 1.2 :
             Map.difficult == 'normal' ? player.defense += 2 :
                 Map.difficult == 'hard' ? player.attack += 1 : player.maxLife * 1.05;
+
+        return player;
     }
 
     //Método que registra o final da batalha por desistência do jogador
     giveUp(player, enemy) {
-        this.winner = enemy;
-        this.applyPunishment(player);
+        this.winner = enemy.name;
+        player = this.applyPunishment(player);
         this.setTimeEndOfBattle(new Date());
-        return `Batalha encerrada! Vencedor: ${enemy.name}`;
+
+        return `Batalha encerrada! Vencedor: ${this.winner} 
+            \n Jogador ${player.name} recebeu uma punição!`;
     }
 
 
