@@ -1,6 +1,7 @@
 import { Mob } from "./Mob.js";
 import { Boss } from "./Boss.js";
 import { Chest } from "./Chest.js";
+import { Battle } from "./Battle.js";
 
 export class Map {
   // x51 - 1020
@@ -294,7 +295,6 @@ export class Map {
   }
 
   #init(initializedPlayer) {
-    console.log(initializedPlayer);
     // const player = Map.mappedEntities.find(entity => entity.id === 1)
     const player = document.querySelector("#player");
     const playerImage = player.querySelector("img");
@@ -374,7 +374,6 @@ export class Map {
 
     this.renderChests();
     this.renderInitialMobs();
-
-    console.log(Map.mappedEntities);
+    Battle.renderBattleHistory()
   }
 }
