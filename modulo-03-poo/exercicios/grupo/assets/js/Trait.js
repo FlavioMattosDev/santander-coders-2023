@@ -7,18 +7,18 @@ import { Boss } from "./Boss.js";
 export class Trait {
 
     static #prefixesMap = new Map([
-        [-6,"Crippling"],
-        [-5,"Brutal"],
-        [-4,"Vicious"],
-        [-3,"Cruel"],
-        [-2,"Harsh"],
-        [-1,"Slight"],
-        [1,"Minor"],
-        [2,"Lesser"],
-        [3,"Moderate"],
-        [4,"Greater"],
-        [5,"Major"],
-        [6,"Supreme"]
+        [-6, "Crippling"],
+        [-5, "Brutal"],
+        [-4, "Vicious"],
+        [-3, "Cruel"],
+        [-2, "Harsh"],
+        [-1, "Slight"],
+        [1, "Minor"],
+        [2, "Lesser"],
+        [3, "Moderate"],
+        [4, "Greater"],
+        [5, "Major"],
+        [6, "Supreme"]
     ]);
     static #minGoodPrefixKey = 1;
     static #maxGoodPrefixKey = Math.max(...Trait.#prefixesMap.keys());
@@ -92,10 +92,11 @@ export class Trait {
         }
         character.traits.push(this);
         GameMap.updateEntity(character);
+        Player.reRenderStats();
     }
 
     #applyOnPlayer(player) {
-        switch(this.#property) {
+        switch (this.#property) {
             case "health":
                 player.maxLife += this.#effect;
                 player.actualLife = player.maxLife;
@@ -110,7 +111,7 @@ export class Trait {
     }
 
     #applyOnMob(mob) {
-        switch(this.#property) {
+        switch (this.#property) {
             case "health":
                 mob.maxHealth += this.#effect;
                 mob.actualHealth = mob.maxHealth;
