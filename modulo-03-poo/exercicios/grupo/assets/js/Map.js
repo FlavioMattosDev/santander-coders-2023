@@ -294,7 +294,6 @@ export class Map {
   }
 
   #init(initializedPlayer) {
-    console.log(initializedPlayer);
     // const player = Map.mappedEntities.find(entity => entity.id === 1)
     const player = document.querySelector("#player");
     const playerImage = player.querySelector("img");
@@ -374,7 +373,5 @@ export class Map {
 
     this.renderChests();
     this.renderInitialMobs();
-
-    console.log(Map.mappedEntities);
   }
 }

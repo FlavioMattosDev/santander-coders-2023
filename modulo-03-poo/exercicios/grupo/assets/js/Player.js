@@ -4,12 +4,13 @@ import { Entity } from "./Entity.js";
 import { Map } from "./Map.js";
 import { Mob } from "./Mob.js";
 import { Npc } from "./NPC.js";
+import { Battle } from "./Battle.js";
 
 export class Player extends Entity {
-  #actualLife;
-  #maxLife;
-  #attack;
-  #defense;
+  #actualLife = 20;
+  #maxLife = 20;
+  #attack = 10;
+  #defense = 8;
 
   set actualLife(actualLife) {
     this.#actualLife = actualLife;
@@ -46,6 +47,11 @@ export class Player extends Entity {
   initInteraction(entitiesToInteract) {
     if (entitiesToInteract.length === 1) return;
     if (entitiesToInteract[1] instanceof Mob) {
+      const init = confirm("Iniciar batalha?")
+      console.log(init)
+      const battle = new Battle();
+
+      battle.init(entitiesToInteract[0], entitiesToInteract[1]);
       console.log("mob");
     }
 
@@ -294,6 +300,40 @@ export class Player extends Entity {
     });
   }
 
+  renderInitialStats(difficult){
+    const playerName = document.querySelector('span#playerName')
+    const playerActualHealth = document.querySelector("span#playerActualHealth")
+    const playerMaxHealth = document.querySelector("span#playerMaxHealth")
+    const playerAttack = document.querySelector("span#playerAttack")
+    const playerDefense = document.querySelector("span#playerDefense")
+
+    this.attack += difficult.extraAttack
+    this.actualLife += difficult.extraLife
+    this.maxLife += difficult.extraLife
+    this.defense += difficult.extraDefense
+
+    console.log(Map.mappedEntities[0])
+    playerName.innerHTML = this.name
+    playerActualHealth.innerHTML = this.actualLife
+    playerMaxHealth.innerHTML = this.maxLife
+    playerAttack.innerHTML = this.attack
+    playerDefense.innerHTML = this.defense
+  }
+
+  static reRenderStats(){
+    const playerName = document.querySelector('span#playerName')
+    const playerActualHealth = document.querySelector("span#playerActualHealth")
+    const playerMaxHealth = document.querySelector("span#playerMaxHealth")
+    const playerAttack = document.querySelector("span#playerAttack")
+    const playerDefense = document.querySelector("span#playerDefense")
+
+    playerName.innerHTML = this.name
+    playerActualHealth.innerHTML = this.actualLife
+    playerMaxHealth.innerHTML = this.maxLife
+    playerAttack.innerHTML = this.attack
+    playerDefense.innerHTML = this.defense
+  }
+
   init() {
     const form = document.querySelector("#form");
 
@@ -336,5 +376,8 @@ export class Player extends Entity {
 
     const mapInstance = new Map();
     mapInstance.init(this);
+    if(Object.keys(Map.difficult).length > 0){
+      this.renderInitialStats(Map.difficult)
+    }
   }
 }
