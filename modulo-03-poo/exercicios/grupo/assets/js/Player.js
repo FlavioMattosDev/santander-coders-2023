@@ -63,8 +63,9 @@ export class Player extends Entity {
       console.log("npc");
     }
 
-    if (entitiesToInteract[1] instanceof Chest) {
-      console.log("chest");
+    if (entitiesToInteract[1] instanceof Chest && !entitiesToInteract[1].isOpen) {
+      this.openChest(entitiesToInteract[1]);
+      console.log(this);
     }
   }
 
