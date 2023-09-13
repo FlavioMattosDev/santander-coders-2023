@@ -1,4 +1,4 @@
-import { Battle } from "./Battle.js";
+
 import { Boss } from "./Boss.js";
 import { Chest } from "./Chest.js";
 import { Entity } from "./Entity.js";
@@ -84,6 +84,7 @@ export class Player extends Entity {
     if (entitiesToInteract[1] instanceof Chest && !entitiesToInteract[1].isOpen) {
       this.openChest(entitiesToInteract[1]);
       console.log(this);
+      this.reRenderStats()
     }
   }
 
@@ -354,6 +355,7 @@ export class Player extends Entity {
     playerAttack.innerHTML = this.attack
     playerDefense.innerHTML = this.defense
   }
+
 
   static reRenderStats() {
     const playerName = document.querySelector('span#playerName')
