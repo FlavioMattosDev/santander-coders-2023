@@ -1,6 +1,7 @@
 import { Mob } from "./Mob.js";
 import { Boss } from "./Boss.js";
 import { Chest } from "./Chest.js";
+import { Battle } from "./Battle.js";
 
 export class Map {
   // x51 - 1020
@@ -373,5 +374,6 @@ export class Map {
 
     this.renderChests();
     this.renderInitialMobs();
+    Battle.renderBattleHistory()
   }
 }

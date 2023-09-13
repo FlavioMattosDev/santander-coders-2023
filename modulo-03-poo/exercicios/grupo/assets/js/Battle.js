@@ -271,4 +271,28 @@ export class Battle {
     return `Batalha encerrada! Vencedor: ${this.winner}
             \n Jogador ${player.name} recebeu uma punição!`;
   }
+
+  static renderBattleHistory() {
+    const battleHistory = document.querySelector("div#battleHistory");
+    battleHistory.className =
+      "h-4/5 overflow-y-scroll scrollbar-hide text-sm py-2 flex flex-col gap-2";
+
+    const battle = new Battle();
+
+    battle.battleHistory.forEach((battle) => {
+      const battleHistoryContainer = document.createElement("div");
+      const attacker = document.createElement("p");
+      const description = document.createElement("p");
+
+      attacker.innerText = battle.attacker;
+      description.innerText = `${battle.move} - ${battle.description}`;
+
+      battleHistoryContainer.appendChild(attacker);
+      battleHistoryContainer.appendChild(description);
+
+      battleHistory.appendChild(battleHistoryContainer);
+    });
+
+    console.log(battle.battleHistory);
+  }
 }
