@@ -66,6 +66,7 @@ export class Player extends Entity {
     if (entitiesToInteract[1] instanceof Chest && !entitiesToInteract[1].isOpen) {
       this.openChest(entitiesToInteract[1]);
       console.log(this);
+      this.reRenderStats()
     }
   }
 
@@ -321,7 +322,7 @@ export class Player extends Entity {
     playerDefense.innerHTML = this.defense
   }
 
-  static reRenderStats(){
+  reRenderStats(){
     const playerName = document.querySelector('span#playerName')
     const playerActualHealth = document.querySelector("span#playerActualHealth")
     const playerMaxHealth = document.querySelector("span#playerMaxHealth")
