@@ -1,6 +1,6 @@
-import { Action } from "./Action";
-import { Map } from "./Map";
-import { Player } from "./Player";
+import { Action } from "./Action.js";
+import { Map } from "./Map.js";
+import { Player } from "./Player.js";
 
 
 export class Battle {
@@ -77,8 +77,13 @@ export class Battle {
             action.move = `Jogador ${player.name} desistiu!`;
             action.description = this.giveUp(player, enemy);
             this.registerAction(action);
+            console.log(this.battleHistory);
 
-            return this.continue(keep);
+            return {
+                isPlayerTurn: keep,
+                isBattleEnded: true,
+                message: action.description
+            }
         }
 
         // Caso o jogador não desista ou for a vez do adversário do player
@@ -87,17 +92,19 @@ export class Battle {
 
         action.description = resultAttack.msg;
         this.registerAction(action);
+        console.log(this.battleHistory);
         keep = resultAttack.keep;
 
         return {
-            isPlayerTurn: !keep,
-            isBattleEnded,
+            isPlayerTurn: keep,
+            isBattleEnded: resultAttack.isBattleEnded,
             message: action.description
         }
     }
     //Método de fuga pré-batalha
     static escape(player) {
         player.actualLife = player.actualLife * 0.9;
+        Map.updateEntity(player);
     }
 
     registerAction(action) {
@@ -112,11 +119,13 @@ export class Battle {
     attackAction(attacker, defensor) {
         const result = {
             msg: "",
-            keep: false
+            keep: true,
+            isBattleEnded: false
         }
 
+        console.log(attacker);
         if (attacker instanceof Player) {
-            result.keep = true;
+            result.keep = false;
         }
 
         this.percentHitSuccess = attacker.attack / (defensor.attack + defensor.defense) * 100;
@@ -167,12 +176,15 @@ export class Battle {
         }
 
         defensor = this.attackResult(this.damageHit, defensor);
+        Map.updateEntity(defensor);
 
         if (defensor.actualLife <= 0) {
             result.msg = this.battleEnded(attacker);
             result.keep = false;
+            result.isBattleEnded = true;
             return result;
         }
+
         result.msg = `Sucesso! Dano aplicado no jogador ${defensor.name} : ${this.damageHit}`;
 
         return result;
@@ -184,6 +196,7 @@ export class Battle {
 
     //Aplica dano do ataque no defensor
     attackResult(damage, defensor) {
+        console.log(defensor.actualLife - damage);
         defensor.actualLife - damage;
         return defensor;
     }
@@ -195,6 +208,7 @@ export class Battle {
 
         if (player instanceof Player) {
             player = this.giftBonus(player);
+            Map.updateEntity(player);
         }
 
         return `Batalha encerrada! Vencedor: ${this.winner}`;
@@ -222,6 +236,7 @@ export class Battle {
     giveUp(player, enemy) {
         this.winner = enemy.name;
         player = this.applyPunishment(player);
+        Map.updateEntity(player);
         this.setTimeEndOfBattle(new Date());
 
         return `Batalha encerrada! Vencedor: ${this.winner} 

@@ -1,3 +1,4 @@
+import { Battle } from "./Battle.js";
 import { Boss } from "./Boss.js";
 import { Chest } from "./Chest.js";
 import { Entity } from "./Entity.js";
@@ -45,13 +46,35 @@ export class Player extends Entity {
 
   initInteraction(entitiesToInteract) {
     if (entitiesToInteract.length === 1) return;
+
     if (entitiesToInteract[1] instanceof Mob) {
+      const init = confirm('Deseja iniciar batalha?');
+
+      if (!init) {
+        Battle.escape(entitiesToInteract[0]);
+        alert(`${entitiesToInteract[0].name} fugiu da batalha e recebeu uma punição!`);
+        return;
+      }
+
+      const battle = new Battle();
+
+      const attack = battle.init(entitiesToInteract[0], entitiesToInteract[1]);
+
+      let resultInteract = {
+        isPlayerTurn: attack.isPlayerTurn,
+        isBattleEnded: attack.isBattleEnded,
+        message: attack.message
+      }
+
+      while (!resultInteract.isBattleEnded) {
+        resultInteract = this.battleInteraction(entitiesToInteract, battle, { ...resultInteract });
+      }
       console.log("mob");
     }
 
-    if (entitiesToInteract[1] instanceof Boss) {
-      console.log("boss");
-    }
+    // if (entitiesToInteract[1] instanceof Boss) {
+    //   console.log("boss");
+    // }
 
     if (entitiesToInteract[1] instanceof Npc) {
       console.log("npc");
@@ -60,6 +83,22 @@ export class Player extends Entity {
     if (entitiesToInteract[1] instanceof Chest) {
       console.log("chest");
     }
+  }
+
+  battleInteraction(entitiesToInteract, battle, attack) {
+    console.log(attack);
+    if (attack.isPlayerTurn) {
+      const proceed = confirm('Seguir na batalha?');
+      attack = "";
+      proceed ? attack = battle.move(entitiesToInteract[0], entitiesToInteract[1], true) :
+        attack = battle.move(entitiesToInteract[1], entitiesToInteract[0], false);
+      console.log(attack);
+    } else if (!attack.isBattleEnded) {
+      attack = "";
+      attack = battle.move(entitiesToInteract[1], entitiesToInteract[0], true);
+      console.log(attack);
+    }
+    return attack;
   }
 
   movePlayerOnKeyUp({
